@@ -1,20 +1,45 @@
-import './App.css'
+import {
+  BrowserRouter, Route, Routes,
+} from "react-router-dom";
+import {Menu} from "@/components/menu/Menu.tsx";
+import {SidebarInset, SidebarProvider} from "@/components/ui/sidebar.tsx";
+import {useState} from "react";
+import {loadWebSettings, saveWebSettings} from "@/lib/localStorage.ts";
+import Requests from "@/pages/requests/Requests.tsx";
+import {Vendor} from "@/pages/vendor/Vendor.tsx";
+import {Waystone} from "@/pages/waystone/Waystone.tsx";
 
-function App() {
+export default function App() {
+  const webSettings = loadWebSettings();
+  const [sidebarOpen, setSidebarOpen] = useState(webSettings.sidebarOpen);
+
   return (
-    <>
-      <h1>Path of Exile 2 Regex</h1>
-      <p>
-        Currently in development. New features will be added as the game is explored.
-      </p>
-      <p>
-        <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=enhancement&projects=&template=feature_request.md&title=Feature%3A+%3CTitle%3E">Suggest a feature</a>
-      </p>
-      <p>
-        Please use Github to suggest features that would be nice to have.
-      </p>
-    </>
+    <BrowserRouter>
+      <SidebarProvider
+        style={{
+          // @ts-ignore
+          "--sidebar-width": "14rem",
+          "--sidebar-width-mobile": "14rem",
+        }}
+        open={sidebarOpen}
+        onOpenChange={(open) => {
+        setSidebarOpen(open);
+        saveWebSettings({
+            ...webSettings,
+            sidebarOpen: open,
+          }
+        )
+        localStorage.setItem("sidebarOpen", JSON.stringify(open));
+      }}>
+        <Menu/>
+        <SidebarInset>
+          <Routes>
+            <Route path="/" element={<Requests/>}/>
+            <Route path="/vendor" element={<Vendor/>}/>
+            <Route path="/waystone" element={<Waystone/>}/>
+          </Routes>
+        </SidebarInset>
+      </SidebarProvider>
+    </BrowserRouter>
   )
 }
-
-export default App
