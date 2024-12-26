@@ -133,10 +133,9 @@ export function Vendor() {
             />
           </div>
           <div>
-          </div>
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item types</p>
-            <Checked id="itemtype-rare" text="Rare" checked={settings.itemType.rare}
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item rarity</p>
+            <Checked id="itemtype-rare" text="Rare"
+                     checked={settings.itemType.rare}
                      onChange={(b) => setSettings({
                        ...settings, itemType: {...settings.itemType, rare: b}
                      })}
@@ -152,40 +151,147 @@ export function Vendor() {
                      })}
             />
 
-            {/*  <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item types - 1H weapons</p>*/}
-            {/*  /!*<Checked id="type-claws" text="Claws"/>*!/*/}
-            {/*  <Checked id="type-daggers" text="Daggers"/>*/}
-            {/*  <Checked id="type-wands" text="Wands"/>*/}
-            {/*  /!*<Checked id="type-1h-sword" text="One Hand Swords"/>*!/*/}
-            {/*  /!*<Checked id="type-1h-axes" text="One Hand Axes"/>*!/*/}
-            {/*  <Checked id="type-1h-maces" text="One Hand Maces"/>*/}
-            {/*  <Checked id="type-sceptres" text="Sceptres"/>*/}
-            {/*  /!*<Checked id="type-spears" text="Spears"/>*!/*/}
-            {/*  /!*<Checked id="type-flails" text="Flails"/>*!/*/}
+          </div>
+          <div>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-2">Item class - Jewlery</p>
+            <Checked id="type-amulet" text="Amulets"
+                     checked={settings.itemClass.amulets}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, amulets: b}
+                     })}
 
-            {/*  <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item types - 2H weapons</p>*/}
-            {/*  <Checked id="type-bows" text="Bows"/>*/}
-            {/*  <Checked id="type-staves" text="Staves"/>*/}
-            {/*  /!*<Checked id="type-2h-swords" text="Two Hand Swords"/>*!/*/}
-            {/*  /!*<Checked id="type-2h-axes" text="Two Hand Axes"/>*!/*/}
-            {/*  <Checked id="type-2h-maces" text="Two Hand Maces"/>*/}
-            {/*  <Checked id="type-q-staves" text="Quarterstaves"/>*/}
-            {/*  <Checked id="type-crossbow" text="Crossbows"/>*/}
-            {/*  /!*<Checked id="type-traps" text="Traps"/>*!/*/}
+            />
+            <Checked id="type-rings" text="Rings"
+                     checked={settings.itemClass.rings}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, rings: b}
+                     })}
+            />
+            <Checked id="type-belts" text="Belts"
+                     checked={settings.itemClass.belts}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, belts: b}
+                     })}
+            />
 
-            {/*  <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item types - Equipment</p>*/}
-            {/*  <Checked id="type-amulet" text="Amulets"/>*/}
-            {/*  <Checked id="type-rings" text="Rings"/>*/}
-            {/*  <Checked id="type-belts" text="Belts"/>*/}
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item class - 1H weapons</p>
+            {/*<Checked id="type-daggers" text="Daggers"*/}
+            {/*         checked={settings.itemClass.daggers}*/}
+            {/*         onChange={(b) => setSettings({*/}
+            {/*           ...settings, itemClass: {...settings.itemClass, daggers: b}*/}
+            {/*         })}*/}
+            {/*/>*/}
+            <Checked id="type-wands" text="Wands"
+                     checked={settings.itemClass.wands}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, wands: b}
+                     })}
+            />
+            <Checked id="type-1h-maces" text="One Hand Maces"
+                     checked={settings.itemClass.oneHandMaces}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, oneHandMaces: b}
+                     })}
+            />
+            <Checked id="type-sceptres" text="Sceptres"
+                     checked={settings.itemClass.sceptres}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, sceptres: b}
+                     })}
+            />
+            {/*<Checked id="type-claws" text="Claws"/>*/}
+            {/*<Checked id="type-1h-sword" text="One Hand Swords"/>*/}
+            {/*<Checked id="type-1h-axes" text="One Hand Axes"/>*/}
+            {/*<Checked id="type-spears" text="Spears"/>*/}
+            {/*<Checked id="type-flails" text="Flails"/>*/}
 
-            {/*  <Checked id="type-gloves" text="Gloves"/>*/}
-            {/*  <Checked id="type-boots" text="Boots"/>*/}
-            {/*  <Checked id="type-body" text="Body Armours"/>*/}
-            {/*  <Checked id="type-helm" text="Helmets"/>*/}
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item class - 2h weapons</p>
+            <Checked id="type-bows" text="Bows"
+                     checked={settings.itemClass.bows}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, bows: b}
+                     })}
 
-            {/*  <Checked id="type-quiver" text="Quivers"/>*/}
-            {/*  <Checked id="type-foci" text="Foci"/>*/}
-            {/*  <Checked id="type-shields" text="Shields"/>*/}
+            />
+            <Checked id="type-staves" text="Staves"
+                     checked={settings.itemClass.staves}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, staves: b}
+                     })}
+
+            />
+            <Checked id="type-2h-maces" text="Two Hand Maces"
+                     checked={settings.itemClass.twoHandMaces}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, twoHandMaces: b}
+                     })}
+
+            />
+            <Checked id="type-q-staves" text="Quarterstaves"
+                     checked={settings.itemClass.quarterstaves}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, quarterstaves: b}
+                     })}
+            />
+            <Checked id="type-crossbow" text="Crossbows"
+                     checked={settings.itemClass.crossbows}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, crossbows: b}
+                     })}
+            />
+            {/*<Checked id="type-2h-swords" text="Two Hand Swords"/>*/}
+            {/*<Checked id="type-2h-axes" text="Two Hand Axes"/>*/}
+            {/*<Checked id="type-traps" text="Traps"/>*/}
+
+
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item class - equipment</p>
+            <Checked id="type-gloves" text="Gloves"
+                     checked={settings.itemClass.gloves}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, gloves: b}
+                     })}
+
+            />
+            <Checked id="type-boots" text="Boots"
+                     checked={settings.itemClass.boots}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, boots: b}
+                     })}
+
+            />
+            <Checked id="type-body" text="Body Armours"
+                     checked={settings.itemClass.bodyArmours}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, bodyArmours: b}
+                     })}
+
+            />
+            <Checked id="type-helm" text="Helmets"
+                     checked={settings.itemClass.helmets}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, helmets: b}
+                     })}
+            />
+
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item class - offhand</p>
+            <Checked id="type-quiver" text="Quivers"
+                     checked={settings.itemClass.quivers}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, quivers: b}
+                     })}
+            />
+            <Checked id="type-foci" text="Foci"
+                     checked={settings.itemClass.foci}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, foci: b}
+                     })}
+            />
+            <Checked id="type-shields" text="Shields"
+                     checked={settings.itemClass.shields}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, shields: b}
+                     })}
+            />
           </div>
         </div>
       </div>

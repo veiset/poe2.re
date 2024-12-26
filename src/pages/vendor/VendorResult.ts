@@ -8,6 +8,7 @@ export function generateVendorRegex(settings: Settings): string {
     movement(settings.vendor.movementSpeed),
     ...itemMods(settings.vendor.itemMods),
     settings.vendor.resultSettings.customText || null,
+    itemClass(settings.vendor.itemClass),
   ].filter((e) => e !== null && e !== "")
 
   return terms.length > 0 ? `"${terms.join("|")}"` : "";
@@ -82,4 +83,32 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
     settings.spirit ? "spiri" : null,
     settings.rarity ? "d rari" : null,
   ].filter((e) => e !== null)
+}
+
+function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
+  const itemClasses = [
+    settings.amulets ? "am" : null,
+    settings.rings ? "ri" : null,
+    settings.belts ? "be" : null,
+    settings.daggers ? "da" : null,
+    settings.wands ? "wa" : null,
+    settings.oneHandMaces ? "on" : null,
+    settings.sceptres ? "sc" : null,
+    settings.bows ? "bo" : null,
+    settings.staves ? "st" : null,
+    settings.twoHandMaces ? "tw" : null,
+    settings.quarterstaves ? "qua" : null,
+    settings.crossbows ? "cr" : null,
+    settings.gloves ? "gl" : null,
+    settings.boots ? "boo" : null,
+    settings.bodyArmours ? "bod" : null,
+    settings.helmets ? "he" : null,
+    settings.quivers ? "qui" : null,
+    settings.foci ? "fo" : null,
+    settings.shields ? "sh" : null,
+  ].filter((e) => e !== null);
+
+  if (itemClasses.length === 0) return null;
+  if (itemClasses.length === 1) return `s: ${itemClasses.join("")}`
+  return `s: (${itemClasses.join("|")})`;
 }

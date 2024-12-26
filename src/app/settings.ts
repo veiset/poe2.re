@@ -45,6 +45,30 @@ export interface Settings {
       cold: boolean,
       lightning: boolean,
       chaos: boolean,
+    },
+    itemClass: {
+      amulets: boolean,
+      rings: boolean,
+      belts: boolean,
+
+      daggers: boolean,
+      wands: boolean,
+      oneHandMaces: boolean,
+      sceptres: boolean,
+
+      bows: boolean,
+      staves: boolean,
+      twoHandMaces: boolean,
+      quarterstaves: boolean,
+      crossbows: boolean,
+
+      gloves: boolean,
+      boots: boolean,
+      bodyArmours: boolean,
+      helmets: boolean,
+      quivers: boolean,
+      foci: boolean,
+      shields: boolean,
     }
   }
 }
@@ -84,6 +108,30 @@ export const defaultSettings: Settings = {
       cold: false,
       lightning: false,
       chaos: false,
-    }
+    },
+    itemClass: {
+      amulets: false,
+      rings: false,
+      belts: false,
+
+      daggers: false,
+      wands: false,
+      oneHandMaces: false,
+      sceptres: false,
+
+      bows: false,
+      staves: false,
+      twoHandMaces: false,
+      quarterstaves: false,
+      crossbows: false,
+
+      gloves: false,
+      boots: false,
+      bodyArmours: false,
+      helmets: false,
+      quivers: false,
+      foci: false,
+      shields: false,
+    },
   }
 }
