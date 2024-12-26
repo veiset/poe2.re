@@ -84,19 +84,29 @@ export function Vendor() {
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item modifiers</p>
-            <Checked id="mod-phys" text="Physical damage" checked={settings.weaponMods.physical}
+            <Checked id="mod-phys" text="Physical damage" checked={settings.itemMods.physical}
                      onChange={(b) => setSettings({
-                       ...settings, weaponMods: {...settings.weaponMods, physical: b}
+                       ...settings, itemMods: {...settings.itemMods, physical: b}
                      })}
             />
-            <Checked id="mod-ele" text="Elemental damage" checked={settings.weaponMods.elemental}
+            <Checked id="mod-ele" text="Elemental damage" checked={settings.itemMods.elemental}
                      onChange={(b) => setSettings({
-                       ...settings, weaponMods: {...settings.weaponMods, elemental: b}
+                       ...settings, itemMods: {...settings.itemMods, elemental: b}
                      })}
             />
-            <Checked id="mod-skill" text="+# to level of skills" checked={settings.weaponMods.skillLevel}
+            <Checked id="mod-skill" text="+# to level of skills" checked={settings.itemMods.skillLevel}
                      onChange={(b) => setSettings({
-                       ...settings, weaponMods: {...settings.weaponMods, skillLevel: b}
+                       ...settings, itemMods: {...settings.itemMods, skillLevel: b}
+                     })}
+            />
+            <Checked id="mod-spirit" text="+# Spirit" checked={settings.itemMods.spirit}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, spirit: b}
+                     })}
+            />
+            <Checked id="mod-rarity" text="Increased Rarity" checked={settings.itemMods.rarity}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, rarity: b}
                      })}
             />
 

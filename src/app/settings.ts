@@ -33,10 +33,12 @@ export interface Settings {
       move15: boolean,
       move10: boolean,
     },
-    weaponMods: {
+    itemMods: {
       physical: boolean,
       elemental: boolean,
       skillLevel: boolean,
+      spirit: boolean,
+      rarity: boolean,
     },
     resistances: {
       fire: boolean,
@@ -70,10 +72,12 @@ export const defaultSettings: Settings = {
       move15: false,
       move10: false,
     },
-    weaponMods: {
+    itemMods: {
       physical: false,
       elemental: false,
       skillLevel: false,
+      spirit: false,
+      rarity: false,
     },
     resistances: {
       fire: false,

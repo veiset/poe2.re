@@ -6,7 +6,7 @@ export function generateVendorRegex(settings: Settings): string {
     itemType(settings.vendor.itemType),
     resistances(settings.vendor.resistances),
     movement(settings.vendor.movementSpeed),
-    ...weaponMods(settings.vendor.weaponMods),
+    ...itemMods(settings.vendor.itemMods),
     settings.vendor.resultSettings.customText || null,
   ].filter((e) => e !== null && e !== "")
 
@@ -74,10 +74,12 @@ function movement(settings: Settings["vendor"]["movementSpeed"]): string | null 
   return `(${[zeros, fives].filter((e) => e !== null && e !== "").join("|")})% i.+mov`;
 }
 
-function weaponMods(settings: Settings["vendor"]["weaponMods"]): (string | null)[] {
+function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
   return [
     settings.physical ? "ph.*da" : null,
     settings.elemental ? "\\d [cfl].+da" : null,
     settings.skillLevel ? "ills$" : null,
+    settings.spirit ? "spir" : null,
+    settings.rarity ? "d rari" : null,
   ].filter((e) => e !== null)
 }
