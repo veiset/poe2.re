@@ -79,7 +79,7 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
     settings.physical ? "ph.*da" : null,
     settings.elemental ? "\\d [cfl].+da" : null,
     settings.skillLevel ? "ills$" : null,
-    settings.spirit ? "spir" : null,
+    settings.spirit ? "spiri" : null,
     settings.rarity ? "d rari" : null,
   ].filter((e) => e !== null)
 }
