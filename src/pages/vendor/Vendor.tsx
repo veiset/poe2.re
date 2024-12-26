@@ -83,7 +83,7 @@ export function Vendor() {
             />
           </div>
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Weapon modifiers</p>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item modifiers</p>
             <Checked id="mod-phys" text="Physical damage" checked={settings.weaponMods.physical}
                      onChange={(b) => setSettings({
                        ...settings, weaponMods: {...settings.weaponMods, physical: b}

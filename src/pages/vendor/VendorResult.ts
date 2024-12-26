@@ -14,10 +14,10 @@ export function generateVendorRegex(settings: Settings): string {
 }
 
 
-function itemProperty(settings: Settings["vendor"]["itemProperty"]): string[] {
+function itemProperty(settings: Settings["vendor"]["itemProperty"]): (string | null)[] {
   return [
-    settings.quality ? "ity: \\d+" : null,
-    settings.sockets ? "ts: s" : null,
+    settings.quality ? "y: \\+" : null,
+    settings.sockets ? "ts: S" : null,
   ].filter((e) => e !== null)
 }
 
@@ -29,8 +29,8 @@ function itemType(settings: Settings["vendor"]["itemType"]): string | null {
   ].filter((e) => e !== null);
 
   if (types.length === 0 || types.length === 3) return null;
-  if (types.length > 1) return `e: (${types.join("|")})`
-  return `e: ${types.join("|")}`;
+  if (types.length > 1) return `y: (${types.join("|")})`
+  return `y: ${types.join("|")}`;
 }
 
 function resistances(settings: Settings["vendor"]["resistances"]): string | null {
@@ -43,7 +43,7 @@ function resistances(settings: Settings["vendor"]["resistances"]): string | null
 
   if (res.length === 0) return null;
   if (res.length === 4) return `resi`;
-  if (res.length > 1) return`(${res.join("|")}).+res`;
+  if (res.length > 1) return `(${res.join("|")}).+res`;
 
   return `${res.join("|")}.+res`
 
@@ -60,10 +60,10 @@ function movement(settings: Settings["vendor"]["movementSpeed"]): string | null 
     settings.move15 ? "15" : null,
   ].filter((e) => e !== null)
 
-  let numOfSelected = move0.length + move5.length;
+  const numOfSelected = move0.length + move5.length;
   if (numOfSelected === 0) return null;
-  if (numOfSelected === 1) return `${[move0, move5].join("")}% mov`;
-  if (numOfSelected === 5) return `\\d+ mov`;
+  if (numOfSelected === 1) return `${[move0, move5].join("")}% i.+mov`;
+  if (numOfSelected === 5) return `\\d+% i.+mov`;
 
   const zeros = move0.length > 1 ?
     `[${move0.map((e) => e[0]).join("")}]0`
@@ -71,13 +71,13 @@ function movement(settings: Settings["vendor"]["movementSpeed"]): string | null 
   const fives = move5.length > 1 ?
     `[${move5.map((e) => e[0]).join("")}]5`
     : move5.join("|");
-  return `(${[zeros, fives].filter((e) => e !== null && e !== "").join("|")})% mov`;
+  return `(${[zeros, fives].filter((e) => e !== null && e !== "").join("|")})% i.+mov`;
 }
 
-function weaponMods(settings: Settings["vendor"]["weaponMods"]): string[] {
+function weaponMods(settings: Settings["vendor"]["weaponMods"]): (string | null)[] {
   return [
-    settings.physical ? "phys" : null,
-    settings.elemental ? "ele" : null,
-    settings.skillLevel ? "skills" : null,
+    settings.physical ? "ph.*da" : null,
+    settings.elemental ? "\\d [cfl].+da" : null,
+    settings.skillLevel ? "ills$" : null,
   ].filter((e) => e !== null)
 }
