@@ -53,8 +53,9 @@ export function Result(props: ResultProps) {
             )}>
               {result}
             </p>
-            <p className="text-sm mt-3 text-gray-400">
+            <p className={cx("text-sm mt-3 text-gray-400", currentLength > 50 && "text-red-400")}>
               length: {currentLength} / {maxLength ?? 50}
+              {currentLength > 50 && " - PoE has a max length of 50 characters. This string can't be pasted."}
             </p>
           </div>
         </div>
