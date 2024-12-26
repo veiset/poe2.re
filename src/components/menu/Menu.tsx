@@ -1,5 +1,4 @@
 import vendorIcon from "@/img/whetstone_inventory_icon.png";
-import waystoneIcon from "@/img/waystone_inventory_icon.png";
 import {
   Code,
   Github,

@@ -8,9 +8,15 @@ export const defaultWebSettings: WebSettings = {
   optionsOpen: true,
 }
 
+export interface ResultSettings {
+  customText: string,
+  autoCopy: boolean,
+}
+
 export interface Settings {
   name: string
   vendor: {
+    resultSettings: ResultSettings,
     itemType: {
       rare: boolean,
       magic: boolean,
@@ -44,6 +50,10 @@ export interface Settings {
 export const defaultSettings: Settings = {
   name: "default",
   vendor: {
+    resultSettings: {
+      customText: "",
+      autoCopy: false,
+    },
     itemType: {
       rare: false,
       magic: false,

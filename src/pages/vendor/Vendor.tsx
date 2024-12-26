@@ -25,6 +25,19 @@ export function Vendor() {
         <Result
           result={result}
           reset={() => setSettings(defaultSettings.vendor)}
+          customText={settings.resultSettings.customText}
+          autoCopy={settings.resultSettings.autoCopy}
+          setCustomText={(text) => {
+            setSettings({
+              ...settings, resultSettings: {...settings.resultSettings, customText: text,}
+            })
+          }}
+          setAutoCopy={(enable) => {
+            setSettings({
+              ...settings, resultSettings: {...settings.resultSettings, autoCopy: enable,}
+            })
+          }}
+
         />
       </div>
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
