@@ -33,7 +33,7 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
   return `"tier ${tiers}"`
 }
 
-function range(start, end): number[] {
+function range(start: number, end: number): number[] {
   if (end - start <= 0) return [];
   return [...Array((end - start)).keys()].map(i => i + start);
 }
