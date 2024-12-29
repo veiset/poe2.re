@@ -159,7 +159,6 @@ export function Vendor() {
                      onChange={(b) => setSettings({
                        ...settings, itemClass: {...settings.itemClass, amulets: b}
                      })}
-
             />
             <Checked id="type-rings" text="Rings"
                      checked={settings.itemClass.rings}

@@ -70,16 +70,25 @@ export interface Settings {
       foci: boolean,
       shields: boolean,
     }
-  }
+  },
+  waystone: {
+    resultSettings: ResultSettings,
+    tier: {
+      min: number,
+      max: number,
+    }
+  },
 }
+
+const defaultResultSettings: ResultSettings = ({
+  customText: "",
+  autoCopy: false,
+})
 
 export const defaultSettings: Settings = {
   name: "default",
   vendor: {
-    resultSettings: {
-      customText: "",
-      autoCopy: false,
-    },
+    resultSettings: defaultResultSettings,
     itemType: {
       rare: false,
       magic: false,
@@ -133,5 +142,12 @@ export const defaultSettings: Settings = {
       foci: false,
       shields: false,
     },
+  },
+  waystone: {
+    resultSettings: defaultResultSettings,
+    tier: {
+      min: 1,
+      max: 15,
+    }
   }
 }

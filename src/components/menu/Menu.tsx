@@ -1,4 +1,6 @@
 import vendorIcon from "@/img/whetstone_inventory_icon.png";
+import waystoneIcon from "@/img/waystone_inventory_icon.png";
+
 import {
   Code,
   Github,
@@ -23,13 +25,11 @@ const items = [
     url: "/vendor",
     icon: vendorIcon,
   },
-/*
   {
     title: "Waystones",
     url: "/waystone",
     icon: waystoneIcon,
   },
-*/
 ]
 
 export function Menu() {
