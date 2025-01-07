@@ -30,7 +30,11 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
   const regexOver10 = numbersOver10.length <= 1 ? `${numbersOver10.join("")}` : `1[${numbersOver10.map((e) => e.toString()[1]).join("")}]`;
 
   const tiers = [regexUnder10, regexOver10].filter((e) => e !== "").join("|");
-  return `"tier ${tiers}"`
+  if (regexOver10.length > 0 && regexOver10.length > 0) {
+    return `"tier (${tiers})"`
+  } else {
+    return `"tier ${tiers}"`
+  }
 }
 
 function range(start: number, end: number): number[] {
