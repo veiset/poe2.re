@@ -76,6 +76,23 @@ export interface Settings {
     tier: {
       min: number,
       max: number,
+    },
+    modifier: {
+      dropOver200,
+      quant50,
+      rarity50,
+      experience50,
+      rareMonsters50,
+      monsterPack50,
+      packSize50,
+      additionalEssence,
+
+      burningGround,
+      shockedGround,
+      chilledGround,
+      eleWeak,
+      lessRecovery,
+      pen,
     }
   },
 }
@@ -148,6 +165,23 @@ export const defaultSettings: Settings = {
     tier: {
       min: 1,
       max: 15,
+    },
+    modifier: {
+      dropOver200: false,
+      quant50: false,
+      rarity50: false,
+      experience50: false,
+      rareMonsters50: false,
+      monsterPack50: false,
+      packSize50: false,
+      additionalEssence: false,
+
+      burningGround: false,
+      shockedGround: false,
+      chilledGround: false,
+      eleWeak: false,
+      lessRecovery: false,
+      pen: false,
     }
   }
 }
