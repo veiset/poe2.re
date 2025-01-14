@@ -71,7 +71,7 @@ export function Menu() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=bug&projects=&template=feature_request.md&title=Bug%3A+%3CTitle%3E" target="_blank">
+                <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=bug&projects=&template=bug_report.md&title=Bug%3A+%3CTitle%3E" target="_blank">
                   <Bug/>
                   <span>Bug report</span>
                 </a>
