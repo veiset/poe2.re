@@ -46,6 +46,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     settings.monsterPack50 ? "[5-9]\\d+\\D{22}m" : null,
     settings.packSize50 ? "[5-9]\\d+\\D{12}m" : null,
     settings.additionalEssence ? "sen" : null,
+    settings.delirious ? "delir" : null,
   ].filter((e) => e !== null).join("|");
 
   const badMods = [

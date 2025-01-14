@@ -86,6 +86,7 @@ export interface Settings {
       monsterPack50: boolean,
       packSize50: boolean,
       additionalEssence: boolean,
+      delirious: boolean,
 
       burningGround: boolean,
       shockedGround: boolean,
@@ -175,6 +176,7 @@ export const defaultSettings: Settings = {
       monsterPack50: false,
       packSize50: false,
       additionalEssence: false,
+      delirious: false,
 
       burningGround: false,
       shockedGround: false,

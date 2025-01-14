@@ -102,6 +102,11 @@ export function Waystone(){
                        ...settings, modifier: {...settings.modifier, additionalEssence: b}
                      })}
             />
+            <Checked id="mod-raremonster" text="Players in area are X% Delirious" checked={settings.modifier.delirious}
+                     onChange={(b) => setSettings({
+                       ...settings, modifier: {...settings.modifier, delirious: b}
+                     })}
+            />
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Bad modifiers (will not highlight maps with these modifiers)</p>
