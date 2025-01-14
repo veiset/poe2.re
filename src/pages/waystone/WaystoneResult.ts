@@ -53,7 +53,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     settings.burningGround ? "f bur" : null,
     settings.shockedGround ? "ho" : null,
     settings.chilledGround ? "lled" : null,
-    settings.eleWeak ? "l w" : null,
+    settings.eleWeak ? "l wea" : null,
     settings.lessRecovery ? "s r" : null,
     settings.pen ? "pene" : null,
   ].filter((e) => e !== null).join("|");
