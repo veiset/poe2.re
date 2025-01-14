@@ -55,7 +55,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     settings.chilledGround ? "lled" : null,
     settings.eleWeak ? "l w" : null,
     settings.lessRecovery ? "s r" : null,
-    settings.pen ? "al r" : null,
+    settings.pen ? "pene" : null,
   ].filter((e) => e !== null).join("|");
 
   return [
