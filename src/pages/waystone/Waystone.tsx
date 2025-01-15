@@ -102,7 +102,7 @@ export function Waystone(){
                        ...settings, modifier: {...settings.modifier, additionalEssence: b}
                      })}
             />
-            <Checked id="mod-raremonster" text="Players in area are X% Delirious" checked={settings.modifier.delirious}
+            <Checked id="mod-delirium" text="Players in area are X% Delirious" checked={settings.modifier.delirious}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, delirious: b}
                      })}
