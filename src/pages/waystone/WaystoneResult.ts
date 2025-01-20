@@ -16,10 +16,10 @@ export function generateWaystoneRegex(settings: Settings): string {
 function generateTierRegex(settings: Settings["waystone"]["tier"]): string | null {
   if (settings.max === 0 && settings.min === 0) return null
   if (settings.max !== 0 && settings.min > settings.max) return null;
-  if (settings.min < 0 || settings.max < 0) return null;
-  if (settings.min <= 1 && settings.max === 15) return null;
+  if (settings.min < 1 || settings.max < 1) return null;
+  if (settings.min <= 1 && settings.max === 16) return null;
 
-  const max = settings.max === 0 ? 15 : settings.max;
+  const max = settings.max === 0 ? 16 : settings.max;
   const min = settings.min;
 
   const numbersUnder10 = range(min, Math.min(10, max + 1));

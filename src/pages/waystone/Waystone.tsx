@@ -44,20 +44,26 @@ export function Waystone(){
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Tier</p>
             <p className="pb-2">Minimum tier:</p>
-            <Input type="number" placeholder="Min tier" className="pb-2 mb-2 w-40"
-                   value={settings.tier.min}
-                   onChange={(b) =>
-                     setSettings({
-                       ...settings, tier: {...settings.tier, min: Math.min(Number(b.target.value), 15) || 0}
-                     })}
+            <Input type="number" min="1" max="16" placeholder="Min tier" className="pb-2 mb-2 w-40"
+                  value={settings.tier.min}
+                  onChange={(b) => {
+                    if(Number(b.target.value) <= settings.tier.max) {
+                      setSettings({
+                        ...settings, tier: {...settings.tier, min: Math.min(Number(b.target.value), 16) || 0}
+                      })
+                    }
+                  }}
             />
             <p className="pb-2">Maximum tier:</p>
-            <Input type="number" placeholder="Max tier" className="pb-2 mb-2 w-40"
-                   value={settings.tier.max}
-                   onChange={(b) =>
-                     setSettings({
-                       ...settings, tier: {...settings.tier, max: Math.min(Number(b.target.value), 15) || 0}
-                     })}
+            <Input type="number" min="1" max="16" placeholder="Max tier" className="pb-2 mb-2 w-40"
+                  value={settings.tier.max}
+                  onChange={(b) => {
+                    if(Number(b.target.value) >= settings.tier.min) { 
+                      setSettings({
+                        ...settings, tier: {...settings.tier, max: Math.min(Number(b.target.value), 16) || 0}
+                      })
+                    }
+                  }}
             />
           </div>
           <div>
