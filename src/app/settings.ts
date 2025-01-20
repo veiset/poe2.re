@@ -165,7 +165,7 @@ export const defaultSettings: Settings = {
     resultSettings: defaultResultSettings,
     tier: {
       min: 1,
-      max: 15,
+      max: 16,
     },
     modifier: {
       dropOver200: false,
