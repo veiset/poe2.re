@@ -8,6 +8,7 @@ import {loadWebSettings, saveWebSettings} from "@/lib/localStorage.ts";
 import Requests from "@/pages/requests/Requests.tsx";
 import {Vendor} from "@/pages/vendor/Vendor.tsx";
 import {Waystone} from "@/pages/waystone/Waystone.tsx";
+import {Tablet} from "@/pages/tablet/Tablet.tsx";
 
 export default function App() {
   const webSettings = loadWebSettings();
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="/" element={<Requests/>}/>
             <Route path="/vendor" element={<Vendor/>}/>
             <Route path="/waystone" element={<Waystone/>}/>
+            <Route path="/tablet" element={<Tablet/>}/>
           </Routes>
         </SidebarInset>
       </SidebarProvider>
