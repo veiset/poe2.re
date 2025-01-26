@@ -96,6 +96,25 @@ export interface Settings {
       pen: boolean,
     }
   },
+  tablet: {
+    resultSettings: ResultSettings,
+    rarity: {
+      normal: boolean,
+      magic: boolean,
+    },
+    type: {
+      breach: boolean,
+      delirium: boolean,
+      irradiated: boolean,
+      expedition: boolean,
+      ritual: boolean,
+      overseer: boolean,
+    },
+    modifier: {
+      affectedMaps: boolean,
+      numAffectedMaps: number,
+    }
+  },
 }
 
 const defaultResultSettings: ResultSettings = ({
@@ -185,5 +204,24 @@ export const defaultSettings: Settings = {
       lessRecovery: false,
       pen: false,
     }
-  }
+  },
+  tablet: {
+    resultSettings: defaultResultSettings,
+    rarity: {
+      normal: false,
+      magic: false,
+    },
+    type: {
+      breach: false,
+      delirium: false,
+      irradiated: false,
+      expedition: false,
+      ritual: false,
+      overseer: false,
+    },
+    modifier: {
+      affectedMaps: false,
+      numAffectedMaps: 0,
+    }
+  },
 }
