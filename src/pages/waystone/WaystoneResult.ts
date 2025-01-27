@@ -71,8 +71,8 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
 
 function groupMods(
   data: (string | null)[],
-  one: (string) => string,
-  many: (string) => string
+  one: (arg0: string) => string,
+  many: (arg0: string) => string
 ): string | null {
   const d = data.filter((e) => e !== null);
   if (d.length === 0) return null;
