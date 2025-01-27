@@ -44,7 +44,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     settings.rarity50 ? `${numberPrefix}\\D{12}r` : null,
     settings.experience50 ? `${numberPrefix}\\D{12}ex` : null,
     settings.rareMonsters50 ? `${numberPrefix}\\D{27}m` : null,
-    settings.monsterPack50 ? `${numberPrefix}\\D{22}m` : null,
+    settings.monsterPack50 ? `${numberPrefix}\\D{28}r` : null,
     settings.packSize50 ? `${numberPrefix}\\D{12}m` : null,
     settings.additionalEssence ? "sen" : null,
     settings.delirious ? "delir" : null,
