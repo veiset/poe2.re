@@ -38,16 +38,20 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
   const numberPrefix = settings.over100 ? "([5-9]\\d+|\\d{3})" : "[5-9]\\d+";
+  const goodPrefixedMods = [
+    settings.quant50 ? `\\D{12}q` : null,
+    settings.rarity50 ? `\\D{12}r` : null,
+    settings.experience50 ? `\\D{12}ex` : null,
+    settings.rareMonsters50 ? `\\D{27}m` : null,
+    settings.monsterPack50 ? `\\D{28}r` : null,
+    settings.packSize50 ? `\\D{12}m` : null,
+  ].filter((e) => e !== null);
+
   const goodMods = [
     settings.dropOver200 ? ": \\+[2-9]\\d\\d" : null,
-    settings.quant50 ? `${numberPrefix}\\D{12}q` : null,
-    settings.rarity50 ? `${numberPrefix}\\D{12}r` : null,
-    settings.experience50 ? `${numberPrefix}\\D{12}ex` : null,
-    settings.rareMonsters50 ? `${numberPrefix}\\D{27}m` : null,
-    settings.monsterPack50 ? `${numberPrefix}\\D{28}r` : null,
-    settings.packSize50 ? `${numberPrefix}\\D{12}m` : null,
     settings.additionalEssence ? "sen" : null,
     settings.delirious ? "delir" : null,
+    groupMods(goodPrefixedMods, (str) => `${numberPrefix}${str}`, (str) => `${numberPrefix}(${str})`),
   ].filter((e) => e !== null).join("|");
 
   const badMods = [
@@ -63,6 +67,19 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     goodMods.length > 0 ? `"${goodMods}"` : null,
     badMods.length > 0 ? `"!${badMods}"` : null,
   ].join(" ");
+}
+
+function groupMods(
+  data: (string | null)[],
+  one: (string) => string,
+  many: (string) => string
+): string | null {
+  const d = data.filter((e) => e !== null);
+  if (d.length === 0) return null;
+  if (d.length === 1) {
+    return one(d.join("|"))
+  }
+  return many(d.join("|"))
 }
 
 function range(start: number, end: number): number[] {
