@@ -78,6 +78,8 @@ export interface Settings {
       max: number,
     },
     modifier: {
+      over100: boolean,
+
       dropOver200: boolean,
       quant50: boolean,
       rarity50: boolean,
@@ -187,6 +189,8 @@ export const defaultSettings: Settings = {
       max: 16,
     },
     modifier: {
+      over100: false,
+
       dropOver200: false,
       quant50: false,
       rarity50: false,

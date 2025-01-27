@@ -37,14 +37,15 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 }
 
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
+  const numberPrefix = settings.over100 ? "([5-9]\\d+|\\d{3})" : "[5-9]\\d+";
   const goodMods = [
     settings.dropOver200 ? ": \\+[2-9]\\d\\d" : null,
-    settings.quant50 ? "[5-9]\\d+\\D{12}q" : null,
-    settings.rarity50 ? "[5-9]\\d+\\D{12}r" : null,
-    settings.experience50 ? "[5-9]\\d+\\D{12}ex" : null,
-    settings.rareMonsters50 ? "[5-9]\\d+\\D{22}r" : null,
-    settings.monsterPack50 ? "[5-9]\\d+\\D{22}m" : null,
-    settings.packSize50 ? "[5-9]\\d+\\D{12}m" : null,
+    settings.quant50 ? `${numberPrefix}\\D{12}q` : null,
+    settings.rarity50 ? `${numberPrefix}\\D{12}r` : null,
+    settings.experience50 ? `${numberPrefix}\\D{12}ex` : null,
+    settings.rareMonsters50 ? `${numberPrefix}\\D{27}m` : null,
+    settings.monsterPack50 ? `${numberPrefix}\\D{22}m` : null,
+    settings.packSize50 ? `${numberPrefix}\\D{12}m` : null,
     settings.additionalEssence ? "sen" : null,
     settings.delirious ? "delir" : null,
   ].filter((e) => e !== null).join("|");

@@ -67,8 +67,17 @@ export function Waystone(){
             />
           </div>
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Good modifiers (will match any selected)</p>
-            <Checked id="mod-drop-over-200" text="Waystone drop chance over 200%+" checked={settings.modifier.dropOver200}
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Global settings</p>
+            <Checked id="over-100" text="Match numbers over 100% (takes more space)"
+                     checked={settings.modifier.over100}
+                     onChange={(b) => setSettings({
+                       ...settings, modifier: {...settings.modifier, over100: b}
+                     })}
+            />
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Good modifiers (will match any
+              selected)</p>
+            <Checked id="mod-drop-over-200" text="Waystone drop chance over 200%+"
+                     checked={settings.modifier.dropOver200}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, dropOver200: b}
                      })}
