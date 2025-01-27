@@ -52,7 +52,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
 
   const badMods = [
     settings.burningGround ? "f bur" : null,
-    settings.shockedGround ? "ho" : null,
+    settings.shockedGround ? "cked" : null,
     settings.chilledGround ? "lled" : null,
     settings.eleWeak ? "l wea" : null,
     settings.lessRecovery ? "s r" : null,
