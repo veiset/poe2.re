@@ -61,6 +61,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     settings.eleWeak ? "l wea" : null,
     settings.lessRecovery ? "s r" : null,
     settings.pen ? "pene" : null,
+    settings.maxRes ? "r r" : null,
   ].filter((e) => e !== null).join("|");
 
   return [

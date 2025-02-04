@@ -96,6 +96,7 @@ export interface Settings {
       eleWeak: boolean,
       lessRecovery: boolean,
       pen: boolean,
+      maxRes: boolean,
     }
   },
   tablet: {
@@ -207,6 +208,7 @@ export const defaultSettings: Settings = {
       eleWeak: false,
       lessRecovery: false,
       pen: false,
+      maxRes: false,
     }
   },
   tablet: {

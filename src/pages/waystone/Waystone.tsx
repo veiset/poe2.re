@@ -155,6 +155,11 @@ export function Waystone(){
                        ...settings, modifier: {...settings.modifier, pen: b}
                      })}
             />
+            <Checked id="mod-maxres" text="-% Maximum player resistances" checked={settings.modifier.maxRes}
+                     onChange={(b) => setSettings({
+                       ...settings, modifier: {...settings.modifier, maxRes: b}
+                     })}
+            />
           </div>
         </div>
       </div>
