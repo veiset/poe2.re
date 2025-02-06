@@ -43,8 +43,6 @@ function getNumericPrefix(value: string, over100: boolean): string {
   return over100 ? `([${firstDigit}-9]\\d+|\\d{3})` : `[${firstDigit}-9]\\d+`;
 }
 
-
-
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
   const goodPrefixedMods = [
     settings.itemsQuant.isChecked ? `${getNumericPrefix(settings.itemsQuant.value, settings.over100)}\\D{12}q` : null,
