@@ -6,6 +6,7 @@ import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts
 import {generateWaystoneRegex} from "@/pages/waystone/WaystoneResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {Checked} from "@/components/checked/Checked.tsx";
+import { CheckedWithSelection } from "@/components/checked/CheckedWithSelection";
 
 export function Waystone(){
   const globalSettings = loadSettings(selectedProfile())
@@ -82,35 +83,71 @@ export function Waystone(){
                        ...settings, modifier: {...settings.modifier, dropOver200: b}
                      })}
             />
-            <Checked id="mod-quant50" text="50%+ quantity of items" checked={settings.modifier.quant50}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, quant50: b}
-                     })}
+            <CheckedWithSelection id="mod-quant" text="%+ quantity of items"
+                      checked={settings.modifier.itemsQuant.isChecked}
+                      value={settings.modifier.itemsQuant.value}
+                      options={[10, 20, 30, 40, 50, 60, 70, 80, 90]}
+                      onChange={(b) => setSettings({
+                        ...settings, modifier: {...settings.modifier, itemsQuant: {...settings.modifier.itemsQuant, isChecked: b}}
+                      })}
+                      onSelected={(v) => setSettings({
+                        ...settings, modifier: {...settings.modifier, itemsQuant: {...settings.modifier.itemsQuant, value: v}}
+                      })}
             />
-            <Checked id="mod-rarity50" text="50%+ rarity of items" checked={settings.modifier.rarity50}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, rarity50: b}
-                     })}
+            <CheckedWithSelection id="mod-rarity" text="%+ rarity of items"
+                      checked={settings.modifier.rarity.isChecked}
+                      value={settings.modifier.rarity.value}
+                      options={[10, 20, 30, 40, 50, 60, 70, 80, 90]}
+                      onChange={(b) => setSettings({
+                        ...settings, modifier: {...settings.modifier, rarity: {...settings.modifier.rarity, isChecked: b}}
+                      })}
+                      onSelected={(v) => setSettings({
+                        ...settings, modifier: {...settings.modifier, rarity: {...settings.modifier.rarity, value: v}}
+                      })}
             />
-            <Checked id="mod-experience" text="50%+ experience gain" checked={settings.modifier.experience50}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, experience50: b}
-                     })}
+            <CheckedWithSelection id="mod-experience" text="%+ experience gain"
+                      checked={settings.modifier.experience.isChecked}
+                      value={settings.modifier.experience.value}
+                      options={[20, 30, 40, 50, 60, 70, 80, 90]}
+                      onChange={(b) => setSettings({
+                        ...settings, modifier: {...settings.modifier, experience: {...settings.modifier.experience, isChecked: b}}
+                      })}
+                      onSelected={(v) => setSettings({
+                        ...settings, modifier: {...settings.modifier, experience: {...settings.modifier.experience, value: v}}
+                      })}
             />
-            <Checked id="mod-raremonster" text="50%+ rare monsters" checked={settings.modifier.rareMonsters50}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, rareMonsters50: b}
-                     })}
+            <CheckedWithSelection id="mod-raremonster" text="%+ rare monsters"
+                      checked={settings.modifier.rareMonsters.isChecked}
+                      value={settings.modifier.rareMonsters.value}
+                      options={[10, 20, 30, 40, 50, 60, 70, 80, 90]}
+                      onChange={(b) => setSettings({
+                        ...settings, modifier: {...settings.modifier, rareMonsters: {...settings.modifier.rareMonsters, isChecked: b}}
+                      })}
+                      onSelected={(v) => setSettings({
+                        ...settings, modifier: {...settings.modifier, rareMonsters: {...settings.modifier.rareMonsters, value: v}}
+                      })}
             />
-            <Checked id="mod-monsterpack" text="50%+ monster packs" checked={settings.modifier.monsterPack50}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, monsterPack50: b}
-                     })}
+            <CheckedWithSelection id="mod-monsterpack" text="%+ monster packs"
+                      checked={settings.modifier.monsterPack.isChecked}
+                      value={settings.modifier.monsterPack.value}
+                      options={[20, 30, 40, 50, 60, 70, 80, 90]}
+                      onChange={(b) => setSettings({
+                        ...settings, modifier: {...settings.modifier, monsterPack: {...settings.modifier.monsterPack, isChecked: b}}
+                      })}
+                      onSelected={(v) => setSettings({
+                        ...settings, modifier: {...settings.modifier, monsterPack: {...settings.modifier.monsterPack, value: v}}
+                      })}
             />
-            <Checked id="mod-magicpack" text="50%+ magic pack size" checked={settings.modifier.packSize50}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, packSize50: b}
-                     })}
+            <CheckedWithSelection id="mod-magicpack" text="%+ magic pack size"
+                      checked={settings.modifier.magicPackSize.isChecked}
+                      value={settings.modifier.magicPackSize.value}
+                      options={[ 30, 40, 50, 60, 70, 80, 90]}
+                      onChange={(b) => setSettings({
+                        ...settings, modifier: {...settings.modifier, magicPackSize: {...settings.modifier.magicPackSize, isChecked: b}}
+                      })}
+                      onSelected={(v) => setSettings({
+                        ...settings, modifier: {...settings.modifier, magicPackSize: {...settings.modifier.magicPackSize, value: v}}
+                      })}
             />
             <Checked id="mod-raremonster" text="Additional essence" checked={settings.modifier.additionalEssence}
                      onChange={(b) => setSettings({

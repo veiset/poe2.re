@@ -40,8 +40,6 @@ export function Result(props: ResultProps) {
     saveWebSettings({...webSettings, optionsOpen: showOptions})
   }, [showOptions]);
 
-  console.log(copied === result);
-
   return (
     <>
       <div className="flex">

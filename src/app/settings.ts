@@ -13,6 +13,11 @@ export interface ResultSettings {
   autoCopy: boolean,
 }
 
+export interface NumericModifier {
+  isChecked: boolean,
+  value: string,
+}
+
 export interface Settings {
   name: string
   vendor: {
@@ -81,12 +86,12 @@ export interface Settings {
       over100: boolean,
 
       dropOver200: boolean,
-      quant50: boolean,
-      rarity50: boolean,
-      experience50: boolean,
-      rareMonsters50: boolean,
-      monsterPack50: boolean,
-      packSize50: boolean,
+      itemsQuant: NumericModifier,
+      rarity: NumericModifier,
+      experience: NumericModifier,
+      rareMonsters: NumericModifier,
+      monsterPack: NumericModifier,
+      magicPackSize: NumericModifier,
       additionalEssence: boolean,
       delirious: boolean,
 
@@ -193,12 +198,30 @@ export const defaultSettings: Settings = {
       over100: false,
 
       dropOver200: false,
-      quant50: false,
-      rarity50: false,
-      experience50: false,
-      rareMonsters50: false,
-      monsterPack50: false,
-      packSize50: false,
+      itemsQuant: {
+        isChecked: false,
+        value: "10",
+      },
+      rarity: {
+        isChecked: false,
+        value: "10",
+      },
+      experience: {
+        isChecked: false,
+        value: "20",
+      },
+      rareMonsters: {
+        isChecked: false,
+        value: "10",
+      },
+      monsterPack: {
+        isChecked: false,
+        value: "20",
+      },
+      magicPackSize: {
+        isChecked: false,
+        value: "30",
+      },
       additionalEssence: false,
       delirious: false,
 
