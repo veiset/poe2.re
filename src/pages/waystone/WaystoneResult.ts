@@ -36,22 +36,30 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
   return result === "" ? "" : `"${result}"`
 }
 
+function getNumericPrefix(value: string, over100: boolean): string {
+  const firstDigit = value[0];
+  
+  if (firstDigit === '9') return over100 ? "(9\\d+|\\d{3})" : "9\\d+";
+  return over100 ? `([${firstDigit}-9]\\d+|\\d{3})` : `[${firstDigit}-9]\\d+`;
+}
+
+
+
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
-  const numberPrefix = settings.over100 ? "([5-9]\\d+|\\d{3})" : "[5-9]\\d+";
   const goodPrefixedMods = [
-    settings.quant50 ? `\\D{12}q` : null,
-    settings.rarity50 ? `\\D{12}r` : null,
-    settings.experience50 ? `\\D{12}ex` : null,
-    settings.rareMonsters50 ? `\\D{27}m` : null,
-    settings.monsterPack50 ? `\\D{28}r` : null,
-    settings.packSize50 ? `\\D{12}m` : null,
+    settings.itemsQuant.isChecked ? `${getNumericPrefix(settings.itemsQuant.value, settings.over100)}\\D{12}q` : null,
+    settings.rarity.isChecked ? `${getNumericPrefix(settings.rarity.value, settings.over100)}\\D{12}r` : null,
+    settings.experience.isChecked ? `${getNumericPrefix(settings.experience.value, settings.over100)}\\D{12}ex` : null,
+    settings.rareMonsters.isChecked ? `${getNumericPrefix(settings.rareMonsters.value, settings.over100)}\\D{27}m` : null,
+    settings.monsterPack.isChecked ? `${getNumericPrefix(settings.monsterPack.value, settings.over100)}\\D{28}r` : null,
+    settings.magicPackSize.isChecked ? `${getNumericPrefix(settings.magicPackSize.value, settings.over100)}\\D{12}m` : null,
   ].filter((e) => e !== null);
 
   const goodMods = [
     settings.dropOver200 ? ": \\+[2-9]\\d\\d" : null,
     settings.additionalEssence ? "sen" : null,
     settings.delirious ? "delir" : null,
-    groupMods(goodPrefixedMods, (str) => `${numberPrefix}${str}`, (str) => `${numberPrefix}(${str})`),
+    groupMods(goodPrefixedMods, (str) => `${str}`, (str) => `(${str})`),
   ].filter((e) => e !== null).join("|");
 
   const badMods = [
