@@ -1,4 +1,6 @@
 import {Settings} from "@/app/settings.ts";
+import {SelectOption} from "@/components/selectList/SelectList.tsx";
+import {generateNumberRegex} from "@/lib/GenerateNumberRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
 
@@ -37,32 +39,21 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 }
 
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
-  const numberPrefix = settings.over100 ? "([5-9]\\d+|\\d{3})" : "[5-9]\\d+";
-  const goodPrefixedMods = [
-    settings.quant50 ? `\\D{12}q` : null,
-    settings.rarity50 ? `\\D{12}r` : null,
-    settings.experience50 ? `\\D{12}ex` : null,
-    settings.rareMonsters50 ? `\\D{27}m` : null,
-    settings.monsterPack50 ? `\\D{28}r` : null,
-    settings.packSize50 ? `\\D{12}m` : null,
-  ].filter((e) => e !== null);
+  const prefixes = settings.prefixes
+    .filter((e) => e.isSelected)
+    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100))
+    .join("|");
 
   const goodMods = [
     settings.dropOver200 ? ": \\+[2-9]\\d\\d" : null,
-    settings.additionalEssence ? "sen" : null,
-    settings.delirious ? "delir" : null,
-    groupMods(goodPrefixedMods, (str) => `${numberPrefix}${str}`, (str) => `${numberPrefix}(${str})`),
+    prefixes || null,
   ].filter((e) => e !== null).join("|");
 
-  const badMods = [
-    settings.burningGround ? "f bur" : null,
-    settings.shockedGround ? "cked" : null,
-    settings.chilledGround ? "lled" : null,
-    settings.eleWeak ? "l wea" : null,
-    settings.lessRecovery ? "s r" : null,
-    settings.pen ? "pene" : null,
-    settings.maxRes ? "r r" : null,
-  ].filter((e) => e !== null).join("|");
+
+  const badMods = settings.suffixes
+    .filter((e) => e.isSelected)
+    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100))
+    .join("|")
 
   return [
     goodMods.length > 0 ? `"${goodMods}"` : null,
@@ -70,17 +61,16 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
   ].join(" ");
 }
 
-function groupMods(
-  data: (string | null)[],
-  one: (arg0: string) => string,
-  many: (arg0: string) => string
-): string | null {
-  const d = data.filter((e) => e !== null);
-  if (d.length === 0) return null;
-  if (d.length === 1) {
-    return one(d.join("|"))
+function selectedOptionRegex(
+  option: SelectOption,
+  round10: boolean,
+  over100: boolean
+): string {
+  if (option.value) {
+    return `${generateNumberRegex(option.value.toString(), round10, over100)}.*${option.regex}`
+  } else {
+    return option.regex
   }
-  return many(d.join("|"))
 }
 
 function range(start: number, end: number): number[] {

@@ -1,3 +1,5 @@
+import {SelectOption} from "@/components/selectList/SelectList.tsx";
+
 export interface WebSettings {
   sidebarOpen: boolean
   optionsOpen: boolean
@@ -79,24 +81,10 @@ export interface Settings {
     },
     modifier: {
       over100: boolean,
-
+      round10: boolean,
       dropOver200: boolean,
-      quant50: boolean,
-      rarity50: boolean,
-      experience50: boolean,
-      rareMonsters50: boolean,
-      monsterPack50: boolean,
-      packSize50: boolean,
-      additionalEssence: boolean,
-      delirious: boolean,
-
-      burningGround: boolean,
-      shockedGround: boolean,
-      chilledGround: boolean,
-      eleWeak: boolean,
-      lessRecovery: boolean,
-      pen: boolean,
-      maxRes: boolean,
+      prefixes: SelectOption[],
+      suffixes: SelectOption[],
     }
   },
   tablet: {
@@ -191,24 +179,10 @@ export const defaultSettings: Settings = {
     },
     modifier: {
       over100: false,
-
+      round10: true,
       dropOver200: false,
-      quant50: false,
-      rarity50: false,
-      experience50: false,
-      rareMonsters50: false,
-      monsterPack50: false,
-      packSize50: false,
-      additionalEssence: false,
-      delirious: false,
-
-      burningGround: false,
-      shockedGround: false,
-      chilledGround: false,
-      eleWeak: false,
-      lessRecovery: false,
-      pen: false,
-      maxRes: false,
+      prefixes: [],
+      suffixes: [],
     }
   },
   tablet: {

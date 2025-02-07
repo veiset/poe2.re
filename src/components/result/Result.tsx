@@ -43,10 +43,10 @@ export function Result(props: ResultProps) {
   console.log(copied === result);
 
   return (
-    <>
+    <div>
       <div className="flex">
         <div className="flex-1 font-mono p-4 pt-6">
-          <div>
+          <div >
             <p className={cx(
               "text-2xl min-h-12",
               copied === result && "text-green-400"
@@ -107,6 +107,6 @@ export function Result(props: ResultProps) {
           />
         </div>
       </div>
-    </>
+    </div>
   )
 }
