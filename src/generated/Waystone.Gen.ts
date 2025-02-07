@@ -302,7 +302,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Monsters gain #% of Maximum Life as Extra Maximum Energy Shield",
-  regex: "m l",
+  regex: "m e",
   values: [25],
   ranges: [],
   affix: "SUFFIX",
@@ -337,7 +337,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Monsters have #% chance to steal Power, Frenzy and Endurance charges on Hit",
-  regex: ",",
+  regex: "r,",
   values: [25],
   ranges: [],
   affix: "SUFFIX",
@@ -365,7 +365,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Monsters have #% increased Stun Buildup",
-  regex: "n b",
+  regex: "un b",
   values: [200, 150, 100],
   ranges: [],
   affix: "SUFFIX",
@@ -421,7 +421,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Rare Monsters have # additional Modifier",
-  regex: "^ra",
+  regex: "mod",
   values: [1],
   ranges: [],
   affix: "PREFIX",

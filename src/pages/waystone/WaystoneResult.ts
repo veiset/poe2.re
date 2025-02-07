@@ -46,6 +46,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
 
   const goodMods = [
     settings.dropOver200 ? ": \\+[2-9]\\d\\d" : null,
+    settings.delirious ? "delir" : null,
     prefixes || null,
   ].filter((e) => e !== null).join("|");
 

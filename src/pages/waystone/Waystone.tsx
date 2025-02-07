@@ -122,13 +122,20 @@ export function Waystone() {
                        ...settings, modifier: {...settings.modifier, dropOver200: b}
                      })}
             />
+            <Checked id="mod-delirious" text="Players in area are #% delirious"
+                     checked={settings.modifier.delirious}
+                     onChange={(b) => setSettings({
+                       ...settings, modifier: {...settings.modifier, delirious: b}
+                     })}
+            />
             <SelectList
               id="prefix-modifiers"
               options={prefixes}
-              onUpdate={(options) => {
+              selected={settings.modifier.prefixes}
+              setSelected={(modifiers) => {
                 setSettings({
                   ...settings,
-                  modifier: {...settings.modifier, prefixes: options}
+                  modifier: {...settings.modifier, prefixes: modifiers}
                 })
               }}
             />
@@ -140,13 +147,14 @@ export function Waystone() {
             <SelectList
               id="suffix-modifiers"
               options={suffixes}
-              onUpdate={(options) => {
+              selected={settings.modifier.suffixes}
+              setSelected={(modifiers) => {
                 setSettings({
                   ...settings,
-                  modifier: {...settings.modifier, suffixes: options}
+                  modifier: {...settings.modifier, suffixes: modifiers}
                 })
               }}
-            />
+              />
           </div>
         </div>
       </div>
