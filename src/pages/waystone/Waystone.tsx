@@ -154,10 +154,10 @@ export function Waystone() {
                     ...settings, modifier: {...settings.modifier, dropOverValue: Number(e)}
                   })
                 }>
-                  <SelectTrigger>
+                  <SelectTrigger className="pl-2 pb-0 pt-0 h-8" >
                     <SelectValue placeholder="100%"/>
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent >
                     <SelectGroup>
                       {[100, 200, 300, 400, 500, 600, 700].map((option) => (
                         <SelectItem key={option} value={option.toString()}>{option}%</SelectItem>
