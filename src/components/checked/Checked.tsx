@@ -1,5 +1,6 @@
 import {Checkbox} from "@/components/ui/checkbox.tsx";
 import {ReactNode} from "react";
+import {cn} from "@/lib/utils.ts";
 
 export interface CheckedProps {
   id: string
@@ -12,7 +13,7 @@ export interface CheckedProps {
 export function Checked(props: CheckedProps) {
   const {id, text, checked, onChange, children} = props;
   return (
-    <div className="flex items-center space-x-2 p-1 pb-2">
+    <div className={cn("flex items-center space-x-2 p-2 pb-2", {"bg-slate-700": checked})}>
       <Checkbox
         id={id}
         checked={checked}
