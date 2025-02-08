@@ -5,6 +5,14 @@ import {useEffect, useState} from "react";
 import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts";
 import {generateWaystoneRegex} from "@/pages/waystone/WaystoneResult.ts";
 import {Input} from "@/components/ui/input.tsx";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 import {Checked} from "@/components/checked/Checked.tsx";
 import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
 import {waystoneRegex} from "@/generated/Waystone.Gen.ts";
@@ -116,12 +124,31 @@ export function Waystone() {
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
               Prefixes - Good modifiers (will match any selected)
             </p>
-            <Checked id="mod-drop-over-200" text="Waystone drop chance over 200%+"
-                     checked={settings.modifier.dropOver200}
+            <Checked id="mod-drop-over-200" text="Waystone drop chance over"
+                     checked={settings.modifier.dropOverX}
                      onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, dropOver200: b}
+                       ...settings, modifier: {...settings.modifier, dropOverX: b}
                      })}
-            />
+            >
+              <div className="w-20">
+                <Select value={settings.modifier.dropOverValue.toString()} onValueChange={(e) =>
+                  setSettings({
+                    ...settings, modifier: {...settings.modifier, dropOverValue: Number(e)}
+                  })
+                }>
+                  <SelectTrigger>
+                    <SelectValue placeholder="100%"/>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectGroup>
+                      {[100, 200, 300, 400, 500, 600, 700].map((option) => (
+                        <SelectItem key={option} value={option.toString()}>{option}%</SelectItem>
+                      ))}
+                    </SelectGroup>
+                  </SelectContent>
+                </Select>
+              </div>
+            </Checked>
             <Checked id="mod-delirious" text="Players in area are #% delirious"
                      checked={settings.modifier.delirious}
                      onChange={(b) => setSettings({
@@ -154,7 +181,7 @@ export function Waystone() {
                   modifier: {...settings.modifier, suffixes: modifiers}
                 })
               }}
-              />
+            />
           </div>
         </div>
       </div>

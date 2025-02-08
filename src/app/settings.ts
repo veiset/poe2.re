@@ -82,7 +82,8 @@ export interface Settings {
     modifier: {
       over100: boolean,
       round10: boolean,
-      dropOver200: boolean,
+      dropOverX: boolean,
+      dropOverValue: number,
       delirious: boolean,
       prefixes: SelectOption[],
       suffixes: SelectOption[],
@@ -181,7 +182,8 @@ export const defaultSettings: Settings = {
     modifier: {
       over100: false,
       round10: true,
-      dropOver200: false,
+      dropOverX: false,
+      dropOverValue: 200,
       delirious: false,
       prefixes: [],
       suffixes: [],
