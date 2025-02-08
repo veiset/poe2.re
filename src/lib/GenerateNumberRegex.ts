@@ -77,7 +77,7 @@ export function generateNumberRegex(
     } else if (str[0] === "9") {
       return `(${d0}[${d1}-9]${over100mod})`;
     } else {
-      return `(${d0}[${d1}-9]|[${Number(d0) + 1}-9].${over100mod})`;
+      return `(${d0}[${d1}-9]|[${Number(d0) + 1}-9]\\d${over100mod})`;
     }
   }
   if (quant <= 9) {
