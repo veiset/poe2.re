@@ -16,6 +16,8 @@ import {
 import {Checked} from "@/components/checked/Checked.tsx";
 import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
 import {waystoneRegex} from "@/generated/Waystone.Gen.ts";
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
+import {Label} from "@/components/ui/label";
 
 export function Waystone() {
   const globalSettings = loadSettings(selectedProfile())
@@ -122,8 +124,24 @@ export function Waystone() {
         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-10">
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
-              Prefixes - Good modifiers (will match any selected)
+              Prefixes - Good modifiers
             </p>
+            <div className="pb-4">
+              <RadioGroup value={settings.modifier.prefixSelectType} onValueChange={(v) => {
+                setSettings({
+                  ...settings, modifier: {...settings.modifier, prefixSelectType: v}
+                })
+              }}>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="any" id="any"/>
+                  <Label htmlFor="any"><span className="text-lg cursor-pointer">Match when <span className="font-semibold">any</span> mod is found</span></Label>
+                </div>
+                <div className="flex items-center space-x-2 pb-2">
+                  <RadioGroupItem value="all" id="all"/>
+                  <Label htmlFor="all"><span className="text-lg cursor-pointer">Match only when <span className="font-semibold">all</span> mods are found</span></Label>
+                </div>
+              </RadioGroup>
+            </div>
             <Checked id="mod-drop-over-200" text="Waystone drop chance over"
                      checked={settings.modifier.dropOverX}
                      onChange={(b) => setSettings({

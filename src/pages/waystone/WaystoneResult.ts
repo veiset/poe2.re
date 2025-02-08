@@ -41,15 +41,20 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
   const prefixes = settings.prefixes
     .filter((e) => e.isSelected)
-    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100))
-    .join("|");
+    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100));
+
+  const prefixesWithType = settings.prefixSelectType === "any"
+    ? prefixes.join("|")
+    : prefixes.map((e) => `"${e}"`).join(" ");
 
   const goodMods = [
     settings.dropOverX ? `: \\+[${settings.dropOverValue.toString()[0]}-9]\\d\\d` : null,
     settings.delirious ? "delir" : null,
-    prefixes || null,
-  ].filter((e) => e !== null).join("|");
+  ].filter((e) => e !== null);
 
+  const goodModsWithType = settings.prefixSelectType === "any"
+    ? `"${goodMods.concat(prefixesWithType).join("|")}"`
+    : goodMods.map((e) => `"${e}"`).concat(prefixesWithType).join(" ");
 
   const badMods = settings.suffixes
     .filter((e) => e.isSelected)
@@ -57,7 +62,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     .join("|")
 
   return [
-    goodMods.length > 0 ? `"${goodMods}"` : null,
+    (goodMods.length + prefixes.length) > 0 ? goodModsWithType : null,
     badMods.length > 0 ? `"!${badMods}"` : null,
   ].join(" ");
 }

@@ -85,6 +85,7 @@ export interface Settings {
       dropOverX: boolean,
       dropOverValue: number,
       delirious: boolean,
+      prefixSelectType: string,
       prefixes: SelectOption[],
       suffixes: SelectOption[],
     }
@@ -185,6 +186,7 @@ export const defaultSettings: Settings = {
       dropOverX: false,
       dropOverValue: 200,
       delirious: false,
+      prefixSelectType: "any",
       prefixes: [],
       suffixes: [],
     }
