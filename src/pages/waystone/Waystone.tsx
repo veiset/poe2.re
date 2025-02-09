@@ -187,6 +187,12 @@ export function Waystone() {
                        ...settings, modifier: {...settings.modifier, delirious: b}
                      })}
             />
+            <Checked id="mod-anypack" text="Area contains # of any additional packs"
+                     checked={settings.modifier.anyPack}
+                     onChange={(b) => setSettings({
+                       ...settings, modifier: {...settings.modifier, anyPack: b}
+                     })}
+            />
             <SelectList
               id="prefix-modifiers"
               options={prefixes}

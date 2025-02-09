@@ -51,10 +51,11 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
   const goodMods = [
     settings.dropOverX ? `: \\+[${settings.dropOverValue.toString()[0]}-9]\\d\\d` : null,
     settings.delirious ? "delir" : null,
+    settings.anyPack ? "al pac" : null,
   ].filter((e) => e !== null);
 
   const goodModsWithType = settings.prefixSelectType === "any"
-    ? `"${goodMods.concat(prefixesWithType).join("|")}"`
+    ? `"${goodMods.concat(prefixesWithType).filter((e) => e !== null && e !== "").join("|")}"`
     : goodMods.map((e) => `"${e}"`).concat(prefixesWithType).join(" ");
 
   const badMods = settings.suffixes
