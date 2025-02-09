@@ -7,6 +7,7 @@ export function generateWaystoneRegex(settings: Settings): string {
   const result = [
     generateTierRegex(settings.waystone.tier),
     generateModifiers(settings.waystone.modifier),
+    generateRarity(settings.waystone.rarity),
     settings.waystone.resultSettings.customText || null,
   ].filter((e) => e !== null);
 
@@ -65,6 +66,13 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     (goodMods.length + prefixes.length) > 0 ? goodModsWithType : null,
     badMods.length > 0 ? `"!${badMods}"` : null,
   ].join(" ");
+}
+
+function generateRarity(settings: Settings["waystone"]["rarity"]): string | null {
+  if (settings.uncorrupted && settings.corrupted) return null;
+  if (settings.corrupted) return "corr";
+  if (settings.uncorrupted) return "!corr";
+  return null;
 }
 
 function selectedOptionRegex(

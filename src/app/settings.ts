@@ -79,6 +79,10 @@ export interface Settings {
       min: number,
       max: number,
     },
+    rarity: {
+      corrupted: boolean,
+      uncorrupted: boolean,
+    },
     modifier: {
       over100: boolean,
       round10: boolean,
@@ -179,6 +183,10 @@ export const defaultSettings: Settings = {
     tier: {
       min: 1,
       max: 16,
+    },
+    rarity: {
+      corrupted: false,
+      uncorrupted: false,
     },
     modifier: {
       over100: false,

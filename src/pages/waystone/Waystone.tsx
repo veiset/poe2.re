@@ -120,6 +120,20 @@ export function Waystone() {
               />
             </div>
           </div>
+          <div>
+            <Checked id="rarity-corrupted" text="Corrupted Waystones"
+                     checked={settings.rarity.corrupted}
+                     onChange={(b) => setSettings({
+                       ...settings, rarity: {...settings.rarity, corrupted: b}
+                     })}
+            />
+            <Checked id="rarity-uncorrupted" text="Uncorrupted Waystones"
+                     checked={settings.rarity.uncorrupted}
+                     onChange={(b) => setSettings({
+                       ...settings, rarity: {...settings.rarity, uncorrupted: b}
+                     })}
+            />
+          </div>
         </div>
         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-10">
           <div>
