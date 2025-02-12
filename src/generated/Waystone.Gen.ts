@@ -50,7 +50,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "##% increased Pack size",
-  regex: "d p",
+  regex: "d pa",
   values: [],
   ranges: [[21, 50]],
   affix: "PREFIX",
