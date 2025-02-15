@@ -94,7 +94,7 @@ function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
     settings.wands ? "wa" : null,
     settings.oneHandMaces ? "on" : null,
     settings.sceptres ? "sc" : null,
-    settings.bows ? "bo" : null,
+    settings.bows ? "bow" : null,
     settings.staves ? "st" : null,
     settings.twoHandMaces ? "tw" : null,
     settings.quarterstaves ? "qua" : null,
