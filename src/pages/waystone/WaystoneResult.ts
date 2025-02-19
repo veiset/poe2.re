@@ -1,6 +1,5 @@
 import {Settings} from "@/app/settings.ts";
-import {SelectOption} from "@/components/selectList/SelectList.tsx";
-import {generateNumberRegex} from "@/lib/GenerateNumberRegex.ts";
+import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
 
@@ -76,17 +75,6 @@ function generateRarity(settings: Settings["waystone"]["rarity"]): string | null
   return null;
 }
 
-function selectedOptionRegex(
-  option: SelectOption,
-  round10: boolean,
-  over100: boolean
-): string {
-  if (option.value) {
-    return `${generateNumberRegex(option.value.toString(), round10, over100)}.*${option.regex}`
-  } else {
-    return option.regex
-  }
-}
 
 function range(start: number, end: number): number[] {
   if (end - start <= 0) return [];

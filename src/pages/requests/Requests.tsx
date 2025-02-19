@@ -1,6 +1,7 @@
 import vendorIcon from "@/img/whetstone_inventory_icon.png";
 import waystoneIcon from "@/img/waystone_inventory_icon.png";
 import tabletIcon from "@/img/precursortablet_inventory_icon.png";
+import relicIcon from "@/img/relic_inventory_icon.png";
 
 const Requests = () => {
   return (
@@ -35,6 +36,15 @@ const Requests = () => {
           <a href="/tablet" className="flex">
             <img src={tabletIcon} alt="tablet regex" width="32" height="32"/>
             <span>Tablet Regex</span>
+          </a>
+        </div>
+      </p>
+
+      <p className="flex items-center justify-center pt-5">
+        <div>
+          <a href="/relic" className="flex">
+            <img src={relicIcon} alt="relic regex" width="22" height="22"/>
+            <span>Relic Regex</span>
           </a>
         </div>
       </p>
