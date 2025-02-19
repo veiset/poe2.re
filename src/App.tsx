@@ -9,6 +9,7 @@ import Requests from "@/pages/requests/Requests.tsx";
 import {Vendor} from "@/pages/vendor/Vendor.tsx";
 import {Waystone} from "@/pages/waystone/Waystone.tsx";
 import {Tablet} from "@/pages/tablet/Tablet.tsx";
+import {Relic} from "@/pages/relic/Relic.tsx";
 
 export default function App() {
   const webSettings = loadWebSettings();
@@ -24,14 +25,14 @@ export default function App() {
         }}
         open={sidebarOpen}
         onOpenChange={(open) => {
-        setSidebarOpen(open);
-        saveWebSettings({
-            ...webSettings,
-            sidebarOpen: open,
-          }
-        )
-        localStorage.setItem("sidebarOpen", JSON.stringify(open));
-      }}>
+          setSidebarOpen(open);
+          saveWebSettings({
+              ...webSettings,
+              sidebarOpen: open,
+            }
+          )
+          localStorage.setItem("sidebarOpen", JSON.stringify(open));
+        }}>
         <Menu/>
         <SidebarInset>
           <Routes>
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/vendor" element={<Vendor/>}/>
             <Route path="/waystone" element={<Waystone/>}/>
             <Route path="/tablet" element={<Tablet/>}/>
+            <Route path="/relic" element={<Relic/>}/>
           </Routes>
         </SidebarInset>
       </SidebarProvider>

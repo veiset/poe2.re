@@ -1,6 +1,7 @@
 import vendorIcon from "@/img/whetstone_inventory_icon.png";
 import waystoneIcon from "@/img/waystone_inventory_icon.png";
 import tabletIcon from "@/img/precursortablet_inventory_icon.png";
+import relicIcon from "@/img/relic_inventory_icon.png";
 
 import {
   Code,
@@ -35,6 +36,11 @@ const items = [
     title: "Tablets",
     url: "/tablet",
     icon: tabletIcon,
+  },
+  {
+    title: "Relics",
+    url: "/relic",
+    icon: relicIcon,
   },
 ]
 

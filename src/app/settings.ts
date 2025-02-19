@@ -114,6 +114,14 @@ export interface Settings {
       numAffectedMaps: number,
     }
   },
+  relic: {
+    resultSettings: ResultSettings,
+    matchType: string,
+    modifier: {
+      prefixes: SelectOption[],
+      suffixes: SelectOption[],
+    }
+  }
 }
 
 const defaultResultSettings: ResultSettings = ({
@@ -220,4 +228,12 @@ export const defaultSettings: Settings = {
       numAffectedMaps: 0,
     }
   },
+  relic: {
+    resultSettings: defaultResultSettings,
+    matchType: "any",
+    modifier: {
+      prefixes: [],
+      suffixes: [],
+    }
+  }
 }
