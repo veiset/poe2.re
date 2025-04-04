@@ -75,6 +75,10 @@ export interface Settings {
     itemLevel: {
       min: number,
       max: number,
+    },
+    characterLevel: {
+      min: number,
+      max: number,
     }
   },
   waystone: {
@@ -191,6 +195,10 @@ export const defaultSettings: Settings = {
       shields: false,
     },
     itemLevel: {
+      min: 0,
+      max: 0,
+    },
+    characterLevel: {
       min: 0,
       max: 0,
     }
