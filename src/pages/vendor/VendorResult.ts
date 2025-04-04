@@ -196,5 +196,6 @@ function createLevelRangeRegex(min: number, max: number, prefix: string): string
 function rangePattern(start: number, end: number): string {
   if (start > end) return "";
   if (start === end) return start.toString();
+  if (start === 0 && end === 9) return "\\d";
   return `[${start}-${end}]`;
 }
