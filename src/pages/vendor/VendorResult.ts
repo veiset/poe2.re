@@ -4,6 +4,7 @@ export function generateVendorRegex(settings: Settings): string {
   const terms = [
     ...itemProperty(settings.vendor.itemProperty),
     itemType(settings.vendor.itemType),
+    itemLevel(settings.vendor.itemLevel),
     resistances(settings.vendor.resistances),
     movement(settings.vendor.movementSpeed),
     ...itemMods(settings.vendor.itemMods),
@@ -111,4 +112,83 @@ function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
   if (itemClasses.length === 0) return null;
   if (itemClasses.length === 1) return `s: ${itemClasses.join("")}`
   return `s: (${itemClasses.join("|")})`;
+}
+
+function itemLevel(settings: Settings["vendor"]["itemLevel"]): string | null {
+  const min = settings.min;
+  const max = settings.max;
+
+  // No filter if both are zero.
+  if (min === 0 && max === 0) {
+    return null;
+  }
+
+  // If a valid maximum is provided but min is greater than max, return null.
+  if (max > 0 && min > max) {
+    return null;
+  }
+
+  // Use an upper bound – for item levels we assume a maximum of 99 if none is provided.
+  const effectiveMax = max === 0 ? 99 : max;
+
+  // Simple cases first
+  if (min === 0 && effectiveMax === 99) {
+    return `m level: (\\d{1,2})\\b`;
+  }
+  
+  if (min > 0 && min === effectiveMax) {
+    // Exact match
+    return `m level: (${min})\\b`;
+  }
+  // Handle specific ranges more efficiently
+  const singleDigits = min <= 9 ? rangePattern(min, Math.min(9, effectiveMax)) : "";
+  const tens = Math.floor(Math.min(Math.max(min, 10), effectiveMax) / 10);
+  const maxTens = Math.floor(effectiveMax / 10);
+  
+  const patterns = [];
+  
+  // Add single digit pattern if applicable
+  if (singleDigits) {
+    patterns.push(singleDigits);
+  }
+  
+  // Handle ranges spanning tens more efficiently
+  if (tens <= maxTens) {
+    // Different tens groups
+    if (tens === maxTens) {
+      // Same tens group (e.g., 10-19)
+      const minOnes = min > 9 ? min % 10 : 0;
+      const maxOnes = effectiveMax % 10;
+      patterns.push(`${tens}[${minOnes}-${maxOnes}]`);
+    } else {
+      // Starting tens group
+      if (min <= tens * 10 + 9 && min > tens * 10) {
+        const minOnes = min % 10;
+        patterns.push(`${tens}[${minOnes}-9]`);
+      } else if (min <= tens * 10) {
+        patterns.push(`${tens}\\d`);
+      }
+      
+      // Full tens groups in the middle
+      if (maxTens > tens + 1) {
+        patterns.push(`[${tens + 1}-${maxTens - 1}]\\d`);
+      }
+      
+      // Final tens group
+      if (effectiveMax % 10 > 0) {
+        patterns.push(`${maxTens}[0-${effectiveMax % 10}]`);
+      } else {
+        patterns.push(`${maxTens}0`);
+      }
+    }
+  }
+
+  return `m level: (${patterns.join("|")})\\b`;
+}
+
+// Helper function to create regex pattern for a range of numbers
+function rangePattern(start: number, end: number): string {
+  if (start > end) return "";
+  if (start === end) return start.toString();
+  return `[${start}-${end}]`;
 }

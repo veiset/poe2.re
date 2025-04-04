@@ -5,6 +5,7 @@ import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts
 import {useEffect, useState} from "react";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {generateVendorRegex} from "@/pages/vendor/VendorResult.ts";
+import {Input} from "@/components/ui/input.tsx";
 
 export function Vendor() {
 
@@ -132,8 +133,45 @@ export function Vendor() {
                      })}
             />
           </div>
+
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item rarity</p>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item level</p>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-xs pb-1">Min level:</p>
+                <Input type="number" min="0" max="100" placeholder="Min level" className="pb-1 mb-2 w-full"
+                       value={settings.itemLevel?.min ?? 0}
+                       onChange={(b) => {
+                         const value = Number(b.target.value);
+                         const max = settings.itemLevel?.max || 100;
+                         if (value <= max) {
+                           setSettings({
+                             ...settings, 
+                             itemLevel: {...(settings.itemLevel || { min: 0, max: 100 }), min: Math.max(0, value)}
+                           })
+                         }
+                       }}
+                />
+              </div>
+              <div>
+                <p className="text-xs pb-1">Max level:</p>
+                <Input type="number" min="0" max="100" placeholder="Max level" className="pb-1 mb-2 w-full"
+                       value={settings.itemLevel?.max ?? 0}
+                       onChange={(b) => {
+                         const value = Number(b.target.value);
+                         const min = settings.itemLevel?.min ?? 0;
+                         if (value >= min) {
+                           setSettings({
+                             ...settings, 
+                             itemLevel: {...(settings.itemLevel || { min: 0, max: 100 }), max: Math.min(100, value)}
+                           })
+                         }
+                       }}
+                />
+              </div>
+            </div>
+
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item rarity</p>
             <Checked id="itemtype-rare" text="Rare"
                      checked={settings.itemType.rare}
                      onChange={(b) => setSettings({

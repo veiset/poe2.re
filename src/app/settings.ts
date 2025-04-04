@@ -71,6 +71,10 @@ export interface Settings {
       quivers: boolean,
       foci: boolean,
       shields: boolean,
+    },
+    itemLevel: {
+      min: number,
+      max: number,
     }
   },
   waystone: {
@@ -186,6 +190,10 @@ export const defaultSettings: Settings = {
       foci: false,
       shields: false,
     },
+    itemLevel: {
+      min: 0,
+      max: 0,
+    }
   },
   waystone: {
     resultSettings: defaultResultSettings,
