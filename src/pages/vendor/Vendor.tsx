@@ -171,6 +171,42 @@ export function Vendor() {
               </div>
             </div>
 
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Character level</p>
+            <div className="grid grid-cols-2 gap-2">
+              <div>
+                <p className="text-xs pb-1">Min level:</p>
+                <Input type="number" min="0" max="100" placeholder="Min level" className="pb-1 mb-2 w-full"
+                       value={settings.characterLevel?.min ?? 0}
+                       onChange={(b) => {
+                         const value = Number(b.target.value);
+                         const max = settings.characterLevel?.max || 100;
+                         if (value <= max) {
+                           setSettings({
+                             ...settings, 
+                             characterLevel: {...(settings.characterLevel || { min: 0, max: 100 }), min: Math.max(0, value)}
+                           })
+                         }
+                       }}
+                />
+              </div>
+              <div>
+                <p className="text-xs pb-1">Max level:</p>
+                <Input type="number" min="0" max="100" placeholder="Max level" className="pb-1 mb-2 w-full"
+                       value={settings.characterLevel?.max ?? 0}
+                       onChange={(b) => {
+                         const value = Number(b.target.value);
+                         const min = settings.characterLevel?.min ?? 0;
+                         if (value >= min) {
+                           setSettings({
+                             ...settings, 
+                             characterLevel: {...(settings.characterLevel || { min: 0, max: 100 }), max: Math.min(100, value)}
+                           })
+                         }
+                       }}
+                />
+              </div>
+            </div>
+
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item rarity</p>
             <Checked id="itemtype-rare" text="Rare"
                      checked={settings.itemType.rare}

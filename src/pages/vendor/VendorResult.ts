@@ -5,6 +5,7 @@ export function generateVendorRegex(settings: Settings): string {
     ...itemProperty(settings.vendor.itemProperty),
     itemType(settings.vendor.itemType),
     itemLevel(settings.vendor.itemLevel),
+    characterLevel(settings.vendor.characterLevel),
     resistances(settings.vendor.resistances),
     movement(settings.vendor.movementSpeed),
     ...itemMods(settings.vendor.itemMods),
@@ -115,9 +116,14 @@ function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
 }
 
 function itemLevel(settings: Settings["vendor"]["itemLevel"]): string | null {
-  const min = settings.min;
-  const max = settings.max;
+  return createLevelRangeRegex(settings.min, settings.max, "m level: ");
+}
 
+function characterLevel(settings: Settings["vendor"]["characterLevel"]): string | null {
+  return createLevelRangeRegex(settings.min, settings.max, "s: level ");
+}
+
+function createLevelRangeRegex(min: number, max: number, prefix: string): string | null {
   // No filter if both are zero.
   if (min === 0 && max === 0) {
     return null;
@@ -133,12 +139,12 @@ function itemLevel(settings: Settings["vendor"]["itemLevel"]): string | null {
 
   // Simple cases first
   if (min === 0 && effectiveMax === 99) {
-    return `m level: (\\d{1,2})\\b`;
+    return `${prefix}(\\d{1,2})\\b`;
   }
   
   if (min > 0 && min === effectiveMax) {
     // Exact match
-    return `m level: (${min})\\b`;
+    return `${prefix}(${min})\\b`;
   }
   // Handle specific ranges more efficiently
   const singleDigits = min <= 9 ? rangePattern(min, Math.min(9, effectiveMax)) : "";
@@ -183,7 +189,7 @@ function itemLevel(settings: Settings["vendor"]["itemLevel"]): string | null {
     }
   }
 
-  return `m level: (${patterns.join("|")})\\b`;
+  return `${prefix}(${patterns.join("|")})\\b`;
 }
 
 // Helper function to create regex pattern for a range of numbers
