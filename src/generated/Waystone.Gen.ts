@@ -217,8 +217,8 @@ export const waystoneRegex: WaystoneRegex[] = [
   affix: "PREFIX",
 }, 
 {
-  name: "Area has patches of Burning Ground",
-  regex: "urn",
+  name: "Area has patches of Ignited Ground",
+  regex: "f ign",
   values: [],
   ranges: [],
   affix: "SUFFIX",
