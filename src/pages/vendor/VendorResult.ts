@@ -93,6 +93,8 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
     settings.skillLevel ? "^\\+.*ills$" : null,
     settings.spirit ? "spiri" : null,
     settings.rarity ? "d rari" : null,
+    settings.attackSpeed ? "ck spe" : null,
+    settings.castSpeed ? "st spe" : null,
   ].filter((e) => e !== null)
 }
 

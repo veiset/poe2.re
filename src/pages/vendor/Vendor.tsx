@@ -55,6 +55,17 @@ export function Vendor() {
                        ...settings, itemProperty: {...settings.itemProperty, sockets: b}
                      })}
             />
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Speed</p>
+            <Checked id="mod-phys" text="Attack speed" checked={settings.itemMods.attackSpeed}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, attackSpeed: b}
+                     })}
+            />
+            <Checked id="mod-phys" text="Cast speed" checked={settings.itemMods.castSpeed}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, castSpeed: b}
+                     })}
+            />
 
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Movement speed</p>
             <Checked id="30ms" text="Movement speed (30%)" checked={settings.movementSpeed.move30}

@@ -45,6 +45,8 @@ export interface Settings {
       skillLevel: boolean,
       spirit: boolean,
       rarity: boolean,
+      attackSpeed: boolean,
+      castSpeed: boolean,
     },
     resistances: {
       fire: boolean,
@@ -170,7 +172,9 @@ export const defaultSettings: Settings = {
       fireDamage: false,
       coldDamage: false,
       lightningDamage: false,
-      chaosDamage: false
+      chaosDamage: false,
+      attackSpeed: false,
+      castSpeed: false,
     },
     resistances: {
       fire: false,
