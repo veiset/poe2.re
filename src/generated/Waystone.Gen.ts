@@ -22,14 +22,14 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "##% increased Magic Monsters",
-  regex: "c m",
+  regex: "gic m",
   values: [],
   ranges: [[35, 100]],
   affix: "PREFIX",
 }, 
 {
   name: "##% increased Magic Pack Size",
-  regex: "c p",
+  regex: "gic p",
   values: [],
   ranges: [[35, 100]],
   affix: "PREFIX",
@@ -50,7 +50,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "##% increased Pack size",
-  regex: "d pa",
+  regex: "d pac",
   values: [],
   ranges: [[21, 50]],
   affix: "PREFIX",
@@ -106,7 +106,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "##% maximum Player Resistances",
-  regex: "m p",
+  regex: "% ma",
   values: [],
   ranges: [[-15, 10]],
   affix: "SUFFIX",
@@ -127,7 +127,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "+#% Monster Elemental Resistances",
-  regex: "er e",
+  regex: "r el",
   values: [50, 40, 30],
   ranges: [],
   affix: "SUFFIX",
@@ -281,7 +281,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Monsters deal ##% of Damage as Extra Chaos",
-  regex: "a ch",
+  regex: "ra ch",
   values: [],
   ranges: [[26, 40]],
   affix: "SUFFIX",
@@ -295,7 +295,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Monsters deal ##% of Damage as Extra Fire",
-  regex: "a f",
+  regex: "fire$",
   values: [],
   ranges: [[26, 40]],
   affix: "SUFFIX",
@@ -316,7 +316,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Monsters gain #% of maximum Life as Extra maximum Energy Shield",
-  regex: "m e",
+  regex: "m li",
   values: [25],
   ranges: [],
   affix: "SUFFIX",
@@ -407,7 +407,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Players are Cursed with Temporal Chains",
-  regex: "h t",
+  regex: "h tem",
   values: [],
   ranges: [],
   affix: "SUFFIX",
@@ -428,7 +428,7 @@ export const waystoneRegex: WaystoneRegex[] = [
 }, 
 {
   name: "Players have #% less Recovery Rate of Life and Energy Shield",
-  regex: "s r",
+  regex: "f l",
   values: [60, 50, 40],
   ranges: [],
   affix: "SUFFIX",
