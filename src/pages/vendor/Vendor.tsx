@@ -95,6 +95,26 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, elemental: b}
                      })}
             />
+            <Checked id="mod-ele" text="Cold damage" checked={settings.itemMods.coldDamage}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, coldDamage: b}
+                     })}
+            />
+            <Checked id="mod-ele" text="Fire damage" checked={settings.itemMods.fireDamage}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, fireDamage: b}
+                     })}
+            />
+            <Checked id="mod-ele" text="Lightning damage" checked={settings.itemMods.lightningDamage}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, lightningDamage: b}
+                     })}
+            />
+            <Checked id="mod-ele" text="Chaos damage" checked={settings.itemMods.chaosDamage}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, chaosDamage: b}
+                     })}
+            />
             <Checked id="mod-skill" text="+# to level of skills" checked={settings.itemMods.skillLevel}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevel: b}
@@ -146,7 +166,7 @@ export function Vendor() {
                          const max = settings.itemLevel?.max || 100;
                          if (value <= max) {
                            setSettings({
-                             ...settings, 
+                             ...settings,
                              itemLevel: {...(settings.itemLevel || { min: 0, max: 100 }), min: Math.max(0, value)}
                            })
                          }
@@ -162,7 +182,7 @@ export function Vendor() {
                          const min = settings.itemLevel?.min ?? 0;
                          if (value >= min) {
                            setSettings({
-                             ...settings, 
+                             ...settings,
                              itemLevel: {...(settings.itemLevel || { min: 0, max: 100 }), max: Math.min(100, value)}
                            })
                          }
@@ -182,7 +202,7 @@ export function Vendor() {
                          const max = settings.characterLevel?.max || 100;
                          if (value <= max) {
                            setSettings({
-                             ...settings, 
+                             ...settings,
                              characterLevel: {...(settings.characterLevel || { min: 0, max: 100 }), min: Math.max(0, value)}
                            })
                          }
@@ -198,7 +218,7 @@ export function Vendor() {
                          const min = settings.characterLevel?.min ?? 0;
                          if (value >= min) {
                            setSettings({
-                             ...settings, 
+                             ...settings,
                              characterLevel: {...(settings.characterLevel || { min: 0, max: 100 }), max: Math.min(100, value)}
                            })
                          }

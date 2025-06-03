@@ -81,6 +81,10 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
   return [
     settings.physical ? "ph.*da" : null,
     settings.elemental ? "\\d [cfl].+da" : null,
+    settings.coldDamage ? "\\d co.+da" : null,
+    settings.chaosDamage ? "\\d ch.+da" : null,
+    settings.fireDamage ? "\\d f.+da" : null,
+    settings.lightningDamage? "\\d l.+da" : null,
     settings.skillLevel ? "^\\+.*ills$" : null,
     settings.spirit ? "spiri" : null,
     settings.rarity ? "d rari" : null,
