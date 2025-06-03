@@ -47,6 +47,8 @@ export interface Settings {
       rarity: boolean,
       attackSpeed: boolean,
       castSpeed: boolean,
+      maxLife: boolean,
+      maxMana: boolean,
     },
     resistances: {
       fire: boolean,
@@ -175,6 +177,8 @@ export const defaultSettings: Settings = {
       chaosDamage: false,
       attackSpeed: false,
       castSpeed: false,
+      maxLife: false,
+      maxMana: false
     },
     resistances: {
       fire: false,

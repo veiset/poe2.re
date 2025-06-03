@@ -141,6 +141,16 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, rarity: b}
                      })}
             />
+            <Checked id="mod-rarity" text="Maximum Life" checked={settings.itemMods.maxLife}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, maxLife: b}
+                     })}
+            />
+            <Checked id="mod-rarity" text="Maximum Mana" checked={settings.itemMods.maxMana}
+                     onChange={(b) => setSettings({
+                         ...settings, itemMods: {...settings.itemMods, maxMana: b}
+                     })}
+            />
 
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Resistances</p>
             <Checked id="res-fire" text="Fire resistance" checked={settings.resistances.fire}
