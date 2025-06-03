@@ -238,9 +238,9 @@ export const relicRegex: RelicRegex[] = [
   affix: "SUFFIX",
 }, 
 {
-  name: "The Merchant has # additional Choices",
+  name: "The Merchant has an additional Choice",
   regex: "cho",
-  values: [3, 2],
+  values: [],
   ranges: [],
   affix: "PREFIX",
 }, 
