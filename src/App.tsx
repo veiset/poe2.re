@@ -36,7 +36,7 @@ export default function App() {
         <Menu/>
         <SidebarInset>
           <Routes>
-            <Route path="/" element={<Requests/>}/>
+            <Route path="/" element={<Vendor/>}/>
             <Route path="/vendor" element={<Vendor/>}/>
             <Route path="/waystone" element={<Waystone/>}/>
             <Route path="/tablet" element={<Tablet/>}/>
