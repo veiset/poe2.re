@@ -78,12 +78,25 @@ function movement(settings: Settings["vendor"]["movementSpeed"]): string | null 
 }
 
 function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
+  const eleDamage = settings.elemental ? "cfl" : [
+    settings.coldDamage ? "co" : null,
+    settings.chaosDamage ? "ch" : null,
+    settings.fireDamage ? "f" : null,
+    settings.lightningDamage? "l" : null,
+  ].filter((e) => e !== null).join("|");
+
+  const eleString = eleDamage.includes("|") ? `(${eleDamage})` : `${eleDamage}`;
+
   return [
     settings.physical ? "ph.*da" : null,
-    settings.elemental ? "\\d [cfl].+da" : null,
+    eleDamage ? `\\d ${eleString}.+da` : null,
     settings.skillLevel ? "^\\+.*ills$" : null,
     settings.spirit ? "spiri" : null,
     settings.rarity ? "d rari" : null,
+    settings.attackSpeed ? "ck spe" : null,
+    settings.castSpeed ? "st spe" : null,
+    settings.maxLife ? "\\d.+life" : null,
+    settings.maxMana ? "\\d.+mana" : null,
   ].filter((e) => e !== null)
 }
 

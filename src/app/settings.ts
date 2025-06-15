@@ -38,9 +38,17 @@ export interface Settings {
     itemMods: {
       physical: boolean,
       elemental: boolean,
+      fireDamage: boolean,
+      coldDamage: boolean,
+      lightningDamage: boolean,
+      chaosDamage: boolean,
       skillLevel: boolean,
       spirit: boolean,
       rarity: boolean,
+      attackSpeed: boolean,
+      castSpeed: boolean,
+      maxLife: boolean,
+      maxMana: boolean,
     },
     resistances: {
       fire: boolean,
@@ -163,6 +171,14 @@ export const defaultSettings: Settings = {
       skillLevel: false,
       spirit: false,
       rarity: false,
+      fireDamage: false,
+      coldDamage: false,
+      lightningDamage: false,
+      chaosDamage: false,
+      attackSpeed: false,
+      castSpeed: false,
+      maxLife: false,
+      maxMana: false
     },
     resistances: {
       fire: false,
