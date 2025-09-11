@@ -97,8 +97,8 @@ export function Tablet(){
             />
             <Input type="number" placeholder="Min affected maps in range" className="pb-2 mb-2 w-40"
                    value={settings.modifier.numAffectedMaps}
-                   min="1"
-                   max="10"
+                   min="2"
+                   max="18"
                    onChange={(b) =>
                      setSettings({
                        ...settings, modifier: {...settings.modifier, numAffectedMaps: Number(b.target.value) || 0}
