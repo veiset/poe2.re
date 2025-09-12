@@ -94,15 +94,16 @@ function generateTypeRegex(settings: Settings["tablet"]["type"]): string | null 
 
 /**
  * Generates a regex that matches all numbers greater or equal the
- * given limit. The maximum of affected maps is 10.
- *
+ * given limit.
+ * The limits are (2, 18).
+ * 
  * Includes some rudimentary length optimization to generate short regex
- * due to the 50 character limits of the PoE search.
+ * due to the (old) 50 character limits of the PoE search.
  * 
  * Example regex:
- *  2   ->  "([2-9]|10)\\D{7}n Ra"
- *  9   ->  "(9|10)\\D{7}n Ra"
- *  10  ->  "(10)\\D{7}n Ra"
+ *  2   ->  "([2-9]|1\d)\\D{7}n Ra"
+ *  9   ->  "(9|1\d)\\D{7}n Ra"
+ *  18  ->  "(18)\\D{7}n Ra"
  *  
  *
  * @param settings - Settings instance that contains input value
@@ -110,19 +111,26 @@ function generateTypeRegex(settings: Settings["tablet"]["type"]): string | null 
  *
  */
 function generateAffectedMapsRegex(settings: Settings["tablet"]["modifier"]): string | null {
-  if (settings.numAffectedMaps < 1 || settings.numAffectedMaps > 10) {
+  if (settings.numAffectedMaps < 2 || settings.numAffectedMaps > 18) {
     return null;
   }
 
   let regex = "\"";
-  if(settings.numAffectedMaps === 10) {
-    regex += "(10)"
+
+  /* Upper limit */
+  if(settings.numAffectedMaps === 18) {
+    regex += "(18)"
+  }
+  /* Single digit? */
+  else if(settings.numAffectedMaps < 10) {
+    regex += "(" + ((settings.numAffectedMaps === 9) ? "9" : `[${settings.numAffectedMaps}-9]`) + "|1\\d)"  
   }
   else
   {
-    regex += "(" + ((settings.numAffectedMaps === 9) ? "9" : `[${settings.numAffectedMaps}-9]`) + "|10)"
+    regex += "(1" + `[${settings.numAffectedMaps % 10}-8])`
   }
   
+  /* final suffix matches "xx Maps in Range are" */
   regex += "\\D{7}n Ra\"";
   return regex;
 }
