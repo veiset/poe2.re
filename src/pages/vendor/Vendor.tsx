@@ -141,12 +141,12 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, rarity: b}
                      })}
             />
-            <Checked id="mod-rarity" text="Maximum Life" checked={settings.itemMods.maxLife}
+            <Checked id="mod-max-life" text="Maximum Life" checked={settings.itemMods.maxLife}
                      onChange={(b) => setSettings({
                          ...settings, itemMods: {...settings.itemMods, maxLife: b}
                      })}
             />
-            <Checked id="mod-rarity" text="Maximum Mana" checked={settings.itemMods.maxMana}
+            <Checked id="mod-max-mana" text="Maximum Mana" checked={settings.itemMods.maxMana}
                      onChange={(b) => setSettings({
                          ...settings, itemMods: {...settings.itemMods, maxMana: b}
                      })}
