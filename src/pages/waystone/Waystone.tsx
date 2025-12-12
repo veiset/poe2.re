@@ -2,7 +2,8 @@ import {Header} from "@/components/header/Header.tsx";
 import {Result} from "@/components/result/Result.tsx";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {useEffect, useState} from "react";
-import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts";
+import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
+import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {generateWaystoneRegex} from "@/pages/waystone/WaystoneResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {
@@ -20,7 +21,9 @@ import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Label} from "@/components/ui/label";
 
 export function Waystone() {
-  const globalSettings = loadSettings(selectedProfile())
+  const initialProfile = selectedProfile();
+  const [currentProfile, setCurrentProfile] = useState<string>(initialProfile);
+  const globalSettings = loadSettings(initialProfile)
   const [settings, setSettings] = useState<Settings["waystone"]>(globalSettings.waystone);
   const [result, setResult] = useState("");
 
@@ -49,14 +52,27 @@ export function Waystone() {
     }));
 
   useEffect(() => {
-    const settingsResult = {...globalSettings, waystone: {...settings}};
+    const base = loadSettings(currentProfile);
+    const settingsResult = {...base, waystone: {...settings}, name: currentProfile};
     saveSettings(settingsResult);
     setResult(generateWaystoneRegex(settingsResult));
   }, [settings]);
 
+  useEffect(() => {
+    const gs = loadSettings(currentProfile);
+    setSettings(gs.waystone);
+    setResult(generateWaystoneRegex(gs));
+    setSelectedProfile(currentProfile);
+  }, [currentProfile]);
+
   return (
     <>
-      <Header name="Waystone Regex"></Header>
+      <div className="flex items-center justify-between">
+        <Header name="Waystone Regex"></Header>
+        <div className="page-header-profile pr-4">
+          <ProfileSelector currentProfile={currentProfile} setCurrentProfile={setCurrentProfile} />
+        </div>
+      </div>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}

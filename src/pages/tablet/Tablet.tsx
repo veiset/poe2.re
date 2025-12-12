@@ -2,25 +2,41 @@ import {Header} from "@/components/header/Header.tsx";
 import {Result} from "@/components/result/Result.tsx";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {useEffect, useState} from "react";
-import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts";
+import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
+import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {generateTabletRegex} from "@/pages/tablet/TabletResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {Checked} from "@/components/checked/Checked.tsx";
 
 export function Tablet(){
-  const globalSettings = loadSettings(selectedProfile())
+  const initialProfile = selectedProfile();
+  const [currentProfile, setCurrentProfile] = useState<string>(initialProfile);
+  const globalSettings = loadSettings(initialProfile)
   const [settings, setSettings] = useState<Settings["tablet"]>(globalSettings.tablet);
   const [result, setResult] = useState("");
 
   useEffect(() => {
-    const settingsResult = {...globalSettings, tablet: {...settings}};
+    const base = loadSettings(currentProfile);
+    const settingsResult = {...base, tablet: {...settings}, name: currentProfile};
     saveSettings(settingsResult);
     setResult(generateTabletRegex(settingsResult));
   }, [settings]);
 
+  useEffect(() => {
+    const gs = loadSettings(currentProfile);
+    setSettings(gs.tablet);
+    setResult(generateTabletRegex(gs));
+    setSelectedProfile(currentProfile);
+  }, [currentProfile]);
+
   return (
     <>
-      <Header name="Tablet Regex"></Header>
+      <div className="flex items-center justify-between">
+        <Header name="Tablet Regex"></Header>
+        <div className="page-header-profile pr-4">
+          <ProfileSelector currentProfile={currentProfile} setCurrentProfile={setCurrentProfile} />
+        </div>
+      </div>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}
@@ -66,22 +82,23 @@ export function Tablet(){
                        ...settings, type: {...settings.type, delirium: b}
                      })}
             />
+            {/* Not sure about this one, so i didn't changed tablettype from precursor to irradiated ~ MaxxxxiorS */}
             <Checked id="tablettype-precursor" text="Irradiated" checked={settings.type.irradiated}
                      onChange={(b) => setSettings({
                        ...settings, type: {...settings.type, irradiated: b}
                      })}
             />
-            <Checked id="tablettype-breach" text="Expedition" checked={settings.type.expedition}
+            <Checked id="tablettype-expedition" text="Expedition" checked={settings.type.expedition}
                      onChange={(b) => setSettings({
                        ...settings, type: {...settings.type, expedition: b}
                      })}
             />
-            <Checked id="tablettype-breach" text="Ritual" checked={settings.type.ritual}
+            <Checked id="tablettype-ritual" text="Ritual" checked={settings.type.ritual}
                      onChange={(b) => setSettings({
                        ...settings, type: {...settings.type, ritual: b}
                      })}
             />
-            <Checked id="tablettype-breach" text="Overseer" checked={settings.type.overseer}
+            <Checked id="tablettype-overseer" text="Overseer" checked={settings.type.overseer}
                      onChange={(b) => setSettings({
                        ...settings, type: {...settings.type, overseer: b}
                      })}
