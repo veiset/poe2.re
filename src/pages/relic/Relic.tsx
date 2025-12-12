@@ -2,7 +2,8 @@ import {Header} from "@/components/header/Header.tsx";
 import {Result} from "@/components/result/Result.tsx";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {useEffect, useState} from "react";
-import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts";
+import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
+import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
 import {relicRegex} from "@/generated/Relic.Gen.ts";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group.tsx";
@@ -11,7 +12,9 @@ import {generateRelicResult} from "@/pages/relic/RelicResult.ts";
 
 
 export function Relic() {
-  const globalSettings = loadSettings(selectedProfile())
+  const initialProfile = selectedProfile();
+  const [currentProfile, setCurrentProfile] = useState<string>(initialProfile);
+  const globalSettings = loadSettings(initialProfile)
   const [settings, setSettings] = useState<Settings["relic"]>(globalSettings.relic);
   const [result, setResult] = useState("");
 
@@ -36,14 +39,27 @@ export function Relic() {
     }));
 
   useEffect(() => {
-    const settingsResult = {...globalSettings, relic: {...settings}};
+    const base = loadSettings(currentProfile);
+    const settingsResult = {...base, relic: {...settings}, name: currentProfile};
     saveSettings(settingsResult);
     setResult(generateRelicResult(settingsResult));
   }, [settings]);
 
+  useEffect(() => {
+    const gs = loadSettings(currentProfile);
+    setSettings(gs.relic);
+    setResult(generateRelicResult(gs));
+    setSelectedProfile(currentProfile);
+  }, [currentProfile]);
+
   return (
     <>
-      <Header name="Relic Regex"></Header>
+      <div className="flex items-center justify-between">
+        <Header name="Relic Regex"></Header>
+        <div className="page-header-profile pr-4">
+          <ProfileSelector currentProfile={currentProfile} setCurrentProfile={setCurrentProfile} />
+        </div>
+      </div>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}

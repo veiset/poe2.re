@@ -1,7 +1,8 @@
 import {Header} from "@/components/header/Header.tsx";
 import {Result} from "@/components/result/Result.tsx";
 import {Checked} from "@/components/checked/Checked.tsx";
-import {loadSettings, saveSettings, selectedProfile} from "@/lib/localStorage.ts";
+import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
+import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {useEffect, useState} from "react";
 import {defaultSettings, Settings} from "@/app/settings.ts";
 import {generateVendorRegex} from "@/pages/vendor/VendorResult.ts";
@@ -9,19 +10,35 @@ import {Input} from "@/components/ui/input.tsx";
 
 export function Vendor() {
 
-  const globalSettings = loadSettings(selectedProfile())
-  const [settings, setSettings] = useState<Settings["vendor"]>(globalSettings.vendor);
+  const initialProfile = selectedProfile();
+  const [currentProfile, setCurrentProfile] = useState<string>(initialProfile);
+  const [settings, setSettings] = useState<Settings["vendor"]>(() => loadSettings(initialProfile).vendor);
   const [result, setResult] = useState("");
 
+  // Save whenever settings change (for the currently selected profile)
   useEffect(() => {
-    const settingsResult = {...globalSettings, vendor: {...settings}};
+    const base = loadSettings(currentProfile);
+    const settingsResult: Settings = {...base, vendor: {...settings}, name: currentProfile};
     saveSettings(settingsResult);
     setResult(generateVendorRegex(settingsResult));
   }, [settings]);
 
+  // When the selected profile changes, load its settings
+  useEffect(() => {
+    const gs = loadSettings(currentProfile);
+    setSettings(gs.vendor);
+    setResult(generateVendorRegex(gs));
+    setSelectedProfile(currentProfile);
+  }, [currentProfile]);
+
   return (
     <>
-      <Header name="Vendor Regex"></Header>
+      <div className="flex items-center justify-between">
+        <Header name="Vendor Regex"></Header>
+        <div className="page-header-profile pr-4">
+          <ProfileSelector currentProfile={currentProfile} setCurrentProfile={setCurrentProfile} />
+        </div>
+      </div>
       <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
         <Result
           result={result}
@@ -56,15 +73,15 @@ export function Vendor() {
                      })}
             />
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Speed</p>
-            <Checked id="mod-phys" text="Attack speed" checked={settings.itemMods.attackSpeed}
-                     onChange={(b) => setSettings({
-                         ...settings, itemMods: {...settings.itemMods, attackSpeed: b}
-                     })}
+            <Checked id="mod-attack-speed" text="Attack speed" checked={settings.itemMods.attackSpeed}
+                 onChange={(b) => setSettings({
+                   ...settings, itemMods: {...settings.itemMods, attackSpeed: b}
+                 })}
             />
-            <Checked id="mod-phys" text="Cast speed" checked={settings.itemMods.castSpeed}
-                     onChange={(b) => setSettings({
-                         ...settings, itemMods: {...settings.itemMods, castSpeed: b}
-                     })}
+            <Checked id="mod-cast-speed" text="Cast speed" checked={settings.itemMods.castSpeed}
+                 onChange={(b) => setSettings({
+                   ...settings, itemMods: {...settings.itemMods, castSpeed: b}
+                 })}
             />
 
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Movement speed</p>
@@ -96,32 +113,32 @@ export function Vendor() {
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item modifiers</p>
-            <Checked id="mod-phys" text="Physical damage" checked={settings.itemMods.physical}
+            <Checked id="mod-physical" text="Physical damage" checked={settings.itemMods.physical}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, physical: b}
                      })}
             />
-            <Checked id="mod-ele" text="Elemental damage" checked={settings.itemMods.elemental}
+            <Checked id="mod-elemental" text="Elemental damage" checked={settings.itemMods.elemental}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, elemental: b}
                      })}
             />
-            <Checked id="mod-ele" text="Cold damage" checked={settings.itemMods.coldDamage}
+            <Checked id="mod-cold" text="Cold damage" checked={settings.itemMods.coldDamage}
                      onChange={(b) => setSettings({
                          ...settings, itemMods: {...settings.itemMods, coldDamage: b}
                      })}
             />
-            <Checked id="mod-ele" text="Fire damage" checked={settings.itemMods.fireDamage}
+            <Checked id="mod-fire" text="Fire damage" checked={settings.itemMods.fireDamage}
                      onChange={(b) => setSettings({
                          ...settings, itemMods: {...settings.itemMods, fireDamage: b}
                      })}
             />
-            <Checked id="mod-ele" text="Lightning damage" checked={settings.itemMods.lightningDamage}
+            <Checked id="mod-lightning" text="Lightning damage" checked={settings.itemMods.lightningDamage}
                      onChange={(b) => setSettings({
                          ...settings, itemMods: {...settings.itemMods, lightningDamage: b}
                      })}
             />
-            <Checked id="mod-ele" text="Chaos damage" checked={settings.itemMods.chaosDamage}
+            <Checked id="mod-chaos" text="Chaos damage" checked={settings.itemMods.chaosDamage}
                      onChange={(b) => setSettings({
                          ...settings, itemMods: {...settings.itemMods, chaosDamage: b}
                      })}
@@ -268,7 +285,7 @@ export function Vendor() {
 
           </div>
           <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-2">Item class - Jewlery</p>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-2">Item class - Jewellery</p>
             <Checked id="type-amulet" text="Amulets"
                      checked={settings.itemClass.amulets}
                      onChange={(b) => setSettings({
