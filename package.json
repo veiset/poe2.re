@@ -23,7 +23,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react-dom": "19.2.3",
     "react-router-dom": "^7.5.2",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
@@ -32,7 +32,7 @@
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.10.2",
     "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
     "autoprefixer": "^10.4.23",
     "eslint": "^9.15.0",
