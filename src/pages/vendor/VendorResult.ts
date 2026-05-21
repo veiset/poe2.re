@@ -97,6 +97,9 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
     settings.castSpeed ? "st spe" : null,
     settings.maxLife ? "\\d.+life" : null,
     settings.maxMana ? "\\d.+mana" : null,
+    settings.dexterity ? "dext" : null,
+    settings.intelligence ? "inte" : null,
+    settings.strength ? "stre" : null,
   ].filter((e) => e !== null)
 }
 
