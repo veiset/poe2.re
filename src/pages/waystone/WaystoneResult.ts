@@ -1,12 +1,39 @@
 import {Settings} from "@/app/settings.ts";
+import { generateNumberRegex } from "@/lib/GenerateNumberRegex";
 import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
+  const round10 = settings.waystone.modifier.round10
+  const over100 = settings.waystone.modifier.over100
 
   const result = [
     generateTierRegex(settings.waystone.tier),
     generateModifiers(settings.waystone.modifier),
     generateRarity(settings.waystone.rarity),
+    addQuantifier(
+      "m q.*",
+      generateNumberRegex(settings.waystone.itemQuantity, round10, over100),
+    ),
+    addQuantifier(
+      "m rar.*",
+      generateNumberRegex(settings.waystone.itemRarity, round10, over100),
+    ),
+    addQuantifier(
+      "p c.*",
+      generateNumberRegex(
+        settings.waystone.waystoneDropChance,
+        round10,
+        over100,
+      ),
+    ),
+    addQuantifier(
+      "c m.*",
+      generateNumberRegex(settings.waystone.magicMonsters, round10, over100),
+    ),
+    addQuantifier(
+      "e mo.*",
+      generateNumberRegex(settings.waystone.rareMonsters, round10, over100),
+    ),
     settings.waystone.resultSettings.customText || null,
   ].filter((e) => e !== null);
 
@@ -48,7 +75,6 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     : prefixes.map((e) => `"${e}"`).join(" ");
 
   const goodMods = [
-    settings.dropOverX ? `: \\+[${settings.dropOverValue.toString()[0]}-9]\\d\\d` : null,
     settings.delirious ? "delir" : null,
     settings.anyPack ? "al pac" : null,
   ].filter((e) => e !== null);
@@ -75,6 +101,12 @@ function generateRarity(settings: Settings["waystone"]["rarity"]): string | null
   return null;
 }
 
+function addQuantifier(prefix: string, string: string) {
+  if (string === "") {
+    return "";
+  }
+  return `"${prefix}${string}%"`;
+}
 
 function range(start: number, end: number): number[] {
   if (end - start <= 0) return [];

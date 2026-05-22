@@ -102,14 +102,17 @@ export interface Settings {
     modifier: {
       over100: boolean,
       round10: boolean,
-      dropOverX: boolean,
-      dropOverValue: number,
       delirious: boolean,
       anyPack: boolean,
       prefixSelectType: string,
       prefixes: SelectOption[],
       suffixes: SelectOption[],
-    }
+    },
+    itemRarity: string,
+    itemQuantity: string,
+    waystoneDropChance: string,
+    magicMonsters: string,
+    rareMonsters: string,
   },
   tablet: {
     resultSettings: ResultSettings,
@@ -232,14 +235,17 @@ export const defaultSettings: Settings = {
     modifier: {
       over100: false,
       round10: true,
-      dropOverX: false,
-      dropOverValue: 200,
       delirious: false,
       anyPack: false,
       prefixSelectType: "any",
       prefixes: [],
       suffixes: [],
-    }
+    },
+    itemQuantity: "",
+    itemRarity: "",
+    magicMonsters: "",
+    rareMonsters: "",
+    waystoneDropChance: ""
   },
   tablet: {
     resultSettings: defaultResultSettings,

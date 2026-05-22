@@ -92,65 +92,142 @@ export function Waystone() {
         />
       </div>
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
-        <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Global settings</p>
-            <Checked id="round-10" text="Round down to nearest 10 (saves a lot of space)"
-                     checked={settings.modifier.round10}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, round10: b}
-                     })}
-            />
-            <Checked id="over-100" text="Match numbers over 100% (takes more space)"
-                     checked={settings.modifier.over100}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, over100: b}
-                     })}
-            />
-          </div>
-          <div className="grid lg:grid-cols-2">
+        <div>
+          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Global settings</p>
+          <Checked id="round-10" text="Round down to nearest 10 (saves a lot of space)"
+                   checked={settings.modifier.round10}
+                   onChange={(b) => setSettings({
+                     ...settings, modifier: {...settings.modifier, round10: b}
+                   })}
+          />
+          <Checked id="over-100" text="Match numbers over 100% (takes more space)"
+                   checked={settings.modifier.over100}
+                   onChange={(b) => setSettings({
+                     ...settings, modifier: {...settings.modifier, over100: b}
+                   })}
+          />
+        </div>
+
+        <div>
+          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">{"Quantity & yield"}</p>
+
+          <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
+            <div className="space-y-1">
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-iiq">Waystone IIQ:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-iiq"
+                       value={settings.itemQuantity}
+                       onChange={(e) => setSettings({
+                         ...settings, itemQuantity: e.target.value
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-iir">Waystone IIR:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-iir"
+                       value={settings.itemRarity}
+                       onChange={(e) => setSettings({
+                         ...settings, itemRarity: e.target.value
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-drop-chance">Waystone Drop Chance:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-drop-chance"
+                       value={settings.waystoneDropChance}
+                       onChange={(e) => setSettings({
+                        ...settings, waystoneDropChance: e.target.value
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-magic-monsters">Waystone Magic Monsters:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-magic-monsters"
+                       value={settings.magicMonsters}
+                       onChange={(e) => setSettings({
+                        ...settings, magicMonsters: e.target.value
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-rare-monsters">Waystone Rare Monsters:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-rare-monsters"
+                       value={settings.rareMonsters}
+                       onChange={(e) => setSettings({
+                        ...settings, rareMonsters: e.target.value
+                       })}
+                />
+              </div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-min-tier">Minimum tier:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-min-tier"
+                       type="number"
+                       min="1"
+                       max="16"
+                       placeholder="Min tier"
+                       value={settings.tier.min}
+                       onChange={(b) => {
+                         if (Number(b.target.value) <= settings.tier.max) {
+                           setSettings({
+                             ...settings, tier: {...settings.tier, min: Math.min(Number(b.target.value), 16) || 0}
+                           })
+                         }
+                       }}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-max-tier">Maximum tier:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-max-tier"
+                       type="number"
+                       min="1"
+                       max="16"
+                       placeholder="Min tier"
+                       value={settings.tier.max}
+                       onChange={(b) => {
+                         if (Number(b.target.value) >= settings.tier.min) {
+                           setSettings({
+                             ...settings, tier: {...settings.tier, max: Math.min(Number(b.target.value), 16) || 0}
+                           })
+                         }
+                       }}
+                />
+              </div>
+            </div>
+
             <div>
-              <p className="pb-2">Minimum tier:</p>
-              <Input type="number" min="1" max="16" placeholder="Min tier" className="pb-2 mb-2 w-40"
-                     value={settings.tier.min}
-                     onChange={(b) => {
-                       if (Number(b.target.value) <= settings.tier.max) {
-                         setSettings({
-                           ...settings, tier: {...settings.tier, min: Math.min(Number(b.target.value), 16) || 0}
-                         })
-                       }
-                     }}
+              <Checked id="rarity-corrupted" text="Corrupted Waystones"
+                       checked={settings.rarity.corrupted}
+                       onChange={(b) => setSettings({
+                         ...settings, rarity: {...settings.rarity, corrupted: b}
+                       })}
+              />
+              <Checked id="rarity-uncorrupted" text="Uncorrupted Waystones"
+                       checked={settings.rarity.uncorrupted}
+                       onChange={(b) => setSettings({
+                         ...settings, rarity: {...settings.rarity, uncorrupted: b}
+                       })}
+              />
+              <Checked id="mod-delirious" text="Players in area are #% delirious"
+                       checked={settings.modifier.delirious}
+                       onChange={(b) => setSettings({
+                         ...settings, modifier: {...settings.modifier, delirious: b}
+                       })}
               />
             </div>
-            <div>
-              <p className="pb-2">Maximum tier:</p>
-              <Input type="number" min="1" max="16" placeholder="Max tier" className="pb-2 mb-2 w-40"
-                     value={settings.tier.max}
-                     onChange={(b) => {
-                       if (Number(b.target.value) >= settings.tier.min) {
-                         setSettings({
-                           ...settings, tier: {...settings.tier, max: Math.min(Number(b.target.value), 16) || 0}
-                         })
-                       }
-                     }}
-              />
-            </div>
-          </div>
-          <div>
-            <Checked id="rarity-corrupted" text="Corrupted Waystones"
-                     checked={settings.rarity.corrupted}
-                     onChange={(b) => setSettings({
-                       ...settings, rarity: {...settings.rarity, corrupted: b}
-                     })}
-            />
-            <Checked id="rarity-uncorrupted" text="Uncorrupted Waystones"
-                     checked={settings.rarity.uncorrupted}
-                     onChange={(b) => setSettings({
-                       ...settings, rarity: {...settings.rarity, uncorrupted: b}
-                     })}
-            />
+
           </div>
         </div>
+
         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-10">
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
@@ -172,37 +249,6 @@ export function Waystone() {
                 </div>
               </RadioGroup>
             </div>
-            <Checked id="mod-drop-over-200" text="Waystone drop chance over"
-                     checked={settings.modifier.dropOverX}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, dropOverX: b}
-                     })}
-            >
-              <div className="w-20">
-                <Select value={settings.modifier.dropOverValue.toString()} onValueChange={(e) =>
-                  setSettings({
-                    ...settings, modifier: {...settings.modifier, dropOverValue: Number(e)}
-                  })
-                }>
-                  <SelectTrigger className="pl-2 pb-0 pt-0 h-8" >
-                    <SelectValue placeholder="100%"/>
-                  </SelectTrigger>
-                  <SelectContent >
-                    <SelectGroup>
-                      {[100, 200, 300, 400, 500, 600, 700].map((option) => (
-                        <SelectItem key={option} value={option.toString()}>{option}%</SelectItem>
-                      ))}
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
-              </div>
-            </Checked>
-            <Checked id="mod-delirious" text="Players in area are #% delirious"
-                     checked={settings.modifier.delirious}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, delirious: b}
-                     })}
-            />
             <Checked id="mod-anypack" text="Area contains # of any additional packs"
                      checked={settings.modifier.anyPack}
                      onChange={(b) => setSettings({
