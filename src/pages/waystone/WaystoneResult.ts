@@ -3,44 +3,17 @@ import { generateNumberRegex } from "@/lib/GenerateNumberRegex";
 import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
-  const round10 = settings.waystone.modifier.round10
-  const over100 = settings.waystone.modifier.over100
-
   const result = [
     generateTierRegex(settings.waystone.tier),
     generateModifiers(settings.waystone.modifier),
     generateRarity(settings.waystone.rarity),
-    addQuantifier(
-      "m q.*",
-      generateNumberRegex(settings.waystone.itemQuantity, round10, over100),
-    ),
-    addQuantifier(
-      "m rar.*",
-      generateNumberRegex(settings.waystone.itemRarity, round10, over100),
-    ),
-    addQuantifier(
-      "p c.*",
-      generateNumberRegex(
-        settings.waystone.waystoneDropChance,
-        round10,
-        over100,
-      ),
-    ),
-    addQuantifier(
-      "c m.*",
-      generateNumberRegex(settings.waystone.magicMonsters, round10, over100),
-    ),
-    addQuantifier(
-      "e mo.*",
-      generateNumberRegex(settings.waystone.rareMonsters, round10, over100),
-    ),
+    ...generateQuantifiers(settings.waystone),
     settings.waystone.resultSettings.customText || null,
   ].filter((e) => e !== null);
 
   if (result.length === 0) return "";
   return result.join(" ").trim();
 }
-
 
 function generateTierRegex(settings: Settings["waystone"]["tier"]): string | null {
   if (settings.max === 0 && settings.min === 0) return null
@@ -99,6 +72,34 @@ function generateRarity(settings: Settings["waystone"]["rarity"]): string | null
   if (settings.corrupted) return "corr";
   if (settings.uncorrupted) return "!corr";
   return null;
+}
+
+function generateQuantifiers(waystone: Settings["waystone"]): string[] {
+  const round10 = waystone.modifier.round10;
+  const over100 = waystone.modifier.over100;
+
+  return [
+    addQuantifier(
+      "m q.*",
+      generateNumberRegex(waystone.itemQuantity, round10, over100),
+    ),
+    addQuantifier(
+      "m rar.*",
+      generateNumberRegex(waystone.itemRarity, round10, over100),
+    ),
+    addQuantifier(
+      "p c.*",
+      generateNumberRegex(waystone.waystoneDropChance, round10, over100),
+    ),
+    addQuantifier(
+      "c m.*",
+      generateNumberRegex(waystone.magicMonsters, round10, over100),
+    ),
+    addQuantifier(
+      "e mo.*",
+      generateNumberRegex(waystone.rareMonsters, round10, over100),
+    ),
+  ];
 }
 
 function addQuantifier(prefix: string, string: string) {
