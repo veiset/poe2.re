@@ -6,7 +6,7 @@ export function generateWaystoneRegex(settings: Settings): string {
   const result = [
     generateTierRegex(settings.waystone.tier),
     generateModifiers(settings.waystone.modifier),
-    generateRarity(settings.waystone.rarity),
+    generateState(settings.waystone.state),
     ...generateQuantifiers(settings.waystone),
     settings.waystone.resultSettings.customText || null,
   ].filter((e) => e !== null);
@@ -39,39 +39,33 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 }
 
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
-  const prefixes = settings.prefixes
+  const wantedMods = settings.wantedMods
     .filter((e) => e.isSelected)
     .map((e) => selectedOptionRegex(e, settings.round10, settings.over100));
 
-  const prefixesWithType = settings.prefixSelectType === "any"
-    ? prefixes.join("|")
-    : prefixes.map((e) => `"${e}"`).join(" ");
+  const wantedModsWithType = settings.wantedModsSelectType === "any"
+    ? `"${wantedMods.join("|")}"`
+    : wantedMods.map((e) => `"${e}"`).join(" ");
 
-  const goodMods = [
-    settings.delirious ? "delir" : null,
-    settings.anyPack ? "al pac" : null,
-  ].filter((e) => e !== null);
-
-  const goodModsWithType = settings.prefixSelectType === "any"
-    ? `"${goodMods.concat(prefixesWithType).filter((e) => e !== null && e !== "").join("|")}"`
-    : goodMods.map((e) => `"${e}"`).concat(prefixesWithType).join(" ");
-
-  const badMods = settings.suffixes
+  const unwantedMods = settings.unwantedMods
     .filter((e) => e.isSelected)
     .map((e) => selectedOptionRegex(e, settings.round10, settings.over100))
     .join("|")
 
   return [
-    (goodMods.length + prefixes.length) > 0 ? goodModsWithType : null,
-    badMods.length > 0 ? `"!${badMods}"` : null,
+    (wantedMods.length) > 0 ? wantedModsWithType : null,
+    unwantedMods.length > 0 ? `"!${unwantedMods}"` : null,
   ].join(" ");
 }
 
-function generateRarity(settings: Settings["waystone"]["rarity"]): string | null {
-  if (settings.uncorrupted && settings.corrupted) return null;
-  if (settings.corrupted) return "corr";
-  if (settings.uncorrupted) return "!corr";
-  return null;
+function generateState(settings: Settings["waystone"]["state"]): string | null {
+  const delirious = settings.delirious ? "delir" : null;
+  const corrupted =
+    settings.corrupted && !settings.uncorrupted ? "corr"
+      : !settings.corrupted && settings.uncorrupted ? "!corr"
+      : null
+
+  return [delirious, corrupted].filter(s => s !== null).join(" ")
 }
 
 function generateQuantifiers(waystone: Settings["waystone"]): string[] {

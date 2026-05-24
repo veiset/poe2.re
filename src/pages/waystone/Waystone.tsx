@@ -19,28 +19,26 @@ export function Waystone() {
   const [settings, setSettings] = useState<Settings["waystone"]>(globalSettings.waystone);
   const [result, setResult] = useState("");
 
-  const prefixes: SelectOption[] = waystoneRegex
-    .filter((e) => e.affix === "PREFIX")
+  const wantedMods: SelectOption[] = waystoneRegex
     .map((mod) => ({
       name: mod.name,
-      isSelected: settings.modifier.prefixes
+      isSelected: settings.modifier.wantedMods
         .some((e) => e.name === mod.name && e.isSelected),
-      value: settings.modifier.prefixes
+      value: settings.modifier.wantedMods
         .find((e) => e.name === mod.name)?.value || null,
       ranges: mod.ranges,
       regex: mod.regex,
     }));
 
-  const suffixes: SelectOption[] = waystoneRegex
-    .filter((e) => e.affix === "SUFFIX")
+  const unwantedMods: SelectOption[] = waystoneRegex
     .map((mod) => ({
       name: mod.name,
-      isSelected: settings.modifier.suffixes
+      isSelected: settings.modifier.unwantedMods
         .some((e) => e.name === mod.name && e.isSelected),
-      value: settings.modifier.suffixes
+      value: settings.modifier.unwantedMods
         .find((e) => e.name === mod.name)?.value || null,
       ranges: mod.ranges,
-      regex: mod.regex
+      regex: mod.regex,
     }));
 
   useEffect(() => {
@@ -197,22 +195,22 @@ export function Waystone() {
             </div>
 
             <div>
-              <Checked id="rarity-corrupted" text="Corrupted Waystones"
-                       checked={settings.rarity.corrupted}
+              <Checked id="state-corrupted" text="Corrupted Waystones"
+                       checked={settings.state.corrupted}
                        onChange={(b) => setSettings({
-                         ...settings, rarity: {...settings.rarity, corrupted: b}
+                         ...settings, state: {...settings.state, corrupted: b}
                        })}
               />
-              <Checked id="rarity-uncorrupted" text="Uncorrupted Waystones"
-                       checked={settings.rarity.uncorrupted}
+              <Checked id="state-uncorrupted" text="Uncorrupted Waystones"
+                       checked={settings.state.uncorrupted}
                        onChange={(b) => setSettings({
-                         ...settings, rarity: {...settings.rarity, uncorrupted: b}
+                         ...settings, state: {...settings.state, uncorrupted: b}
                        })}
               />
               <Checked id="mod-delirious" text="Players in area are #% delirious"
-                       checked={settings.modifier.delirious}
+                       checked={settings.state.delirious}
                        onChange={(b) => setSettings({
-                         ...settings, modifier: {...settings.modifier, delirious: b}
+                         ...settings, state: {...settings.state, delirious: b}
                        })}
               />
             </div>
@@ -223,12 +221,28 @@ export function Waystone() {
         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-10">
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
-              Prefixes - Good modifiers
+              I don't want any of these mods
+            </p>
+            <SelectList
+              id="unwanted-mods"
+              options={unwantedMods}
+              selected={settings.modifier.unwantedMods}
+              setSelected={(modifiers) => {
+                setSettings({
+                  ...settings,
+                  modifier: {...settings.modifier, unwantedMods: modifiers}
+                })
+              }}
+            />
+          </div>
+          <div>
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
+              I want these mods
             </p>
             <div className="pb-4">
-              <RadioGroup value={settings.modifier.prefixSelectType} onValueChange={(v) => {
+              <RadioGroup value={settings.modifier.wantedModsSelectType} onValueChange={(v) => {
                 setSettings({
-                  ...settings, modifier: {...settings.modifier, prefixSelectType: v}
+                  ...settings, modifier: {...settings.modifier, wantedModsSelectType: v}
                 })
               }}>
                 <div className="flex items-center space-x-2">
@@ -241,36 +255,14 @@ export function Waystone() {
                 </div>
               </RadioGroup>
             </div>
-            <Checked id="mod-anypack" text="Area contains # of any additional packs"
-                     checked={settings.modifier.anyPack}
-                     onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, anyPack: b}
-                     })}
-            />
             <SelectList
-              id="prefix-modifiers"
-              options={prefixes}
-              selected={settings.modifier.prefixes}
+              id="wanted-mods"
+              options={wantedMods}
+              selected={settings.modifier.wantedMods}
               setSelected={(modifiers) => {
                 setSettings({
                   ...settings,
-                  modifier: {...settings.modifier, prefixes: modifiers}
-                })
-              }}
-            />
-          </div>
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
-              Suffixes - Bad modifiers (will not highlight maps with these modifiers)
-            </p>
-            <SelectList
-              id="suffix-modifiers"
-              options={suffixes}
-              selected={settings.modifier.suffixes}
-              setSelected={(modifiers) => {
-                setSettings({
-                  ...settings,
-                  modifier: {...settings.modifier, suffixes: modifiers}
+                  modifier: {...settings.modifier, wantedMods: modifiers}
                 })
               }}
             />
