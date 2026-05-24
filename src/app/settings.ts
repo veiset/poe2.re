@@ -49,6 +49,9 @@ export interface Settings {
       castSpeed: boolean,
       maxLife: boolean,
       maxMana: boolean,
+      strength: boolean,
+      intelligence: boolean,
+      dexterity: boolean,
     },
     resistances: {
       fire: boolean,
@@ -181,7 +184,10 @@ export const defaultSettings: Settings = {
       attackSpeed: false,
       castSpeed: false,
       maxLife: false,
-      maxMana: false
+      maxMana: false,
+      strength: false,
+      intelligence: false,
+      dexterity: false,
     },
     resistances: {
       fire: false,

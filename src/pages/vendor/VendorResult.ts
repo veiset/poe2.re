@@ -87,6 +87,12 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
 
   const eleString = eleDamage.includes("|") ? `(${eleDamage})` : `${eleDamage}`;
 
+  const attributes = [
+    settings.strength ? "str" : null,
+    settings.dexterity ? "d" : null,
+    settings.intelligence ? "int" : null,
+  ].filter((e) => e !== null).join("|")
+
   return [
     settings.physical ? "ph.*da" : null,
     eleDamage ? `\\d ${eleString}.+da` : null,
@@ -97,6 +103,7 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
     settings.castSpeed ? "st spe" : null,
     settings.maxLife ? "\\d.+life" : null,
     settings.maxMana ? "\\d.+mana" : null,
+    attributes ? `o (all a|${attributes})` : null
   ].filter((e) => e !== null)
 }
 
