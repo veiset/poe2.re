@@ -1,10 +1,11 @@
 import {Settings} from "@/app/settings.ts";
+import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 
 /**
  * Generates tablet regex toi be pasted in PoE2
- * 
+ *
  * Generates regex for:
- *  rarity, league mechanic, affected maps
+ *  rarity, league mechanic, affected maps, selected affixes
  *
  * @param settings - Settings instance that contains input values
  * @returns Regex as string
@@ -16,11 +17,34 @@ export function generateTabletRegex(settings: Settings): string {
     generateRarityRegex(settings.tablet.rarity),
     generateTypeRegex(settings.tablet.type),
     settings.tablet.modifier.affectedMaps ? generateAffectedMapsRegex(settings.tablet.modifier) : null,
+    ...generateModifierRegex(settings.tablet.modifier),
     settings.tablet.resultSettings.customText || null,
-  ].filter((e) => e !== null);
+  ].filter((e) => e !== null && e !== "");
 
   if (result.length === 0) return "";
   return result.join(" ").trim();
+}
+
+/**
+ * Generates a regex segment for the selected affixes.
+ *
+ * Selected affixes are joined with `|` when match type is "any", or
+ * emitted as separate quoted segments when match type is "all".
+ *
+ * @param settings - Tablet modifier settings
+ * @returns Array of regex segments (already quoted)
+ */
+function generateModifierRegex(settings: Settings["tablet"]["modifier"]): string[] {
+  const affixes = settings.affixes
+    .filter((e) => e.isSelected)
+    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100));
+
+  if (affixes.length === 0) return [];
+
+  if (settings.affixSelectType === "all") {
+    return affixes.map((e) => `"${e}"`);
+  }
+  return [`"${affixes.join("|")}"`];
 }
 
 /**

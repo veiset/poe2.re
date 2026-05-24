@@ -7,6 +7,10 @@ import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {generateTabletRegex} from "@/pages/tablet/TabletResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {Checked} from "@/components/checked/Checked.tsx";
+import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
+import {loadTabletAffixes, TabletAffix} from "@/lib/loadTabletAffixes.ts";
+import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
+import {Label} from "@/components/ui/label";
 
 export function Tablet(){
   const initialProfile = selectedProfile();
@@ -14,6 +18,25 @@ export function Tablet(){
   const globalSettings = loadSettings(initialProfile)
   const [settings, setSettings] = useState<Settings["tablet"]>(globalSettings.tablet);
   const [result, setResult] = useState("");
+  const [affixes, setAffixes] = useState<TabletAffix[]>([]);
+  const [affixSearch, setAffixSearch] = useState("");
+
+  useEffect(() => {
+    loadTabletAffixes().then(setAffixes);
+  }, []);
+
+  const normalizedSearch = affixSearch.trim().toLowerCase();
+  const affixOptions: SelectOption[] = affixes
+    .filter((mod) => normalizedSearch === "" || mod.name.toLowerCase().includes(normalizedSearch))
+    .map((mod) => ({
+      name: mod.name,
+      isSelected: settings.modifier.affixes
+        .some((e) => e.name === mod.name && e.isSelected),
+      value: settings.modifier.affixes
+        .find((e) => e.name === mod.name)?.value || null,
+      ranges: mod.ranges,
+      regex: mod.regex,
+    }));
 
   useEffect(() => {
     const base = loadSettings(currentProfile);
@@ -106,7 +129,7 @@ export function Tablet(){
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Modifier</p>
-            
+
             <Checked id="tabletmodifier-affectedmaps" text="Min. affected maps in range" checked={settings.modifier.affectedMaps}
                      onChange={(b) => setSettings({
                        ...settings, modifier: {...settings.modifier, affectedMaps: b}
@@ -122,6 +145,62 @@ export function Tablet(){
                      })}
             />
           </div>
+        </div>
+
+        <div>
+          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Affix value matching</p>
+          <Checked id="tablet-round-10" text="Round down to nearest 10 (saves a lot of space)"
+                   checked={settings.modifier.round10}
+                   onChange={(b) => setSettings({
+                     ...settings, modifier: {...settings.modifier, round10: b}
+                   })}
+          />
+          <Checked id="tablet-over-100" text="Match numbers over 100% (takes more space)"
+                   checked={settings.modifier.over100}
+                   onChange={(b) => setSettings({
+                     ...settings, modifier: {...settings.modifier, over100: b}
+                   })}
+          />
+        </div>
+
+        <div>
+          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">
+            Modifiers to include
+          </p>
+          <div className="pb-4">
+            <RadioGroup value={settings.modifier.affixSelectType} onValueChange={(v) => {
+              setSettings({
+                ...settings, modifier: {...settings.modifier, affixSelectType: v}
+              })
+            }}>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="any" id="tablet-affix-any"/>
+                <Label htmlFor="tablet-affix-any"><span className="text-lg cursor-pointer">Match when <span className="font-semibold">any</span> mod is found</span></Label>
+              </div>
+              <div className="flex items-center space-x-2 pb-2">
+                <RadioGroupItem value="all" id="tablet-affix-all"/>
+                <Label htmlFor="tablet-affix-all"><span className="text-lg cursor-pointer">Match only when <span className="font-semibold">all</span> mods are found</span></Label>
+              </div>
+            </RadioGroup>
+          </div>
+          <Input
+            type="text"
+            placeholder="Filter modifiers..."
+            className="mb-3 h-8 w-full max-w-sm"
+            value={affixSearch}
+            onChange={(e) => setAffixSearch(e.target.value)}
+          />
+          <SelectList
+            id="tablet-affix-modifiers"
+            options={affixOptions}
+            selected={settings.modifier.affixes}
+            setSelected={(modifiers) => {
+              setSettings({
+                ...settings,
+                modifier: {...settings.modifier, affixes: modifiers}
+              })
+            }}
+          />
         </div>
       </div>
     </>
