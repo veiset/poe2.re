@@ -134,6 +134,10 @@ export interface Settings {
     modifier: {
       affectedMaps: boolean,
       numAffectedMaps: number,
+      over100: boolean,
+      round10: boolean,
+      affixSelectType: string,
+      affixes: SelectOption[],
     }
   },
   relic: {
@@ -270,6 +274,10 @@ export const defaultSettings: Settings = {
     modifier: {
       affectedMaps: false,
       numAffectedMaps: 0,
+      over100: false,
+      round10: true,
+      affixSelectType: "any",
+      affixes: [],
     }
   },
   relic: {
