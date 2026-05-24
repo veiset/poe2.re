@@ -155,12 +155,6 @@ export function Tablet(){
                      ...settings, modifier: {...settings.modifier, round10: b}
                    })}
           />
-          <Checked id="tablet-over-100" text="Match numbers over 100% (takes more space)"
-                   checked={settings.modifier.over100}
-                   onChange={(b) => setSettings({
-                     ...settings, modifier: {...settings.modifier, over100: b}
-                   })}
-          />
         </div>
 
         <div>
