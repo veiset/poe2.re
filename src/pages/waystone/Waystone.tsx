@@ -6,14 +6,6 @@ import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@
 import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {generateWaystoneRegex} from "@/pages/waystone/WaystoneResult.ts";
 import {Input} from "@/components/ui/input.tsx";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import {Checked} from "@/components/checked/Checked.tsx";
 import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
 import {waystoneRegex} from "@/generated/Waystone.Gen.ts";
