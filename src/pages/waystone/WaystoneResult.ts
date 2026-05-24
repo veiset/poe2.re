@@ -1,19 +1,19 @@
 import {Settings} from "@/app/settings.ts";
+import { generateNumberRegex } from "@/lib/GenerateNumberRegex";
 import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
-
   const result = [
     generateTierRegex(settings.waystone.tier),
     generateModifiers(settings.waystone.modifier),
     generateRarity(settings.waystone.rarity),
+    ...generateQuantifiers(settings.waystone),
     settings.waystone.resultSettings.customText || null,
   ].filter((e) => e !== null);
 
   if (result.length === 0) return "";
   return result.join(" ").trim();
 }
-
 
 function generateTierRegex(settings: Settings["waystone"]["tier"]): string | null {
   if (settings.max === 0 && settings.min === 0) return null
@@ -48,7 +48,6 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
     : prefixes.map((e) => `"${e}"`).join(" ");
 
   const goodMods = [
-    settings.dropOverX ? `: \\+[${settings.dropOverValue.toString()[0]}-9]\\d\\d` : null,
     settings.delirious ? "delir" : null,
     settings.anyPack ? "al pac" : null,
   ].filter((e) => e !== null);
@@ -75,6 +74,40 @@ function generateRarity(settings: Settings["waystone"]["rarity"]): string | null
   return null;
 }
 
+function generateQuantifiers(waystone: Settings["waystone"]): string[] {
+  const round10 = waystone.modifier.round10;
+  const over100 = waystone.modifier.over100;
+
+  return [
+    addQuantifier(
+      "m q.*",
+      generateNumberRegex(waystone.itemQuantity, round10, over100),
+    ),
+    addQuantifier(
+      "m rar.*",
+      generateNumberRegex(waystone.itemRarity, round10, over100),
+    ),
+    addQuantifier(
+      "p c.*",
+      generateNumberRegex(waystone.waystoneDropChance, round10, over100),
+    ),
+    addQuantifier(
+      "c m.*",
+      generateNumberRegex(waystone.magicMonsters, round10, over100),
+    ),
+    addQuantifier(
+      "e mo.*",
+      generateNumberRegex(waystone.rareMonsters, round10, over100),
+    ),
+  ];
+}
+
+function addQuantifier(prefix: string, string: string) {
+  if (string === "") {
+    return "";
+  }
+  return `"${prefix}${string}%"`;
+}
 
 function range(start: number, end: number): number[] {
   if (end - start <= 0) return [];
