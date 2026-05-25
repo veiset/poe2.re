@@ -139,6 +139,11 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, physical: b}
                      })}
             />
+            <Checked id="mod-spellDamage" text="Spell damage" checked={settings.itemMods.spellDamage}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, spellDamage: b}
+                     })}
+            />
             <Checked id="mod-elemental" text="Elemental damage" checked={settings.itemMods.elemental}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, elemental: b}
@@ -190,17 +195,17 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, skillLevel: b}
                      })}
             />
-            <Checked id="mod-skill" text="+# to level of minion skills" checked={settings.itemMods.skillLevelMinion}
+            <Checked id="mod-skill-minion" text="+# to level of minion skills" checked={settings.itemMods.skillLevelMinion}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevelMinion: b}
                      })}
             />
-            <Checked id="mod-skill" text="+# to level of melee skills" checked={settings.itemMods.skillLevelMelee}
+            <Checked id="mod-skill-melee" text="+# to level of melee skills" checked={settings.itemMods.skillLevelMelee}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevelMelee: b}
                      })}
             />
-            <Checked id="mod-skill" text="+# to level of spell skills" checked={settings.itemMods.skillLevelSpell}
+            <Checked id="mod-skill-spell" text="+# to level of spell skills" checked={settings.itemMods.skillLevelSpell}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevelSpell: b}
                      })}

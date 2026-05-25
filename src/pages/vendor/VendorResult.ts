@@ -95,6 +95,7 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
 
   return [
     settings.physical ? "ph.*da" : null,
+    settings.spellDamage ? "ell.*ge$" : null,
     eleDamage ? `\\d ${eleString}.+da` : null,
     settings.skillLevel ? "^\\+.*ills$" : null,
     settings.skillLevelMinion ? "^\\+.*ion skills$" : null,
