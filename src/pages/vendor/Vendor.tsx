@@ -205,9 +205,29 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, skillLevelMelee: b}
                      })}
             />
-            <Checked id="mod-skill-spell" text="+# to level of spell skills" checked={settings.itemMods.skillLevelSpell}
+            <Checked id="mod-skill-spell" text="+# to level of all spell skills" checked={settings.itemMods.skillLevelSpell}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevelSpell: b}
+                     })}
+            />
+            <Checked id="mod-skill-fire" text="+# to level of fire spell skills" checked={settings.itemMods.skillLevelFire}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelFire: b}
+                     })}
+            />
+            <Checked id="mod-skill-cold" text="+# to level of cold spell skills" checked={settings.itemMods.skillLevelCold}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelCold: b}
+                     })}
+            />
+            <Checked id="mod-skill-lightning" text="+# to level of lightning spell skills" checked={settings.itemMods.skillLevelLightning}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelLightning: b}
+                     })}
+            />
+            <Checked id="mod-skill-projectile" text="+# to level of projectile skills" checked={settings.itemMods.skillLevelProjectile}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelProjectile: b}
                      })}
             />
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item modifiers (attributes)</p>
