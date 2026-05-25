@@ -1,2155 +1,1514 @@
 {
     "tokens": [
         {
-            "id": -2089247390,
-            "regex": "gb",
-            "rawText": "Area contains 5 additional Strongboxes",
-            "generalizedText": "^area contains # additional strongboxes$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -2038407016,
-            "regex": "j",
-            "rawText": "19% increased Quantity of Items found in this Area\n11% increased [Rarity] of Items found in this Area\n7% increased Pack size\nMonsters fire 2 additional Projectiles",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters fire # additional projectiles$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": -2026057348,
-            "regex": "nv",
-            "rawText": "Area is inhabited by 5 additional Invasion Bosses",
-            "generalizedText": "^area is inhabited by # additional invasion bosses$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -1888227131,
-            "regex": "gb",
-            "rawText": "Area contains 2 additional Strongboxes",
-            "generalizedText": "^area contains # additional strongboxes$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -1687118762,
-            "regex": "r\n",
-            "rawText": "Rare Monsters have 1 additional Modifier\n10% increased Waystones found in Area\n25% increased number of Rare Monsters",
-            "generalizedText": "^rare monsters have # additional modifier\n#% increased waystones found in area\n#% increased number of rare monsters$",
+            "id": -2139256324,
+            "regex": "tak",
+            "rawText": "Monsters take (15-26)% reduced Extra Damage from Critical Hits|(19-30)% increased number of Rare Monsters",
+            "generalizedText": "^monsters take #% reduced extra damage from critical hits$|^#% increased number of rare monsters$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "default"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1679419763,
-            "regex": "\np",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nPlayers cannot inflict Exposure",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nplayers cannot inflict exposure$",
+            "id": -2044821837,
+            "regex": "ign",
+            "rawText": "Area has patches of Ignited Ground",
+            "generalizedText": "^area has patches of ignited ground$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1758889850,
+            "regex": "tn",
+            "rawText": "Monsters deal (15-26)% of Damage as Extra Lightning",
+            "generalizedText": "^monsters deal #% of damage as extra lightning$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1678942184,
+            "regex": "crate",
+            "rawText": "Area has patches of Consecrated Ground",
+            "generalizedText": "^area has patches of consecrated ground$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1575788627,
-            "regex": "dus",
-            "rawText": "Area contains 2 additional Perandus Chests\nArea has a 33% chance to contain Cadiro Perandus",
-            "generalizedText": "^area contains # additional perandus chests\narea has a #% chance to contain cadiro perandus$",
+            "id": -1593657389,
+            "regex": "nsc",
+            "rawText": "Area contains (6-12) additional packs of Transcended Monsters|(8-13)% increased number of Rare Monsters",
+            "generalizedText": "^area contains # additional packs of transcended monsters$|^#% increased number of rare monsters$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "synthesis_area"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1555856241,
-            "regex": "s w",
-            "rawText": "Area contains 5 additional packs with a Rare monster",
-            "generalizedText": "^area contains # additional packs with a rare monster$",
+            "id": -1564089432,
+            "regex": "col",
+            "rawText": "Monsters deal (15-26)% of Damage as Extra Cold",
+            "generalizedText": "^monsters deal #% of damage as extra cold$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "default"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1535190224,
-            "regex": "dus",
-            "rawText": "Area contains 5 additional Perandus Chests\nArea has a 33% chance to contain Cadiro Perandus",
-            "generalizedText": "^area contains # additional perandus chests\narea has a #% chance to contain cadiro perandus$",
+            "id": -1564005638,
+            "regex": "ire$",
+            "rawText": "Monsters deal (15-26)% of Damage as Extra Fire",
+            "generalizedText": "^monsters deal #% of damage as extra fire$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "synthesis_area"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1506287260,
-            "regex": "aim",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nMonsters Maim on Hit with Attacks",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters maim on hit with attacks$",
+            "id": -1556881571,
+            "regex": "bon",
+            "rawText": "Monsters have (140-260)% increased Critical Hit Chance|+(180-300)% to Monster Critical Damage Bonus",
+            "generalizedText": "^monsters have #% increased critical hit chance$|^#% to monster critical damage bonus$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1506130586,
+            "id": -1414823738,
+            "regex": "oo",
+            "rawText": "Players have (20-40)% less Cooldown Recovery Rate",
+            "generalizedText": "^players have #% less cooldown recovery rate$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "primordial_map",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1323891900,
+            "regex": "lm",
+            "rawText": "Monsters have (30-70)% increased Stun Threshold|Monsters have (39-79)% increased Ailment Threshold",
+            "generalizedText": "^monsters have #% increased stun threshold$|^monsters have #% increased ailment threshold$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1315426303,
+            "regex": "e o",
+            "rawText": "Players have (29-40)% less Recovery Rate of Life and Energy Shield",
+            "generalizedText": "^players have #% less recovery rate of life and energy shield$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1242350788,
+            "regex": "ao",
+            "rawText": "Monsters deal (15-26)% of Damage as Extra Chaos",
+            "generalizedText": "^monsters deal #% of damage as extra chaos$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1232070079,
             "regex": "r,",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nMonsters steal Power, Frenzy and Endurance charges on Hit",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters steal power, frenzy and endurance charges on hit$",
+            "rawText": "Monsters have (10-20)% chance to steal Power, Frenzy and Endurance charges on Hit",
+            "generalizedText": "^monsters have #% chance to steal power, frenzy and endurance charges on hit$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -1093249962,
+            "regex": "d ac",
+            "rawText": "Monsters have (15-35)% increased Accuracy Rating",
+            "generalizedText": "^monsters have #% increased accuracy rating$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": -935484485,
+            "regex": "k,",
+            "rawText": "Monsters have 10% increased Attack, Cast and Movement Speed",
+            "generalizedText": "^monsters have #% increased attack, cast and movement speed$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1333083744,
-            "regex": "my",
-            "rawText": "Area can contain Mysterious Harbingers\nArea contains 2 additional Harbingers",
-            "generalizedText": "^area can contain mysterious harbingers\narea contains # additional harbingers$",
+            "id": -874458381,
+            "regex": "wi",
+            "rawText": "Monsters have (25-60)% chance to Impale with Attacks",
+            "generalizedText": "^monsters have #% chance to impale with attacks$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "default"
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1322367325,
-            "regex": "l ma",
-            "rawText": "Area contains 3 additional Magic Monster packs",
-            "generalizedText": "^area contains # additional magic monster packs$",
+            "id": -784142282,
+            "regex": "mor",
+            "rawText": "(20-40)% more Monster Life|(29-49)% increased number of Rare Monsters",
+            "generalizedText": "^#% more monster life$|^#% increased number of rare monsters$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "default"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -1269814104,
-            "regex": "l az",
-            "rawText": "Area contains 3 additional Azmeri Spirits",
-            "generalizedText": "^area contains # additional azmeri spirits$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -1261847713,
-            "regex": "nv",
-            "rawText": "Area is inhabited by 2 additional Invasion Bosses",
-            "generalizedText": "^area is inhabited by # additional invasion bosses$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -1149104806,
-            "regex": "areas",
-            "rawText": "Areas contain a Mirror of Delirium",
-            "generalizedText": "^areas contain a mirror of delirium$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -1115813653,
-            "regex": "ny",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nArea contains many Totems",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea contains many totems$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": -1079355097,
-            "regex": "e\n\\\\d+% increased number of r",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\n(20-30)% increased number of Rare Monsters",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\n#% increased number of rare monsters$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": -1047607711,
-            "regex": "l ma",
-            "rawText": "Area contains 5 additional Magic Monster packs",
-            "generalizedText": "^area contains # additional magic monster packs$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -913054015,
-            "regex": "eg",
-            "rawText": "Area contains an additional Legion Encounter",
-            "generalizedText": "^area contains an additional legion encounter$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -822385727,
-            "regex": "ski",
-            "rawText": "16% increased Quantity of Items found in this Area\n9% increased [Rarity] of Items found in this Area\n6% increased Pack size\nMonsters' skills Chain 2 additional times",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters' skills chain # additional times$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": -788674370,
-            "regex": "ang",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by ranged monsters",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by ranged monsters$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": -754116760,
-            "regex": "poi",
-            "rawText": "16% increased Quantity of Items found in this Area\n9% increased [Rarity] of Items found in this Area\n6% increased Pack size\nMonsters Poison on Hit",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters poison on hit$",
+            "id": -670056416,
+            "regex": "au",
+            "rawText": "Players have (25-60)% reduced effect of Non-Curse Auras from Skills",
+            "generalizedText": "^players have #% reduced effect of non-curse auras from skills$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -642922746,
-            "regex": "hin",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nMonsters Hinder on Hit with Spells",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters hinder on hit with spells$",
+            "id": -654633719,
+            "regex": "un b",
+            "rawText": "Monsters have (75-125)% increased Stun Buildup",
+            "generalizedText": "^monsters have #% increased stun buildup$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -526496943,
-            "regex": "s w",
-            "rawText": "Area contains 3 additional packs with a Rare monster",
-            "generalizedText": "^area contains # additional packs with a rare monster$",
+            "id": -438750559,
+            "regex": "un m",
+            "rawText": "Area contains (6-12) additional packs of Faridun Monsters",
+            "generalizedText": "^area contains # additional packs of faridun monsters$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "default"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -492800604,
-            "regex": "^area is inhabited by \\\\d+ additional r",
-            "rawText": "Area is inhabited by 5 additional Rogue Exiles",
-            "generalizedText": "^area is inhabited by # additional rogue exiles$",
+            "id": 0,
+            "regex": "^$",
+            "rawText": "",
+            "generalizedText": "^$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "default"
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -90496862,
-            "regex": "e\n\\\\d+% increased number of m",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\n(20-30)% increased number of Magic Monsters",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\n#% increased number of magic monsters$",
+            "id": 150027952,
+            "regex": "aa",
+            "rawText": "Area contains (6-12) additional packs of Vaal Monsters",
+            "generalizedText": "^area contains # additional packs of vaal monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 274525583,
+            "regex": "din",
+            "rawText": "Monsters have (5-15)% chance to inflict Bleeding on Hit",
+            "generalizedText": "^monsters have #% chance to inflict bleeding on hit$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": -84898393,
-            "regex": "nari",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Lunaris fanatics",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by lunaris fanatics$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": -50510908,
-            "regex": "rp",
-            "rawText": "Area contains Metamorph Monsters",
-            "generalizedText": "^area contains metamorph monsters$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": -46518102,
-            "regex": "a po",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nMonsters gain a Power Charge on Hit",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters gain a power charge on hit$",
+            "id": 335489395,
+            "regex": "tes",
+            "rawText": "Monster Damage Penetrates (7-13)% Elemental Resistances",
+            "generalizedText": "^monster damage penetrates #% elemental resistances$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": 23448113,
-            "regex": "abo",
-            "rawText": "16% increased Quantity of Items found in this Area\n9% increased [Rarity] of Items found in this Area\n6% increased Pack size\nArea is inhabited by Abominations",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by abominations$",
+            "id": 361950149,
+            "regex": "f m",
+            "rawText": "Monsters gain (20-40)% of maximum Life as Extra maximum Energy Shield",
+            "generalizedText": "^monsters gain #% of maximum life as extra maximum energy shield$",
             "options": {
                 "prefix": true,
                 "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": 63205818,
-            "regex": "pee",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nMonsters' Action Speed cannot be modified to below base value\nMonsters cannot be Taunted",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters' action speed cannot be modified to below base value\nmonsters cannot be taunted$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 190027594,
-            "regex": "ax",
-            "rawText": "Monsters gain 20% of maximum Life as Extra maximum Energy Shield\n15% increased Waystones found in Area\n17% increased [Rarity] of Items found in this Area",
-            "generalizedText": "^monsters gain #% of maximum life as extra maximum energy shield\n#% increased waystones found in area\n#% increased [rarity] of items found in this area$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 322508456,
-            "regex": "ani",
-            "rawText": "16% increased Quantity of Items found in this Area\n9% increased [Rarity] of Items found in this Area\n6% increased Pack size\nArea is inhabited by Animals",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by animals$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 374302481,
-            "regex": "cul",
-            "rawText": "16% increased Quantity of Items found in this Area\n9% increased [Rarity] of Items found in this Area\n6% increased Pack size\nArea is inhabited by Cultists of Kitava",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by cultists of kitava$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 388165131,
-            "regex": "^sla",
-            "rawText": "Slaying Enemies close together can attract monsters from Beyond this realm",
-            "generalizedText": "^slaying enemies close together can attract monsters from beyond this realm$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 432632969,
-            "regex": "ak",
-            "rawText": "Players are periodically Cursed with Elemental Weakness\n20% increased Waystones found in Area\n23% increased [Rarity] of Items found in this Area",
-            "generalizedText": "^players are periodically cursed with elemental weakness\n#% increased waystones found in area\n#% increased [rarity] of items found in this area$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 538578721,
-            "regex": "hes$",
-            "rawText": "Area can contain Breaches\nArea contains 3 additional Breaches",
-            "generalizedText": "^area can contain breaches\narea contains # additional breaches$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 617108860,
-            "regex": "por",
-            "rawText": "Players are periodically Cursed with Temporal Chains\n20% increased Waystones found in Area\n11% increased Pack size",
-            "generalizedText": "^players are periodically cursed with temporal chains\n#% increased waystones found in area\n#% increased pack size$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 653413930,
-            "regex": "l az",
-            "rawText": "Area contains 5 additional Azmeri Spirits",
-            "generalizedText": "^area contains # additional azmeri spirits$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 675153595,
-            "regex": "eble",
-            "rawText": "Players are periodically Cursed with [Enfeeble]\n20% increased Waystones found in Area\n36% increased number of Magic Monsters",
-            "generalizedText": "^players are periodically cursed with [enfeeble]\n#% increased waystones found in area\n#% increased number of magic monsters$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 784244356,
-            "regex": "lde",
-            "rawText": "Area contains (9-15) additional packs of Elder Fiends",
-            "generalizedText": "^area contains # additional packs of elder fiends$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "unique_map",
-                    "no_monster_packs"
-                ]
-            }
-        },
-        {
-            "id": 872017031,
-            "regex": "oa",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Goatmen",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by goatmen$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 872845924,
-            "regex": "l ab",
-            "rawText": "Area contains an additional Abyss",
-            "generalizedText": "^area contains an additional abyss$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "synthesis_area"
-                ]
-            }
-        },
-        {
-            "id": 903190972,
-            "regex": "y d",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Demons",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by demons$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 910103437,
-            "regex": "\nma",
-            "rawText": "16% increased Quantity of Items found in this Area\n9% increased [Rarity] of Items found in this Area\n6% increased Pack size\nMap Bosses are Hunted by Azmeri Spirits",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmap bosses are hunted by azmeri spirits$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "cannot_possess_boss",
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 912897650,
-            "regex": "eto",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Skeletons",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by skeletons$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 934051493,
-            "regex": "var",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nArea has increased monster variety",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea has increased monster variety$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 991912600,
-            "regex": "hos",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Ghosts",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by ghosts$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 999030571,
-            "regex": "a f",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nMonsters gain a Frenzy Charge on Hit",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters gain a frenzy charge on hit$",
+            "id": 362137131,
+            "regex": "er e",
+            "rawText": "+(20-35)% Monster Elemental Resistances",
+            "generalizedText": "^#% monster elemental resistances$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": 1145817716,
-            "regex": "ht",
-            "rawText": "Area contains a Blight Encounter",
-            "generalizedText": "^area contains a blight encounter$",
+            "id": 525934570,
+            "regex": "chi",
+            "rawText": "Area has patches of Chilled Ground",
+            "generalizedText": "^area has patches of chilled ground$",
             "options": {
                 "prefix": true,
                 "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 796062285,
+            "regex": "f br",
+            "rawText": "Area contains (6-12) additional packs of Bramble Monsters",
+            "generalizedText": "^area contains # additional packs of bramble monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 947708593,
+            "regex": "ge$",
+            "rawText": "(15-26)% increased Monster Damage|(20-30)% increased number of Rare Monsters",
+            "generalizedText": "^#% increased monster damage$|^#% increased number of rare monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 962514212,
+            "regex": "ask",
+            "rawText": "Players gain (24-35)% reduced Flask Charges",
+            "generalizedText": "^players gain #% reduced flask charges$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 990634028,
+            "regex": "cke",
+            "rawText": "Area has patches of Shocked Ground",
+            "generalizedText": "^area has patches of shocked ground$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1137840921,
+            "regex": "iro",
+            "rawText": "Area contains (6-12) additional packs of Iron Guards|(8-13)% increased number of Rare Monsters",
+            "generalizedText": "^area contains # additional packs of iron guards$|^#% increased number of rare monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1180467079,
+            "regex": "sts",
+            "rawText": "Area contains (6-12) additional packs of Beasts",
+            "generalizedText": "^area contains # additional packs of beasts$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1424932226,
+            "regex": "j",
+            "rawText": "Monsters fire 2 additional Projectiles",
+            "generalizedText": "^monsters fire # additional projectiles$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "mid_tier_map",
+                    "top_tier_map",
                     "default"
                 ]
             }
         },
         {
-            "id": 1178361444,
+            "id": 1430279733,
+            "regex": "zo",
+            "rawText": "Area contains (6-12) additional packs of Ezomyte Monsters",
+            "generalizedText": "^area contains # additional packs of ezomyte monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1472664012,
+            "regex": "% ma",
+            "rawText": "-(6-12)% maximum Player Resistances",
+            "generalizedText": "^-#% maximum player resistances$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1591435674,
+            "regex": "lag",
+            "rawText": "Area contains (6-12) additional packs of Plagued Monsters",
+            "generalizedText": "^area contains # additional packs of plagued monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1700305598,
+            "regex": "mm",
+            "rawText": "Monsters inflict (75-125)% increased Flammability Magnitude|Monsters have (75-125)% increased Freeze Buildup|Monsters have (75-125)% increased Shock Chance",
+            "generalizedText": "^monsters inflict #% increased flammability magnitude$|^monsters have #% increased freeze buildup$|^monsters have #% increased shock chance$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1732807952,
+            "regex": "ead",
+            "rawText": "Area contains (6-12) additional packs of Undead",
+            "generalizedText": "^area contains # additional packs of undead$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1864444417,
+            "regex": "oi",
+            "rawText": "Monsters have (10-30)% chance to Poison on Hit",
+            "generalizedText": "^monsters have #% chance to poison on hit$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1949985658,
+            "regex": "fs",
+            "rawText": "Buffs on Players expire (30-70)% faster",
+            "generalizedText": "^buffs on players expire #% faster$",
+            "options": {
+                "prefix": false,
+                "tags": [
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 1985506203,
+            "regex": "rses",
+            "rawText": "(30-50)% less effect of Curses on Monsters",
+            "generalizedText": "^#% less effect of curses on monsters$",
+            "options": {
+                "prefix": true,
+                "tags": [
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
+                ]
+            }
+        },
+        {
+            "id": 2099812732,
             "regex": "rm",
-            "rawText": "Monsters are Armoured\n15% increased Waystones found in Area\n22% increased number of Rare Monsters",
-            "generalizedText": "^monsters are armoured\n#% increased waystones found in area\n#% increased number of rare monsters$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 1192070652,
-            "regex": "lari",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Solaris fanatics",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by solaris fanatics$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1219757253,
-            "regex": "\ns",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nSlaying Enemies close together can attract monsters from Beyond this realm",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nslaying enemies close together can attract monsters from beyond this realm$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1327275256,
-            "regex": "sha",
-            "rawText": "Area contains (9-15) additional packs of Shaper Creations",
-            "generalizedText": "^area contains # additional packs of shaper creations$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "unique_map",
-                    "no_monster_packs"
-                ]
-            }
-        },
-        {
-            "id": 1343531484,
-            "regex": "tc",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Sea Witches and their Spawn",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by sea witches and their spawn$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1397920081,
-            "regex": "y u",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Undead",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by undead$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1443860129,
-            "regex": "^area is inhabited by \\\\d+ additional r",
-            "rawText": "Area is inhabited by 2 additional Rogue Exiles",
-            "generalizedText": "^area is inhabited by # additional rogue exiles$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 1462247515,
-            "regex": "\narea is inhabited by \\\\d+",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nArea is inhabited by 2 additional Rogue Exiles",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by # additional rogue exiles$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1493170388,
-            "regex": "lw",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nAll Monster Damage from Hits always Ignites",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nall monster damage from hits always ignites$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1507139134,
-            "regex": "ve\n",
-            "rawText": "Monsters are Evasive\n15% increased Waystones found in Area\n9% increased Pack size",
-            "generalizedText": "^monsters are evasive\n#% increased waystones found in area\n#% increased pack size$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 1684108588,
-            "regex": "n an",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nMonsters gain an Endurance Charge on Hit",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters gain an endurance charge on hit$",
+            "rawText": "Monsters Break Armour equal to (20-30)% of Physical Damage dealt|(25-45)% increased number of Rare Monsters",
+            "generalizedText": "^monsters break armour equal to #% of physical damage dealt$|^#% increased number of rare monsters$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         },
         {
-            "id": 1689471722,
-            "regex": "s b",
-            "rawText": "10% increased Quantity of Items found in this Area\n6% increased [Rarity] of Items found in this Area\n4% increased Pack size\nMonsters Blind on Hit",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\nmonsters blind on hit$",
+            "id": 2133634867,
+            "regex": "ss a",
+            "rawText": "Players have (15-25)% less Accuracy Rating",
+            "generalizedText": "^players have #% less accuracy rating$",
             "options": {
                 "prefix": false,
                 "tags": [
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1704702610,
-            "regex": "iq",
-            "rawText": "19% increased Quantity of Items found in this Area\n11% increased [Rarity] of Items found in this Area\n7% increased Pack size\nArea contains two Unique Bosses",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea contains two unique bosses$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "cannot_be_twinned",
-                    "secret_area",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
-                ]
-            }
-        },
-        {
-            "id": 1718059137,
-            "regex": "l breach$",
-            "rawText": "Area can contain Breaches\nArea contains an additional Breach",
-            "generalizedText": "^area can contain breaches\narea contains an additional breach$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 2066592578,
-            "regex": "id",
-            "rawText": "13% increased Quantity of Items found in this Area\n8% increased [Rarity] of Items found in this Area\n5% increased Pack size\nArea is inhabited by Humanoids",
-            "generalizedText": "^#% increased quantity of items found in this area\n#% increased [rarity] of items found in this area\n#% increased pack size\narea is inhabited by humanoids$",
-            "options": {
-                "prefix": true,
-                "tags": [
-                    "secret_area",
-                    "unique_map",
-                    "maven_map",
-                    "expedition_logbook",
-                    "primordial_map"
+                    "primordial_map",
+                    "low_tier_map",
+                    "default",
+                    "mid_tier_map",
+                    "top_tier_map"
                 ]
             }
         }
     ],
     "optimizationTable": {
-        "-2038407016:-2038407016:-2038407016:-2038407016:-1687118762": {
+        "-2139256324:1180467079": {
             "ids": [
-                -2038407016,
-                -2038407016,
-                -2038407016,
-                -2038407016,
-                -1687118762
+                -2139256324,
+                1180467079
             ],
-            "regex": "e \\\\d+",
-            "weight": 8,
-            "count": 5
-        },
-        "-2038407016:-1687118762:-1687118762:-1687118762:-1687118762": {
-            "ids": [
-                -2038407016,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762
-            ],
-            "regex": "e \\\\d+",
-            "weight": 8,
-            "count": 5
-        },
-        "-1687118762:374302481:374302481:374302481:374302481": {
-            "ids": [
-                -1687118762,
-                374302481,
-                374302481,
-                374302481,
-                374302481
-            ],
-            "regex": "av",
+            "regex": "ts",
             "weight": 2,
-            "count": 5
+            "count": 2
         },
-        "-1687118762:-1687118762:-1687118762:-1687118762:374302481": {
+        "-2139256324:-1593657389:-1556881571:-784142282:947708593:1137840921:2099812732": {
             "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                374302481
+                -2139256324,
+                -1593657389,
+                -1556881571,
+                -784142282,
+                947708593,
+                1137840921,
+                2099812732
             ],
-            "regex": "av",
+            "regex": "nu",
             "weight": 2,
-            "count": 5
+            "count": 7
         },
-        "-1687118762:63205818:63205818:63205818:63205818": {
+        "-2139256324:-1758889850:-1564089432:-1564005638:-1242350788:361950149": {
             "ids": [
-                -1687118762,
-                63205818,
-                63205818,
-                63205818,
-                63205818
+                -2139256324,
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                361950149
             ],
-            "regex": "mod",
-            "weight": 3,
-            "count": 5
-        },
-        "-1687118762:-1687118762:-1687118762:-1687118762:63205818": {
-            "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                63205818
-            ],
-            "regex": "mod",
-            "weight": 3,
-            "count": 5
-        },
-        "-1687118762:-642922746:-642922746:-642922746:-642922746": {
-            "ids": [
-                -1687118762,
-                -642922746,
-                -642922746,
-                -642922746,
-                -642922746
-            ],
-            "regex": "rs h",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:-1333083744:-1333083744:-1333083744:-1333083744": {
-            "ids": [
-                -1687118762,
-                -1333083744,
-                -1333083744,
-                -1333083744,
-                -1333083744
-            ],
-            "regex": "s ha",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:1493170388:1493170388:1493170388:1493170388": {
-            "ids": [
-                -1687118762,
-                1493170388,
-                1493170388,
-                1493170388,
-                1493170388
-            ],
-            "regex": "l mo",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:-1687118762:-1687118762:-1687118762:1493170388": {
-            "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                1493170388
-            ],
-            "regex": "l mo",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:-1687118762:-1687118762:-1687118762:-642922746": {
-            "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -642922746
-            ],
-            "regex": "rs h",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:-1687118762:-1687118762:-1687118762:-1047607711": {
-            "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1047607711
-            ],
-            "regex": "al m",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:-1687118762:-1687118762:-1687118762:-1322367325": {
-            "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1322367325
-            ],
-            "regex": "al m",
-            "weight": 6,
-            "count": 5
-        },
-        "-1687118762:-1687118762:-1687118762:-1687118762:-1333083744": {
-            "ids": [
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1687118762,
-                -1333083744
-            ],
-            "regex": "s ha",
-            "weight": 6,
-            "count": 5
-        },
-        "-1679419763:63205818:63205818:63205818:63205818": {
-            "ids": [
-                -1679419763,
-                63205818,
-                63205818,
-                63205818,
-                63205818
-            ],
-            "regex": "ann",
-            "weight": 3,
-            "count": 5
-        },
-        "-1679419763:-1679419763:-1679419763:-1679419763:63205818": {
-            "ids": [
-                -1679419763,
-                -1679419763,
-                -1679419763,
-                -1679419763,
-                63205818
-            ],
-            "regex": "ann",
-            "weight": 3,
-            "count": 5
-        },
-        "-1679419763:1145817716:1145817716:1145817716:1145817716": {
-            "ids": [
-                -1679419763,
-                1145817716,
-                1145817716,
-                1145817716,
-                1145817716
-            ],
-            "regex": "t e",
-            "weight": 5,
-            "count": 5
-        },
-        "-1679419763:-1679419763:-1679419763:-1679419763:1145817716": {
-            "ids": [
-                -1679419763,
-                -1679419763,
-                -1679419763,
-                -1679419763,
-                1145817716
-            ],
-            "regex": "t e",
-            "weight": 5,
-            "count": 5
-        },
-        "-1575788627:934051493:934051493:934051493:934051493": {
-            "ids": [
-                -1575788627,
-                934051493,
-                934051493,
-                934051493,
-                934051493
-            ],
-            "regex": "has",
-            "weight": 3,
-            "count": 5
-        },
-        "-1575788627:-822385727:-822385727:-822385727:-822385727": {
-            "ids": [
-                -1575788627,
-                -822385727,
-                -822385727,
-                -822385727,
-                -822385727
-            ],
-            "regex": "s ch",
-            "weight": 6,
-            "count": 5
-        },
-        "-1555856241:-1506287260:-1506287260:-1506287260:-1506287260": {
-            "ids": [
-                -1555856241,
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -1506287260
-            ],
-            "regex": "h a",
-            "weight": 5,
-            "count": 5
-        },
-        "-1535190224:934051493:934051493:934051493:934051493": {
-            "ids": [
-                -1535190224,
-                934051493,
-                934051493,
-                934051493,
-                934051493
-            ],
-            "regex": "has",
-            "weight": 3,
-            "count": 5
-        },
-        "-1535190224:-822385727:-822385727:-822385727:-822385727": {
-            "ids": [
-                -1535190224,
-                -822385727,
-                -822385727,
-                -822385727,
-                -822385727
-            ],
-            "regex": "s ch",
-            "weight": 6,
-            "count": 5
-        },
-        "-1506287260:-642922746:-642922746:-642922746:-642922746": {
-            "ids": [
-                -1506287260,
-                -642922746,
-                -642922746,
-                -642922746,
-                -642922746
-            ],
-            "regex": "t w",
-            "weight": 5,
-            "count": 5
-        },
-        "-1506287260:-1506287260:-1506287260:-1506287260:-642922746": {
-            "ids": [
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -642922746
-            ],
-            "regex": "t w",
-            "weight": 5,
-            "count": 5
-        },
-        "-1506287260:-1506287260:-1506287260:-1506287260:-526496943": {
-            "ids": [
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -526496943
-            ],
-            "regex": "h a",
-            "weight": 5,
-            "count": 5
-        },
-        "-1506287260:-1506287260:-1506287260:-1506287260:-1115813653": {
-            "ids": [
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -1506287260,
-                -1115813653
-            ],
-            "regex": "s ma",
-            "weight": 6,
-            "count": 5
-        },
-        "-1506287260:-1115813653:-1115813653:-1115813653:-1115813653": {
-            "ids": [
-                -1506287260,
-                -1115813653,
-                -1115813653,
-                -1115813653,
-                -1115813653
-            ],
-            "regex": "s ma",
-            "weight": 6,
-            "count": 5
-        },
-        "-1506130586:-1506130586:-1506130586:-1506130586:322508456": {
-            "ids": [
-                -1506130586,
-                -1506130586,
-                -1506130586,
-                -1506130586,
-                322508456
-            ],
-            "regex": "y an",
-            "weight": 6,
-            "count": 5
-        },
-        "-1506130586:-1506130586:-1506130586:-1506130586:1684108588": {
-            "ids": [
-                -1506130586,
-                -1506130586,
-                -1506130586,
-                -1506130586,
-                1684108588
-            ],
-            "regex": "ce c",
-            "weight": 6,
-            "count": 5
-        },
-        "-1506130586:322508456:322508456:322508456:322508456": {
-            "ids": [
-                -1506130586,
-                322508456,
-                322508456,
-                322508456,
-                322508456
-            ],
-            "regex": "y an",
-            "weight": 6,
-            "count": 5
-        },
-        "-1506130586:1684108588:1684108588:1684108588:1684108588": {
-            "ids": [
-                -1506130586,
-                1684108588,
-                1684108588,
-                1684108588,
-                1684108588
-            ],
-            "regex": "ce c",
-            "weight": 6,
-            "count": 5
-        },
-        "-1333083744:-1333083744:-1333083744:-1333083744:-788674370": {
-            "ids": [
-                -1333083744,
-                -1333083744,
-                -1333083744,
-                -1333083744,
-                -788674370
-            ],
-            "regex": "nge",
-            "weight": 3,
-            "count": 5
-        },
-        "-1333083744:-788674370:-788674370:-788674370:-788674370": {
-            "ids": [
-                -1333083744,
-                -788674370,
-                -788674370,
-                -788674370,
-                -788674370
-            ],
-            "regex": "nge",
-            "weight": 3,
-            "count": 5
-        },
-        "-1269814104:910103437:910103437:910103437:910103437": {
-            "ids": [
-                -1269814104,
-                910103437,
-                910103437,
-                910103437,
-                910103437
-            ],
-            "regex": "az",
+            "regex": "xt",
             "weight": 2,
+            "count": 6
+        },
+        "-2139256324:2099812732": {
+            "ids": [
+                -2139256324,
+                2099812732
+            ],
+            "regex": "ak",
+            "weight": 2,
+            "count": 2
+        },
+        "-2139256324:990634028": {
+            "ids": [
+                -2139256324,
+                990634028
+            ],
+            "regex": "ke",
+            "weight": 2,
+            "count": 2
+        },
+        "-2139256324:-1593657389:-784142282:947708593:1137840921:2099812732": {
+            "ids": [
+                -2139256324,
+                -1593657389,
+                -784142282,
+                947708593,
+                1137840921,
+                2099812732
+            ],
+            "regex": "num",
+            "weight": 3,
+            "count": 6
+        },
+        "-2139256324:-1556881571": {
+            "ids": [
+                -2139256324,
+                -1556881571
+            ],
+            "regex": "tic",
+            "weight": 3,
+            "count": 2
+        },
+        "-2139256324:-1556881571:2099812732": {
+            "ids": [
+                -2139256324,
+                -1556881571,
+                2099812732
+            ],
+            "regex": "ica",
+            "weight": 3,
+            "count": 3
+        },
+        "-2139256324:-1556881571:-1232070079:274525583:1864444417": {
+            "ids": [
+                -2139256324,
+                -1556881571,
+                -1232070079,
+                274525583,
+                1864444417
+            ],
+            "regex": "hit",
+            "weight": 3,
             "count": 5
         },
-        "-1269814104:872845924:872845924:872845924:872845924": {
+        "-2139256324:-670056416:962514212": {
             "ids": [
-                -1269814104,
-                872845924,
-                872845924,
-                872845924,
-                872845924
+                -2139256324,
+                -670056416,
+                962514212
             ],
-            "regex": "nal a",
+            "regex": "edu",
+            "weight": 3,
+            "count": 3
+        },
+        "-2139256324:-670056416": {
+            "ids": [
+                -2139256324,
+                -670056416
+            ],
+            "regex": "rom",
+            "weight": 3,
+            "count": 2
+        },
+        "-2139256324:-1315426303:-1232070079:-670056416": {
+            "ids": [
+                -2139256324,
+                -1315426303,
+                -1232070079,
+                -670056416
+            ],
+            "regex": "d e",
+            "weight": 5,
+            "count": 4
+        },
+        "-2044821837:1700305598": {
+            "ids": [
+                -2044821837,
+                1700305598
+            ],
+            "regex": "gn",
+            "weight": 2,
+            "count": 2
+        },
+        "-2044821837:-1678942184:525934570:990634028": {
+            "ids": [
+                -2044821837,
+                -1678942184,
+                525934570,
+                990634028
+            ],
+            "regex": "tc",
+            "weight": 2,
+            "count": 4
+        },
+        "-2044821837:-1678942184:-1232070079:525934570:990634028:1985506203": {
+            "ids": [
+                -2044821837,
+                -1678942184,
+                -1232070079,
+                525934570,
+                990634028,
+                1985506203
+            ],
+            "regex": "es o",
+            "weight": 6,
+            "count": 6
+        },
+        "-2044821837:-1678942184": {
+            "ids": [
+                -2044821837,
+                -1678942184
+            ],
+            "regex": "ted g",
             "weight": 7,
-            "count": 5
+            "count": 2
         },
-        "-1115813653:-50510908:-50510908:-50510908:-50510908": {
+        "-2044821837:1137840921": {
             "ids": [
-                -1115813653,
-                -50510908,
-                -50510908,
-                -50510908,
-                -50510908
+                -2044821837,
+                1137840921
             ],
-            "regex": "ns m",
-            "weight": 6,
-            "count": 5
-        },
-        "-1115813653:-1115813653:-1115813653:-1115813653:-50510908": {
-            "ids": [
-                -1115813653,
-                -1115813653,
-                -1115813653,
-                -1115813653,
-                -50510908
-            ],
-            "regex": "ns m",
-            "weight": 6,
-            "count": 5
-        },
-        "-1115813653:1704702610:1704702610:1704702610:1704702610": {
-            "ids": [
-                -1115813653,
-                1704702610,
-                1704702610,
-                1704702610,
-                1704702610
-            ],
-            "regex": "e\narea c",
-            "weight": 10,
-            "count": 5
-        },
-        "-1115813653:-1115813653:-1115813653:-1115813653:1704702610": {
-            "ids": [
-                -1115813653,
-                -1115813653,
-                -1115813653,
-                -1115813653,
-                1704702610
-            ],
-            "regex": "e\narea c",
-            "weight": 10,
-            "count": 5
-        },
-        "-1079355097:-90496862:-90496862:-90496862:-90496862": {
-            "ids": [
-                -1079355097,
-                -90496862,
-                -90496862,
-                -90496862,
-                -90496862
-            ],
-            "regex": "ze\n\\\\d+",
-            "weight": 7,
-            "count": 5
-        },
-        "-1079355097:-1079355097:-1079355097:-1079355097:-90496862": {
-            "ids": [
-                -1079355097,
-                -1079355097,
-                -1079355097,
-                -1079355097,
-                -90496862
-            ],
-            "regex": "ze\n\\\\d+",
-            "weight": 7,
-            "count": 5
-        },
-        "-913054015:1145817716:1145817716:1145817716:1145817716": {
-            "ids": [
-                -913054015,
-                1145817716,
-                1145817716,
-                1145817716,
-                1145817716
-            ],
-            "regex": "enc",
-            "weight": 3,
-            "count": 5
-        },
-        "-913054015:-913054015:-913054015:-913054015:1145817716": {
-            "ids": [
-                -913054015,
-                -913054015,
-                -913054015,
-                -913054015,
-                1145817716
-            ],
-            "regex": "enc",
-            "weight": 3,
-            "count": 5
-        },
-        "-913054015:-913054015:-913054015:-913054015:1684108588": {
-            "ids": [
-                -913054015,
-                -913054015,
-                -913054015,
-                -913054015,
-                1684108588
-            ],
-            "regex": "n en",
-            "weight": 6,
-            "count": 5
-        },
-        "-913054015:1684108588:1684108588:1684108588:1684108588": {
-            "ids": [
-                -913054015,
-                1684108588,
-                1684108588,
-                1684108588,
-                1684108588
-            ],
-            "regex": "n en",
-            "weight": 6,
-            "count": 5
-        },
-        "-822385727:-822385727:-822385727:-822385727:374302481": {
-            "ids": [
-                -822385727,
-                -822385727,
-                -822385727,
-                -822385727,
-                374302481
-            ],
-            "regex": "ki",
-            "weight": 2,
-            "count": 5
-        },
-        "-822385727:63205818:63205818:63205818:63205818": {
-            "ids": [
-                -822385727,
-                63205818,
-                63205818,
-                63205818,
-                63205818
-            ],
-            "regex": "s'",
-            "weight": 2,
-            "count": 5
-        },
-        "-822385727:374302481:374302481:374302481:374302481": {
-            "ids": [
-                -822385727,
-                374302481,
-                374302481,
-                374302481,
-                374302481
-            ],
-            "regex": "ki",
-            "weight": 2,
-            "count": 5
-        },
-        "-822385727:-822385727:-822385727:-822385727:63205818": {
-            "ids": [
-                -822385727,
-                -822385727,
-                -822385727,
-                -822385727,
-                63205818
-            ],
-            "regex": "s'",
-            "weight": 2,
-            "count": 5
-        },
-        "-822385727:-642922746:-642922746:-642922746:-642922746": {
-            "ids": [
-                -822385727,
-                -642922746,
-                -642922746,
-                -642922746,
-                -642922746
-            ],
-            "regex": "lls",
-            "weight": 3,
-            "count": 5
-        },
-        "-822385727:-822385727:-822385727:-822385727:-642922746": {
-            "ids": [
-                -822385727,
-                -822385727,
-                -822385727,
-                -822385727,
-                -642922746
-            ],
-            "regex": "lls",
-            "weight": 3,
-            "count": 5
-        },
-        "-822385727:-822385727:-822385727:-822385727:190027594": {
-            "ids": [
-                -822385727,
-                -822385727,
-                -822385727,
-                -822385727,
-                190027594
-            ],
-            "regex": "n \\\\d+",
+            "regex": "s of i",
             "weight": 8,
-            "count": 5
+            "count": 2
         },
-        "-822385727:190027594:190027594:190027594:190027594": {
+        "-1758889850:-1564089432:-1564005638:-1242350788:1732807952:2099812732": {
             "ids": [
-                -822385727,
-                190027594,
-                190027594,
-                190027594,
-                190027594
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                1732807952,
+                2099812732
             ],
-            "regex": "n \\\\d+",
-            "weight": 8,
+            "regex": "dea",
+            "weight": 3,
+            "count": 6
+        },
+        "-1758889850:-1564089432:-1564005638:-1242350788:2099812732": {
+            "ids": [
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                2099812732
+            ],
+            "regex": "deal",
+            "weight": 4,
             "count": 5
         },
-        "-788674370:934051493:934051493:934051493:934051493": {
+        "-1758889850:-1564089432:-1564005638:-1242350788": {
             "ids": [
-                -788674370,
-                934051493,
-                934051493,
-                934051493,
-                934051493
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788
+            ],
+            "regex": "s d",
+            "weight": 5,
+            "count": 4
+        },
+        "-1758889850:-1564089432:-1564005638:-1242350788:361950149:2099812732": {
+            "ids": [
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                361950149,
+                2099812732
+            ],
+            "regex": "% o",
+            "weight": 5,
+            "count": 6
+        },
+        "-1758889850:-1564089432:-1564005638:-1242350788:361950149:1949985658:1985506203": {
+            "ids": [
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                361950149,
+                1949985658,
+                1985506203
+            ],
+            "regex": "s e",
+            "weight": 5,
+            "count": 7
+        },
+        "-1758889850:-1564089432:-1564005638:-1242350788:361950149": {
+            "ids": [
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                361950149
+            ],
+            "regex": "e as",
+            "weight": 6,
+            "count": 5
+        },
+        "-1758889850:-1564089432:-1564005638:-1242350788:361950149:1949985658": {
+            "ids": [
+                -1758889850,
+                -1564089432,
+                -1564005638,
+                -1242350788,
+                361950149,
+                1949985658
+            ],
+            "regex": "s ex",
+            "weight": 6,
+            "count": 6
+        },
+        "-1678942184:-1414823738:-1315426303:335489395": {
+            "ids": [
+                -1678942184,
+                -1414823738,
+                -1315426303,
+                335489395
+            ],
+            "regex": "rate",
+            "weight": 4,
+            "count": 4
+        },
+        "-1678942184:525934570": {
+            "ids": [
+                -1678942184,
+                525934570
+            ],
+            "regex": "s of c",
+            "weight": 8,
+            "count": 2
+        },
+        "-1593657389:-935484485:947708593:1591435674": {
+            "ids": [
+                -1593657389,
+                -935484485,
+                947708593,
+                1591435674
             ],
             "regex": "d m",
             "weight": 5,
-            "count": 5
+            "count": 4
         },
-        "-788674370:-788674370:-788674370:-788674370:934051493": {
+        "-1593657389:947708593:1591435674": {
             "ids": [
-                -788674370,
-                -788674370,
-                -788674370,
-                -788674370,
-                934051493
+                -1593657389,
+                947708593,
+                1591435674
             ],
-            "regex": "d m",
+            "regex": "ed m",
+            "weight": 6,
+            "count": 3
+        },
+        "-1564089432:-1414823738:-1323891900": {
+            "ids": [
+                -1564089432,
+                -1414823738,
+                -1323891900
+            ],
+            "regex": "ol",
+            "weight": 2,
+            "count": 3
+        },
+        "-1564089432:-1242350788": {
+            "ids": [
+                -1564089432,
+                -1242350788
+            ],
+            "regex": "ra c",
+            "weight": 6,
+            "count": 2
+        },
+        "-1564005638:1424932226": {
+            "ids": [
+                -1564005638,
+                1424932226
+            ],
+            "regex": "fir",
+            "weight": 3,
+            "count": 2
+        },
+        "-1556881571:-1232070079:-874458381:274525583:1700305598:1864444417": {
+            "ids": [
+                -1556881571,
+                -1232070079,
+                -874458381,
+                274525583,
+                1700305598,
+                1864444417
+            ],
+            "regex": "han",
+            "weight": 3,
+            "count": 6
+        },
+        "-1556881571:2099812732": {
+            "ids": [
+                -1556881571,
+                2099812732
+            ],
+            "regex": "l d",
             "weight": 5,
-            "count": 5
+            "count": 2
         },
-        "-754116760:-754116760:-754116760:-754116760:2066592578": {
+        "-1556881571:1700305598": {
             "ids": [
-                -754116760,
-                -754116760,
-                -754116760,
-                -754116760,
-                2066592578
+                -1556881571,
+                1700305598
             ],
-            "regex": "oi",
-            "weight": 2,
-            "count": 5
+            "regex": "e b",
+            "weight": 5,
+            "count": 2
         },
-        "-754116760:2066592578:2066592578:2066592578:2066592578": {
+        "-1556881571:-1323891900:-1093249962:-935484485:-654633719:1700305598": {
             "ids": [
-                -754116760,
-                2066592578,
-                2066592578,
-                2066592578,
-                2066592578
+                -1556881571,
+                -1323891900,
+                -1093249962,
+                -935484485,
+                -654633719,
+                1700305598
             ],
-            "regex": "oi",
-            "weight": 2,
-            "count": 5
-        },
-        "-642922746:-642922746:-642922746:-642922746:63205818": {
-            "ids": [
-                -642922746,
-                -642922746,
-                -642922746,
-                -642922746,
-                63205818
-            ],
-            "regex": "spe",
-            "weight": 3,
-            "count": 5
-        },
-        "-642922746:784244356:784244356:784244356:784244356": {
-            "ids": [
-                -642922746,
-                784244356,
-                784244356,
-                784244356,
-                784244356
-            ],
-            "regex": "der",
-            "weight": 3,
-            "count": 5
-        },
-        "-642922746:63205818:63205818:63205818:63205818": {
-            "ids": [
-                -642922746,
-                63205818,
-                63205818,
-                63205818,
-                63205818
-            ],
-            "regex": "spe",
-            "weight": 3,
-            "count": 5
-        },
-        "-642922746:-642922746:-642922746:-642922746:784244356": {
-            "ids": [
-                -642922746,
-                -642922746,
-                -642922746,
-                -642922746,
-                784244356
-            ],
-            "regex": "der",
-            "weight": 3,
-            "count": 5
-        },
-        "-492800604:1462247515:1462247515:1462247515:1462247515": {
-            "ids": [
-                -492800604,
-                1462247515,
-                1462247515,
-                1462247515,
-                1462247515
-            ],
-            "regex": "rog",
-            "weight": 3,
-            "count": 5
-        },
-        "-90496862:-90496862:-90496862:-90496862:675153595": {
-            "ids": [
-                -90496862,
-                -90496862,
-                -90496862,
-                -90496862,
-                675153595
-            ],
-            "regex": "f mag",
-            "weight": 7,
-            "count": 5
-        },
-        "-90496862:675153595:675153595:675153595:675153595": {
-            "ids": [
-                -90496862,
-                675153595,
-                675153595,
-                675153595,
-                675153595
-            ],
-            "regex": "f mag",
-            "weight": 7,
-            "count": 5
-        },
-        "-84898393:-84898393:-84898393:-84898393:1192070652": {
-            "ids": [
-                -84898393,
-                -84898393,
-                -84898393,
-                -84898393,
-                1192070652
-            ],
-            "regex": "cs",
-            "weight": 2,
-            "count": 5
-        },
-        "-84898393:1192070652:1192070652:1192070652:1192070652": {
-            "ids": [
-                -84898393,
-                1192070652,
-                1192070652,
-                1192070652,
-                1192070652
-            ],
-            "regex": "cs",
-            "weight": 2,
-            "count": 5
-        },
-        "-50510908:-50510908:-50510908:-50510908:1493170388": {
-            "ids": [
-                -50510908,
-                -50510908,
-                -50510908,
-                -50510908,
-                1493170388
-            ],
-            "regex": "am",
-            "weight": 2,
-            "count": 5
-        },
-        "-50510908:1493170388:1493170388:1493170388:1493170388": {
-            "ids": [
-                -50510908,
-                1493170388,
-                1493170388,
-                1493170388,
-                1493170388
-            ],
-            "regex": "am",
-            "weight": 2,
-            "count": 5
-        },
-        "23448113:1327275256:1327275256:1327275256:1327275256": {
-            "ids": [
-                23448113,
-                1327275256,
-                1327275256,
-                1327275256,
-                1327275256
-            ],
-            "regex": "ions",
-            "weight": 4,
-            "count": 5
-        },
-        "23448113:23448113:23448113:23448113:1327275256": {
-            "ids": [
-                23448113,
-                23448113,
-                23448113,
-                23448113,
-                1327275256
-            ],
-            "regex": "ions",
-            "weight": 4,
-            "count": 5
-        },
-        "23448113:23448113:23448113:23448113:322508456": {
-            "ids": [
-                23448113,
-                23448113,
-                23448113,
-                23448113,
-                322508456
-            ],
-            "regex": "ited by a",
+            "regex": "e \\\\d+% i",
             "weight": 11,
+            "count": 6
+        },
+        "-1414823738:-1315426303:-670056416:962514212:1472664012:1949985658:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                -670056416,
+                962514212,
+                1472664012,
+                1949985658,
+                2133634867
+            ],
+            "regex": "ay",
+            "weight": 2,
+            "count": 7
+        },
+        "-1414823738:-1315426303:1424932226:1985506203:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                1424932226,
+                1985506203,
+                2133634867
+            ],
+            "regex": "les",
+            "weight": 3,
             "count": 5
         },
-        "23448113:322508456:322508456:322508456:322508456": {
+        "-1414823738:-1315426303": {
             "ids": [
-                23448113,
-                322508456,
-                322508456,
-                322508456,
-                322508456
+                -1414823738,
+                -1315426303
             ],
-            "regex": "ited by a",
+            "regex": "eco",
+            "weight": 3,
+            "count": 2
+        },
+        "-1414823738:-1315426303:-670056416:962514212:1949985658:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                -670056416,
+                962514212,
+                1949985658,
+                2133634867
+            ],
+            "regex": "yers",
+            "weight": 4,
+            "count": 6
+        },
+        "-1414823738:-1315426303:1985506203:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                1985506203,
+                2133634867
+            ],
+            "regex": "less",
+            "weight": 4,
+            "count": 4
+        },
+        "-1414823738:-1315426303:-1093249962:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                -1093249962,
+                2133634867
+            ],
+            "regex": "y r",
+            "weight": 5,
+            "count": 4
+        },
+        "-1414823738:-1315426303:-670056416:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                -670056416,
+                2133634867
+            ],
+            "regex": "yers h",
+            "weight": 8,
+            "count": 4
+        },
+        "-1414823738:-1315426303:2133634867": {
+            "ids": [
+                -1414823738,
+                -1315426303,
+                2133634867
+            ],
+            "regex": "e \\\\d+% l",
             "weight": 11,
-            "count": 5
+            "count": 3
         },
-        "63205818:910103437:910103437:910103437:910103437": {
+        "-1323891900:-935484485:335489395:362137131": {
             "ids": [
-                63205818,
-                910103437,
-                910103437,
-                910103437,
-                910103437
+                -1323891900,
+                -935484485,
+                335489395,
+                362137131
             ],
-            "regex": "nted",
-            "weight": 4,
-            "count": 5
-        },
-        "63205818:63205818:63205818:63205818:910103437": {
-            "ids": [
-                63205818,
-                63205818,
-                63205818,
-                63205818,
-                910103437
-            ],
-            "regex": "nted",
-            "weight": 4,
-            "count": 5
-        },
-        "190027594:190027594:190027594:190027594:1178361444": {
-            "ids": [
-                190027594,
-                190027594,
-                190027594,
-                190027594,
-                1178361444
-            ],
-            "regex": "d\n",
+            "regex": "me",
             "weight": 2,
-            "count": 5
+            "count": 4
         },
-        "190027594:1327275256:1327275256:1327275256:1327275256": {
+        "-1323891900:-670056416:-654633719:525934570:1424932226:1700305598": {
             "ids": [
-                190027594,
-                1327275256,
-                1327275256,
-                1327275256,
-                1327275256
+                -1323891900,
+                -670056416,
+                -654633719,
+                525934570,
+                1424932226,
+                1700305598
             ],
-            "regex": "sh",
+            "regex": "il",
             "weight": 2,
-            "count": 5
+            "count": 6
         },
-        "190027594:1178361444:1178361444:1178361444:1178361444": {
+        "-1323891900:-654633719": {
             "ids": [
-                190027594,
-                1178361444,
-                1178361444,
-                1178361444,
-                1178361444
+                -1323891900,
+                -654633719
             ],
-            "regex": "d\n",
-            "weight": 2,
-            "count": 5
-        },
-        "190027594:190027594:190027594:190027594:1327275256": {
-            "ids": [
-                190027594,
-                190027594,
-                190027594,
-                190027594,
-                1327275256
-            ],
-            "regex": "sh",
-            "weight": 2,
-            "count": 5
-        },
-        "190027594:784244356:784244356:784244356:784244356": {
-            "ids": [
-                190027594,
-                784244356,
-                784244356,
-                784244356,
-                784244356
-            ],
-            "regex": "eld",
+            "regex": "stu",
             "weight": 3,
-            "count": 5
+            "count": 2
         },
-        "190027594:190027594:190027594:190027594:784244356": {
+        "-1323891900:-654633719:1700305598": {
             "ids": [
-                190027594,
-                190027594,
-                190027594,
-                190027594,
-                784244356
+                -1323891900,
+                -654633719,
+                1700305598
             ],
-            "regex": "eld",
-            "weight": 3,
-            "count": 5
+            "regex": "d s",
+            "weight": 5,
+            "count": 3
         },
-        "388165131:1219757253:1219757253:1219757253:1219757253": {
+        "-1323891900:-1093249962:-935484485": {
             "ids": [
-                388165131,
-                1219757253,
-                1219757253,
-                1219757253,
-                1219757253
+                -1323891900,
+                -1093249962,
+                -935484485
             ],
-            "regex": "yi",
-            "weight": 2,
-            "count": 5
-        },
-        "432632969:872017031:872017031:872017031:872017031": {
-            "ids": [
-                432632969,
-                872017031,
-                872017031,
-                872017031,
-                872017031
-            ],
-            "regex": "men",
-            "weight": 3,
-            "count": 5
-        },
-        "432632969:432632969:432632969:432632969:872017031": {
-            "ids": [
-                432632969,
-                432632969,
-                432632969,
-                432632969,
-                872017031
-            ],
-            "regex": "men",
-            "weight": 3,
-            "count": 5
-        },
-        "432632969:432632969:432632969:432632969:617108860": {
-            "ids": [
-                432632969,
-                432632969,
-                432632969,
-                432632969,
-                617108860
-            ],
-            "regex": "s\n\\\\d+",
-            "weight": 6,
-            "count": 5
-        },
-        "432632969:617108860:617108860:617108860:617108860": {
-            "ids": [
-                432632969,
-                617108860,
-                617108860,
-                617108860,
-                617108860
-            ],
-            "regex": "s\n\\\\d+",
-            "weight": 6,
-            "count": 5
-        },
-        "538578721:1718059137:1718059137:1718059137:1718059137": {
-            "ids": [
-                538578721,
-                1718059137,
-                1718059137,
-                1718059137,
-                1718059137
-            ],
-            "regex": "es\n",
-            "weight": 3,
-            "count": 5
-        },
-        "538578721:538578721:538578721:538578721:1718059137": {
-            "ids": [
-                538578721,
-                538578721,
-                538578721,
-                538578721,
-                1718059137
-            ],
-            "regex": "es\n",
-            "weight": 3,
-            "count": 5
-        },
-        "653413930:910103437:910103437:910103437:910103437": {
-            "ids": [
-                653413930,
-                910103437,
-                910103437,
-                910103437,
-                910103437
-            ],
-            "regex": "az",
-            "weight": 2,
-            "count": 5
-        },
-        "653413930:872845924:872845924:872845924:872845924": {
-            "ids": [
-                653413930,
-                872845924,
-                872845924,
-                872845924,
-                872845924
-            ],
-            "regex": "nal a",
+            "regex": "sed a",
             "weight": 7,
-            "count": 5
+            "count": 3
         },
-        "784244356:1327275256:1327275256:1327275256:1327275256": {
+        "-1315426303:361950149": {
             "ids": [
-                784244356,
-                1327275256,
-                1327275256,
-                1327275256,
-                1327275256
+                -1315426303,
+                361950149
             ],
-            "regex": "ks o",
-            "weight": 6,
-            "count": 5
-        },
-        "784244356:784244356:784244356:784244356:1327275256": {
-            "ids": [
-                784244356,
-                784244356,
-                784244356,
-                784244356,
-                1327275256
-            ],
-            "regex": "ks o",
-            "weight": 6,
-            "count": 5
-        },
-        "872017031:991912600:991912600:991912600:991912600": {
-            "ids": [
-                872017031,
-                991912600,
-                991912600,
-                991912600,
-                991912600
-            ],
-            "regex": "y g",
-            "weight": 5,
-            "count": 5
-        },
-        "872017031:872017031:872017031:872017031:991912600": {
-            "ids": [
-                872017031,
-                872017031,
-                872017031,
-                872017031,
-                991912600
-            ],
-            "regex": "y g",
-            "weight": 5,
-            "count": 5
-        },
-        "910103437:910103437:910103437:910103437:2066592578": {
-            "ids": [
-                910103437,
-                910103437,
-                910103437,
-                910103437,
-                2066592578
-            ],
-            "regex": "hu",
+            "regex": "gy",
             "weight": 2,
-            "count": 5
+            "count": 2
         },
-        "910103437:2066592578:2066592578:2066592578:2066592578": {
+        "-1315426303:-784142282:361950149": {
             "ids": [
-                910103437,
-                2066592578,
-                2066592578,
-                2066592578,
-                2066592578
+                -1315426303,
+                -784142282,
+                361950149
             ],
-            "regex": "hu",
-            "weight": 2,
-            "count": 5
-        },
-        "910103437:910103437:910103437:910103437:1343531484": {
-            "ids": [
-                910103437,
-                910103437,
-                910103437,
-                910103437,
-                1343531484
-            ],
-            "regex": "es a",
-            "weight": 6,
-            "count": 5
-        },
-        "910103437:1343531484:1343531484:1343531484:1343531484": {
-            "ids": [
-                910103437,
-                1343531484,
-                1343531484,
-                1343531484,
-                1343531484
-            ],
-            "regex": "es a",
-            "weight": 6,
-            "count": 5
-        },
-        "1145817716:1145817716:1145817716:1145817716:1493170388": {
-            "ids": [
-                1145817716,
-                1145817716,
-                1145817716,
-                1145817716,
-                1493170388
-            ],
-            "regex": "ig",
-            "weight": 2,
-            "count": 5
-        },
-        "1145817716:1493170388:1493170388:1493170388:1493170388": {
-            "ids": [
-                1145817716,
-                1493170388,
-                1493170388,
-                1493170388,
-                1493170388
-            ],
-            "regex": "ig",
-            "weight": 2,
-            "count": 5
-        },
-        "1178361444:1507139134:1507139134:1507139134:1507139134": {
-            "ids": [
-                1178361444,
-                1507139134,
-                1507139134,
-                1507139134,
-                1507139134
-            ],
-            "regex": "ters a",
-            "weight": 8,
-            "count": 5
-        },
-        "1178361444:1178361444:1178361444:1178361444:1507139134": {
-            "ids": [
-                1178361444,
-                1178361444,
-                1178361444,
-                1178361444,
-                1507139134
-            ],
-            "regex": "ters a",
-            "weight": 8,
-            "count": 5
-        },
-        "1443860129:1462247515:1462247515:1462247515:1462247515": {
-            "ids": [
-                1443860129,
-                1462247515,
-                1462247515,
-                1462247515,
-                1462247515
-            ],
-            "regex": "rog",
+            "regex": "lif",
             "weight": 3,
-            "count": 5
+            "count": 3
+        },
+        "-1315426303:-1232070079": {
+            "ids": [
+                -1315426303,
+                -1232070079
+            ],
+            "regex": "nd e",
+            "weight": 6,
+            "count": 2
+        },
+        "-1232070079:1430279733:1700305598": {
+            "ids": [
+                -1232070079,
+                1430279733,
+                1700305598
+            ],
+            "regex": "z",
+            "weight": 1,
+            "count": 3
+        },
+        "-1232070079:1700305598": {
+            "ids": [
+                -1232070079,
+                1700305598
+            ],
+            "regex": "fre",
+            "weight": 3,
+            "count": 2
+        },
+        "-1232070079:962514212": {
+            "ids": [
+                -1232070079,
+                962514212
+            ],
+            "regex": "har",
+            "weight": 3,
+            "count": 2
+        },
+        "-1232070079:274525583:1864444417": {
+            "ids": [
+                -1232070079,
+                274525583,
+                1864444417
+            ],
+            "regex": "n h",
+            "weight": 5,
+            "count": 3
+        },
+        "-1232070079:-874458381:274525583:1864444417": {
+            "ids": [
+                -1232070079,
+                -874458381,
+                274525583,
+                1864444417
+            ],
+            "regex": "% c",
+            "weight": 5,
+            "count": 4
+        },
+        "-1232070079:1949985658:1985506203": {
+            "ids": [
+                -1232070079,
+                1949985658,
+                1985506203
+            ],
+            "regex": "s on",
+            "weight": 6,
+            "count": 3
+        },
+        "-1232070079:1985506203": {
+            "ids": [
+                -1232070079,
+                1985506203
+            ],
+            "regex": "es on",
+            "weight": 7,
+            "count": 2
+        },
+        "-1093249962:2133634867": {
+            "ids": [
+                -1093249962,
+                2133634867
+            ],
+            "regex": "cc",
+            "weight": 2,
+            "count": 2
+        },
+        "-935484485:-874458381": {
+            "ids": [
+                -935484485,
+                -874458381
+            ],
+            "regex": "tta",
+            "weight": 3,
+            "count": 2
+        },
+        "-935484485:274525583": {
+            "ids": [
+                -935484485,
+                274525583
+            ],
+            "regex": "eed",
+            "weight": 3,
+            "count": 2
+        },
+        "-935484485:335489395:362137131": {
+            "ids": [
+                -935484485,
+                335489395,
+                362137131
+            ],
+            "regex": "eme",
+            "weight": 3,
+            "count": 3
+        },
+        "-874458381:274525583": {
+            "ids": [
+                -874458381,
+                274525583
+            ],
+            "regex": "o i",
+            "weight": 5,
+            "count": 2
+        },
+        "-784142282:362137131:1472664012": {
+            "ids": [
+                -784142282,
+                362137131,
+                1472664012
+            ],
+            "regex": "% m",
+            "weight": 5,
+            "count": 3
+        },
+        "-784142282:362137131": {
+            "ids": [
+                -784142282,
+                362137131
+            ],
+            "regex": "% mo",
+            "weight": 6,
+            "count": 2
+        },
+        "-670056416:962514212": {
+            "ids": [
+                -670056416,
+                962514212
+            ],
+            "regex": "sk",
+            "weight": 2,
+            "count": 2
+        },
+        "-670056416:1424932226:1985506203": {
+            "ids": [
+                -670056416,
+                1424932226,
+                1985506203
+            ],
+            "regex": "ect",
+            "weight": 3,
+            "count": 3
+        },
+        "-670056416:525934570": {
+            "ids": [
+                -670056416,
+                525934570
+            ],
+            "regex": "ill",
+            "weight": 3,
+            "count": 2
+        },
+        "-670056416:1985506203": {
+            "ids": [
+                -670056416,
+                1985506203
+            ],
+            "regex": "eff",
+            "weight": 3,
+            "count": 2
+        },
+        "-670056416:1424932226": {
+            "ids": [
+                -670056416,
+                1424932226
+            ],
+            "regex": "s f",
+            "weight": 5,
+            "count": 2
+        },
+        "-654633719:1700305598": {
+            "ids": [
+                -654633719,
+                1700305598
+            ],
+            "regex": "up",
+            "weight": 2,
+            "count": 2
+        },
+        "-438750559:1985506203": {
+            "ids": [
+                -438750559,
+                1985506203
+            ],
+            "regex": "n m",
+            "weight": 5,
+            "count": 2
+        },
+        "274525583:1700305598": {
+            "ids": [
+                274525583,
+                1700305598
+            ],
+            "regex": "nfl",
+            "weight": 3,
+            "count": 2
+        },
+        "335489395:362137131": {
+            "ids": [
+                335489395,
+                362137131
+            ],
+            "regex": "ele",
+            "weight": 3,
+            "count": 2
+        },
+        "335489395:362137131:1472664012": {
+            "ids": [
+                335489395,
+                362137131,
+                1472664012
+            ],
+            "regex": "esi",
+            "weight": 3,
+            "count": 3
+        },
+        "335489395:947708593": {
+            "ids": [
+                335489395,
+                947708593
+            ],
+            "regex": "r da",
+            "weight": 6,
+            "count": 2
+        },
+        "361950149:1472664012": {
+            "ids": [
+                361950149,
+                1472664012
+            ],
+            "regex": "ax",
+            "weight": 2,
+            "count": 2
+        },
+        "361950149:962514212": {
+            "ids": [
+                361950149,
+                962514212
+            ],
+            "regex": "ga",
+            "weight": 2,
+            "count": 2
+        },
+        "362137131:2099812732": {
+            "ids": [
+                362137131,
+                2099812732
+            ],
+            "regex": "r e",
+            "weight": 5,
+            "count": 2
+        },
+        "796062285:1180467079": {
+            "ids": [
+                796062285,
+                1180467079
+            ],
+            "regex": "f b",
+            "weight": 5,
+            "count": 2
+        },
+        "962514212:1700305598": {
+            "ids": [
+                962514212,
+                1700305598
+            ],
+            "regex": "d f",
+            "weight": 5,
+            "count": 2
+        },
+        "1430279733:1700305598": {
+            "ids": [
+                1430279733,
+                1700305598
+            ],
+            "regex": "ez",
+            "weight": 2,
+            "count": 2
         }
     }
 }
