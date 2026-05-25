@@ -110,6 +110,27 @@ export function Vendor() {
                        ...settings, movementSpeed: {...settings.movementSpeed, move10: b}
                      })}
             />
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Resistances</p>
+            <Checked id="res-fire" text="Fire resistance" checked={settings.resistances.fire}
+                     onChange={(b) => setSettings({
+                       ...settings, resistances: {...settings.resistances, fire: b}
+                     })}
+            />
+            <Checked id="res-cold" text="Cold resistance" checked={settings.resistances.cold}
+                     onChange={(b) => setSettings({
+                       ...settings, resistances: {...settings.resistances, cold: b}
+                     })}
+            />
+            <Checked id="res-lightning" text="Lightning resistance" checked={settings.resistances.lightning}
+                     onChange={(b) => setSettings({
+                       ...settings, resistances: {...settings.resistances, lightning: b}
+                     })}
+            />
+            <Checked id="res-chaos" text="Chaos resistance" checked={settings.resistances.chaos}
+                     onChange={(b) => setSettings({
+                       ...settings, resistances: {...settings.resistances, chaos: b}
+                     })}
+            />
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item modifiers</p>
@@ -143,11 +164,6 @@ export function Vendor() {
                          ...settings, itemMods: {...settings.itemMods, chaosDamage: b}
                      })}
             />
-            <Checked id="mod-skill" text="+# to level of skills" checked={settings.itemMods.skillLevel}
-                     onChange={(b) => setSettings({
-                       ...settings, itemMods: {...settings.itemMods, skillLevel: b}
-                     })}
-            />
             <Checked id="mod-spirit" text="+# Spirit" checked={settings.itemMods.spirit}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, spirit: b}
@@ -168,6 +184,28 @@ export function Vendor() {
                          ...settings, itemMods: {...settings.itemMods, maxMana: b}
                      })}
             />
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item modifiers (skill)</p>
+            <Checked id="mod-skill" text="+# to level of skills" checked={settings.itemMods.skillLevel}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevel: b}
+                     })}
+            />
+            <Checked id="mod-skill" text="+# to level of minion skills" checked={settings.itemMods.skillLevelMinion}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelMinion: b}
+                     })}
+            />
+            <Checked id="mod-skill" text="+# to level of melee skills" checked={settings.itemMods.skillLevelMelee}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelMelee: b}
+                     })}
+            />
+            <Checked id="mod-skill" text="+# to level of spell skills" checked={settings.itemMods.skillLevelSpell}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelSpell: b}
+                     })}
+            />
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item modifiers (attributes)</p>
             <Checked id="mod-str" text="Strength" checked={settings.itemMods.strength}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, strength: b}
@@ -184,27 +222,6 @@ export function Vendor() {
                      })}
             />
 
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Resistances</p>
-            <Checked id="res-fire" text="Fire resistance" checked={settings.resistances.fire}
-                     onChange={(b) => setSettings({
-                       ...settings, resistances: {...settings.resistances, fire: b}
-                     })}
-            />
-            <Checked id="res-cold" text="Cold resistance" checked={settings.resistances.cold}
-                     onChange={(b) => setSettings({
-                       ...settings, resistances: {...settings.resistances, cold: b}
-                     })}
-            />
-            <Checked id="res-lightning" text="Lightning resistance" checked={settings.resistances.lightning}
-                     onChange={(b) => setSettings({
-                       ...settings, resistances: {...settings.resistances, lightning: b}
-                     })}
-            />
-            <Checked id="res-chaos" text="Chaos resistance" checked={settings.resistances.chaos}
-                     onChange={(b) => setSettings({
-                       ...settings, resistances: {...settings.resistances, chaos: b}
-                     })}
-            />
           </div>
 
           <div>
