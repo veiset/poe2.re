@@ -79,6 +79,7 @@ export interface Settings {
       quarterstaves: boolean,
       spears: boolean,
       crossbows: boolean,
+      talisman: boolean,
 
       gloves: boolean,
       boots: boolean,
@@ -221,6 +222,7 @@ export const defaultSettings: Settings = {
       quarterstaves: false,
       spears: false,
       crossbows: false,
+      talisman: false,
 
       gloves: false,
       boots: false,

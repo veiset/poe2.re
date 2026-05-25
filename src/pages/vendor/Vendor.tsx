@@ -413,6 +413,12 @@ export function Vendor() {
                        ...settings, itemClass: {...settings.itemClass, crossbows: b}
                      })}
             />
+            <Checked id="type-talisamn" text="Talisamn"
+                     checked={settings.itemClass.talisman}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, talisman: b}
+                     })}
+            />
             {/*<Checked id="type-2h-swords" text="Two Hand Swords"/>*/}
             {/*<Checked id="type-2h-axes" text="Two Hand Axes"/>*/}
             {/*<Checked id="type-traps" text="Traps"/>*/}

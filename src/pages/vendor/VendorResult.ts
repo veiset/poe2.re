@@ -126,6 +126,7 @@ function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
     settings.quarterstaves ? "qua" : null,
     settings.spears ? "spe" : null,
     settings.crossbows ? "cr" : null,
+    settings.talisman ? "tali" : null,
     settings.gloves ? "gl" : null,
     settings.boots ? "boo" : null,
     settings.bodyArmours ? "bod" : null,
