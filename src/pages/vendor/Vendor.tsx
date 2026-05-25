@@ -413,7 +413,7 @@ export function Vendor() {
                        ...settings, itemClass: {...settings.itemClass, crossbows: b}
                      })}
             />
-            <Checked id="type-talisamn" text="Talisamn"
+            <Checked id="type-talisamn" text="Talisman"
                      checked={settings.itemClass.talisman}
                      onChange={(b) => setSettings({
                        ...settings, itemClass: {...settings.itemClass, talisman: b}
