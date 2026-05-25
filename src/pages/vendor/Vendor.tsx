@@ -379,6 +379,12 @@ export function Vendor() {
                        ...settings, itemClass: {...settings.itemClass, quarterstaves: b}
                      })}
             />
+            <Checked id="type-spears" text="Spears"
+                     checked={settings.itemClass.spears}
+                     onChange={(b) => setSettings({
+                       ...settings, itemClass: {...settings.itemClass, spears: b}
+                     })}
+            />
             <Checked id="type-crossbow" text="Crossbows"
                      checked={settings.itemClass.crossbows}
                      onChange={(b) => setSettings({

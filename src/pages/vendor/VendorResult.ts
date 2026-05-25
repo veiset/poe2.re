@@ -120,6 +120,7 @@ function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
     settings.staves ? "st" : null,
     settings.twoHandMaces ? "tw" : null,
     settings.quarterstaves ? "qua" : null,
+    settings.spears ? "spe" : null,
     settings.crossbows ? "cr" : null,
     settings.gloves ? "gl" : null,
     settings.boots ? "boo" : null,

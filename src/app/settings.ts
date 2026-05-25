@@ -73,6 +73,7 @@ export interface Settings {
       staves: boolean,
       twoHandMaces: boolean,
       quarterstaves: boolean,
+      spears: boolean,
       crossbows: boolean,
 
       gloves: boolean,
@@ -210,6 +211,7 @@ export const defaultSettings: Settings = {
       staves: false,
       twoHandMaces: false,
       quarterstaves: false,
+      spears: false,
       crossbows: false,
 
       gloves: false,
