@@ -104,7 +104,6 @@ export interface Settings {
       delirious: boolean,
     },
     modifier: {
-      over100: boolean,
       round10: boolean,
       wantedModsSelectType: string,
       wantedMods: SelectOption[],
@@ -133,7 +132,6 @@ export interface Settings {
     modifier: {
       affectedMaps: boolean,
       numAffectedMaps: number,
-      over100: boolean,
       round10: boolean,
       affixSelectType: string,
       affixes: SelectOption[],
@@ -243,7 +241,6 @@ export const defaultSettings: Settings = {
       delirious: false,
     },
     modifier: {
-      over100: false,
       round10: true,
       wantedModsSelectType: "any",
       wantedMods: [],
@@ -272,7 +269,6 @@ export const defaultSettings: Settings = {
     modifier: {
       affectedMaps: false,
       numAffectedMaps: 0,
-      over100: false,
       round10: true,
       affixSelectType: "any",
       affixes: [],

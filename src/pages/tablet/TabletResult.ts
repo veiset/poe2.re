@@ -37,7 +37,7 @@ export function generateTabletRegex(settings: Settings): string {
 function generateModifierRegex(settings: Settings["tablet"]["modifier"]): string[] {
   const affixes = settings.affixes
     .filter((e) => e.isSelected)
-    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100));
+    .map((e) => selectedOptionRegex(e, settings.round10));
 
   if (affixes.length === 0) return [];
 

@@ -6,11 +6,11 @@ export function generateRelicResult(settings: Settings): string {
   const modifiers = [
     settings.relic.modifier.prefixes
       .filter((e) => e.isSelected)
-      .map((e) => selectedOptionRegex(e, false, false))
+      .map((e) => selectedOptionRegex(e, false))
       .join("|"),
     settings.relic.modifier.suffixes
       .filter((e) => e.isSelected)
-      .map((e) => selectedOptionRegex(e, false, false))
+      .map((e) => selectedOptionRegex(e, false))
       .join("|"),
   ].filter((e) => e !== null && e !== "");
 

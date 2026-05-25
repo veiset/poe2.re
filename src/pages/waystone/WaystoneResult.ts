@@ -41,7 +41,7 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
   const wantedMods = settings.wantedMods
     .filter((e) => e.isSelected)
-    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100));
+    .map((e) => selectedOptionRegex(e, settings.round10));
 
   const wantedModsWithType = settings.wantedModsSelectType === "any"
     ? `"${wantedMods.join("|")}"`
@@ -49,7 +49,7 @@ function generateModifiers(settings: Settings["waystone"]["modifier"]): string |
 
   const unwantedMods = settings.unwantedMods
     .filter((e) => e.isSelected)
-    .map((e) => selectedOptionRegex(e, settings.round10, settings.over100))
+    .map((e) => selectedOptionRegex(e, settings.round10))
     .join("|")
 
   return [
@@ -70,28 +70,27 @@ function generateState(settings: Settings["waystone"]["state"]): string | null {
 
 function generateQuantifiers(waystone: Settings["waystone"]): string[] {
   const round10 = waystone.modifier.round10;
-  const over100 = waystone.modifier.over100;
 
   return [
     addQuantifier(
       "m q.*",
-      generateNumberRegex(waystone.itemQuantity, round10, over100),
+      generateNumberRegex(waystone.itemQuantity, round10),
     ),
     addQuantifier(
       "m rar.*",
-      generateNumberRegex(waystone.itemRarity, round10, over100),
+      generateNumberRegex(waystone.itemRarity, round10),
     ),
     addQuantifier(
       "p c.*",
-      generateNumberRegex(waystone.waystoneDropChance, round10, over100),
+      generateNumberRegex(waystone.waystoneDropChance, round10),
     ),
     addQuantifier(
       "c m.*",
-      generateNumberRegex(waystone.magicMonsters, round10, over100),
+      generateNumberRegex(waystone.magicMonsters, round10),
     ),
     addQuantifier(
       "e mo.*",
-      generateNumberRegex(waystone.rareMonsters, round10, over100),
+      generateNumberRegex(waystone.rareMonsters, round10),
     ),
   ];
 }
