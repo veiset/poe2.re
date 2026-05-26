@@ -225,6 +225,11 @@ export function Vendor() {
                        ...settings, itemMods: {...settings.itemMods, skillLevelLightning: b}
                      })}
             />
+            <Checked id="mod-skill-physical" text="+# to level of physical spell skills" checked={settings.itemMods.skillLevelPhysical}
+                     onChange={(b) => setSettings({
+                       ...settings, itemMods: {...settings.itemMods, skillLevelPhysical: b}
+                     })}
+            />
             <Checked id="mod-skill-projectile" text="+# to level of projectile skills" checked={settings.itemMods.skillLevelProjectile}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevelProjectile: b}
