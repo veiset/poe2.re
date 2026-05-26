@@ -1,50 +1,41 @@
-# React + TypeScript + Vite
+# https://poe2.re
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Path of Exile 2 Regex Tool
 
-Currently, two official plugins are available:
+A tool for generating vendor search strings. With no false positives matches and with query shortening, so you can fit more stuff in to your search!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Reporting a bug
+If you encounter a bug or have a suggestion:
+1. Go to the [Issues](https://github.com/veiset/poe2.re/issues) tab.
+2. Open a "New Issue".
+3. Describe the problem and provide steps to reproduce it.
 
-## Expanding the ESLint configuration
+## Contributing
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Contributions are always welcome. To keep things organized:
 
-- Configure the top-level `parserOptions` property like this:
+*   **Join the discord server:** https://discord.gg/AR9AxAYudF
+*   **Discuss first:** It’s best to discuss ideas or planned changes on discord before starting the work.
+*   **Check Issues:** Take a look at the [open issues](https://github.com/veiset/poe2.re/issues) to see what needs help or to make sure a topic isn't already being worked on.
+*   **Fork and PR:** Once everything is ready, fork the project and submit a pull request.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Generated files
+Files under [public/generated](https://github.com/veiset/poe2.re/tree/main/public/generated) are generated files and 
+changing these files won't solve any issues. Please report it as a bug, instead of making a pull request with changes,
+if you think the issue is in the generated regular expressions.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Development Setup
+Follow these steps to run the development environment locally:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+# Clone the repo
+git clone git@github.com:veiset/poe2.re.git
+cd poe2.re
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm run dev
 ```

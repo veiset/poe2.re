@@ -1,16 +1,23 @@
 ---
 name: Bug report
-about: Report an issue/bug
-title: 'Bug: <Title>'
+about: Create a report to help improve the webpage
+title: 'Bug: <issue>'
 labels: bug
 assignees: veiset
 
 ---
 
-**What is the issue?**
-A clear and concise description of what the problem is.
+# Remove this line and fill out all fields or the report will be closed
 
-**Additional context**
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-If you can, use `ctrl+c` to copy the item description of the item in question. 
+**To Reproduce**
+Please describe how to recreate the bug.
+
+**Expected behavior**
+A clear and concise description of what you expected to happen.
+
+**Screenshots / copy of item regex / additional info**
+If you can, use `ctrl+c` to copy the item description of the item in question.
 Please explain what you expected to happen and what actually happened.
