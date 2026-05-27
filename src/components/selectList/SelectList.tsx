@@ -7,6 +7,7 @@ export interface SelectOption {
   isSelected: boolean
   ranges: number[][]
   regex: string
+  id?: number
 }
 
 interface SelectElementProps {

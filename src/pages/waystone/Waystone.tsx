@@ -5,10 +5,12 @@ import {useEffect, useState} from "react";
 import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
 import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {generateWaystoneRegex} from "@/pages/waystone/WaystoneResult.ts";
+import {openWaystoneTradeSearch} from "@/lib/TradeUrlBuilder.ts";
+import {loadWaystoneTradeStatIds, TradeStatIdMap} from "@/lib/loadTradeStatIds.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {Checked} from "@/components/checked/Checked.tsx";
 import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
-import {waystoneRegex} from "@/generated/Waystone.Gen.ts";
+import {loadWaystoneAffixes, WaystoneAffix} from "@/lib/loadWaystoneAffixes.ts";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Label} from "@/components/ui/label";
 
@@ -18,9 +20,17 @@ export function Waystone() {
   const globalSettings = loadSettings(initialProfile)
   const [settings, setSettings] = useState<Settings["waystone"]>(globalSettings.waystone);
   const [result, setResult] = useState("");
+  const [affixes, setAffixes] = useState<WaystoneAffix[]>([]);
+  const [tradeStatIds, setTradeStatIds] = useState<TradeStatIdMap>({});
 
-  const wantedMods: SelectOption[] = waystoneRegex
+  useEffect(() => {
+    loadWaystoneAffixes().then(setAffixes);
+    loadWaystoneTradeStatIds().then(setTradeStatIds);
+  }, []);
+
+  const wantedMods: SelectOption[] = affixes
     .map((mod) => ({
+      id: mod.id,
       name: mod.name,
       isSelected: settings.modifier.wantedMods
         .some((e) => e.name === mod.name && e.isSelected),
@@ -30,8 +40,9 @@ export function Waystone() {
       regex: mod.regex,
     }));
 
-  const unwantedMods: SelectOption[] = waystoneRegex
+  const unwantedMods: SelectOption[] = affixes
     .map((mod) => ({
+      id: mod.id,
       name: mod.name,
       isSelected: settings.modifier.unwantedMods
         .some((e) => e.name === mod.name && e.isSelected),
@@ -67,6 +78,7 @@ export function Waystone() {
         <Result
           result={result}
           reset={() => setSettings(defaultSettings.waystone)}
+          onTradeSearch={() => openWaystoneTradeSearch({...loadSettings(currentProfile), waystone: settings}, tradeStatIds)}
           customText={settings.resultSettings.customText}
           autoCopy={settings.resultSettings.autoCopy}
           setCustomText={(text) => {

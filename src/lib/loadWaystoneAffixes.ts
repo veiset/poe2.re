@@ -1,12 +1,13 @@
-export interface TabletAffix {
+export interface WaystoneAffix {
   id: number,
   name: string,
   regex: string,
   values: number[],
   ranges: number[][],
+  prefix: boolean,
 }
 
-interface TabletJsonToken {
+interface WaystoneJsonToken {
   id: number,
   regex: string,
   rawText: string,
@@ -17,11 +18,11 @@ interface TabletJsonToken {
   },
 }
 
-interface TabletJson {
-  tokens: TabletJsonToken[],
+interface WaystoneJson {
+  tokens: WaystoneJsonToken[],
 }
 
-function parseToken(token: TabletJsonToken): TabletAffix {
+function parseToken(token: WaystoneJsonToken): WaystoneAffix {
   const ranges: number[][] = [];
   const values: number[] = [];
 
@@ -46,15 +47,16 @@ function parseToken(token: TabletJsonToken): TabletAffix {
     regex: token.regex,
     values,
     ranges,
+    prefix: token.options.prefix,
   };
 }
 
-let cache: Promise<TabletAffix[]> | null = null;
+let cache: Promise<WaystoneAffix[]> | null = null;
 
-export function loadTabletAffixes(): Promise<TabletAffix[]> {
+export function loadWaystoneAffixes(): Promise<WaystoneAffix[]> {
   if (!cache) {
-    cache = fetch("/generated/Generated.Tablet.json")
-      .then((r) => r.json() as Promise<TabletJson>)
+    cache = fetch("/generated/Generated.Waystone.json")
+      .then((r) => r.json() as Promise<WaystoneJson>)
       .then((json) =>
         json.tokens
           .map(parseToken)
