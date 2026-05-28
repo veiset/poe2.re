@@ -142,19 +142,12 @@ function generateTypeRegex(
 }
 
 /**
- * Generates a regex matching a tablet's "# uses remaining" line when the number
- * is greater or equal to the given limit. Tablets are consumed per use, so this
- * highlights tablets with at least the requested number of uses left.
+ * Generates a regex matching a tablet's "# uses remaining"
  * Uses range from 1 to 18.
- *
- * The matched in-game text looks like:
- *  Adds Abysses to a Map
- *  10 uses remaining
  *
  * Example regex (min uses):
  *  1   ->  "([1-9]|1[0-8]) uses"
  *  9   ->  "(9|1[0-8]) uses"
- *  18  ->  "(18) uses"
  *
  * @param settings - Settings instance that contains input value
  * @returns Regex as string, null on failure
@@ -169,9 +162,7 @@ function generateUsesRemainingRegex(
   }
 
   let numberRegex: string;
-  if (n === 18) {
-    numberRegex = "(18)";
-  } else if (n < 10) {
+  if (n < 10) {
     /* single digit n..9, or 10-18 */
     numberRegex = `(${n === 9 ? "9" : `[${n}-9]`}|1[0-8])`;
   } else {
