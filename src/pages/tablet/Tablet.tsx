@@ -5,6 +5,8 @@ import {useEffect, useState} from "react";
 import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
 import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {generateTabletRegex} from "@/pages/tablet/TabletResult.ts";
+import {openTabletTradeSearch} from "@/lib/TradeUrlBuilder.ts";
+import {loadTabletTradeStatIds, TradeStatIdMap} from "@/lib/loadTradeStatIds.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {Checked} from "@/components/checked/Checked.tsx";
 import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
@@ -20,15 +22,18 @@ export function Tablet(){
   const [result, setResult] = useState("");
   const [affixes, setAffixes] = useState<TabletAffix[]>([]);
   const [affixSearch, setAffixSearch] = useState("");
+  const [tradeStatIds, setTradeStatIds] = useState<TradeStatIdMap>({});
 
   useEffect(() => {
     loadTabletAffixes().then(setAffixes);
+    loadTabletTradeStatIds().then(setTradeStatIds);
   }, []);
 
   const normalizedSearch = affixSearch.trim().toLowerCase();
   const affixOptions: SelectOption[] = affixes
     .filter((mod) => normalizedSearch === "" || mod.name.toLowerCase().includes(normalizedSearch))
     .map((mod) => ({
+      id: mod.id,
       name: mod.name,
       isSelected: settings.modifier.affixes
         .some((e) => e.name === mod.name && e.isSelected),
@@ -64,6 +69,7 @@ export function Tablet(){
         <Result
           result={result}
           reset={() => setSettings(defaultSettings.tablet)}
+          onTradeSearch={() => openTabletTradeSearch({...loadSettings(currentProfile), tablet: settings}, tradeStatIds)}
           customText={settings.resultSettings.customText}
           autoCopy={settings.resultSettings.autoCopy}
           setCustomText={(text) => {
@@ -130,18 +136,18 @@ export function Tablet(){
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Modifier</p>
 
-            <Checked id="tabletmodifier-affectedmaps" text="Min. affected maps in range" checked={settings.modifier.affectedMaps}
+            <Checked id="tabletmodifier-usesremaining" text="Min. uses remaining" checked={settings.modifier.usesRemaining}
                      onChange={(b) => setSettings({
-                       ...settings, modifier: {...settings.modifier, affectedMaps: b}
+                       ...settings, modifier: {...settings.modifier, usesRemaining: b}
                      })}
             />
-            <Input type="number" placeholder="Min affected maps in range" className="pb-2 mb-2 w-40"
-                   value={settings.modifier.numAffectedMaps}
-                   min="2"
+            <Input type="number" placeholder="Min uses remaining" className="pb-2 mb-2 w-40"
+                   value={settings.modifier.numUsesRemaining}
+                   min="1"
                    max="18"
                    onChange={(b) =>
                      setSettings({
-                       ...settings, modifier: {...settings.modifier, numAffectedMaps: Number(b.target.value) || 0}
+                       ...settings, modifier: {...settings.modifier, numUsesRemaining: Number(b.target.value) || 0}
                      })}
             />
           </div>

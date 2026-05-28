@@ -3,6 +3,7 @@ import {Checkbox} from "@/components/ui/checkbox.tsx";
 import {
   Eraser,
   Copy,
+  ExternalLink,
 } from "lucide-react"
 import {Accordion, AccordionItem, AccordionTrigger} from "@/components/ui/accordion.tsx";
 import {useEffect, useState} from "react";
@@ -19,10 +20,11 @@ export interface ResultProps {
   setCustomText: (text: string) => void
   autoCopy: boolean
   setAutoCopy: (enable: boolean) => void
+  onTradeSearch?: () => void
 }
 
 export function Result(props: ResultProps) {
-  const {result, maxLength, reset, customText, setCustomText, autoCopy, setAutoCopy} = props;
+  const {result, maxLength, reset, customText, setCustomText, autoCopy, setAutoCopy, onTradeSearch} = props;
 
   const webSettings = loadWebSettings();
   const currentLength = result.length
@@ -70,6 +72,11 @@ export function Result(props: ResultProps) {
             <Button className="m-1 bg-red-300 hover:bg-red-400" onClick={reset}>
               <Eraser/> Reset
             </Button>
+            {onTradeSearch && (
+              <Button className="m-1 bg-blue-400 hover:bg-blue-500 text-slate-900" onClick={onTradeSearch}>
+                <ExternalLink/> Trade
+              </Button>
+            )}
           </div>
           <div className="flex items-center space-x-2 pl-1 pb-4 ">
             <Accordion type="single" collapsible className="w-full">

@@ -141,8 +141,8 @@ export interface Settings {
       overseer: boolean,
     },
     modifier: {
-      affectedMaps: boolean,
-      numAffectedMaps: number,
+      usesRemaining: boolean,
+      numUsesRemaining: number,
       round10: boolean,
       affixSelectType: string,
       affixes: SelectOption[],
@@ -289,8 +289,8 @@ export const defaultSettings: Settings = {
       overseer: false,
     },
     modifier: {
-      affectedMaps: false,
-      numAffectedMaps: 0,
+      usesRemaining: false,
+      numUsesRemaining: 10,
       round10: true,
       affixSelectType: "any",
       affixes: [],
