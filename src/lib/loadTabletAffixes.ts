@@ -1,63 +1,17 @@
-export interface TabletAffix {
-  id: number,
-  name: string,
-  regex: string,
-  values: number[],
-  ranges: number[][],
-}
+import { TabletRegex } from "@/types/generated/TabletTypedef.ts";
+import { parseAffixToken, ParsedAffix } from "@/lib/parseAffixToken.ts";
 
-interface TabletJsonToken {
-  id: number,
-  regex: string,
-  rawText: string,
-  generalizedText: string,
-  options: {
-    prefix: boolean,
-    tags: string[],
-  },
-}
-
-interface TabletJson {
-  tokens: TabletJsonToken[],
-}
-
-function parseToken(token: TabletJsonToken): TabletAffix {
-  const ranges: number[][] = [];
-  const values: number[] = [];
-
-  const lines = token.rawText.split("\n");
-  const processed = lines.map((line) => {
-    let out = line;
-    out = out.replace(/\(([+-]?\d+)-([+-]?\d+)\)/g, (_match, a, b) => {
-      ranges.push([Number(a), Number(b)]);
-      return "##";
-    });
-    out = out.replace(/(?<![A-Za-z0-9])\+?(\d+)(?![A-Za-z0-9])/g, (_match, n) => {
-      values.push(Number(n));
-      return "#";
-    });
-    out = out.replace(/\[([^\]]+)\]/g, "$1");
-    return out;
-  });
-
-  return {
-    id: token.id,
-    name: processed.join("|"),
-    regex: token.regex,
-    values,
-    ranges,
-  };
-}
+export type TabletAffix = ParsedAffix;
 
 let cache: Promise<TabletAffix[]> | null = null;
 
 export function loadTabletAffixes(): Promise<TabletAffix[]> {
   if (!cache) {
-    cache = fetch("/generated/Generated.Tablet.json")
-      .then((r) => r.json() as Promise<TabletJson>)
+    cache = fetch("/generated/Generated.Tablet.min.json")
+      .then((r) => r.json() as Promise<TabletRegex>)
       .then((json) =>
         json.tokens
-          .map(parseToken)
+          .map(parseAffixToken)
           .sort((a, b) => a.name.localeCompare(b.name))
       );
   }
