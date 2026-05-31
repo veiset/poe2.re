@@ -30,6 +30,22 @@
             }
         },
         {
+            "id": -2044821837,
+            "regex": "s of ig",
+            "rawText": "Area has patches of Ignited Ground",
+            "generalizedText": "^area has patches of ignited ground$",
+            "options": {
+                "name": "of Flames",
+                "prefix": false,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
             "id": -1922408793,
             "regex": "h el",
             "rawText": "Players are periodically Cursed with Elemental Weakness",
@@ -39,22 +55,6 @@
                 "prefix": false,
                 "tags": [
                     "default"
-                ]
-            }
-        },
-        {
-            "id": -1857408762,
-            "regex": "a fire$",
-            "rawText": "Monsters deal (5-20)% of Damage as Extra Fire|Monsters have (9-24)% increased Effectiveness",
-            "generalizedText": "^monsters deal #% of damage as extra fire$|^monsters have #% increased effectiveness$",
-            "options": {
-                "name": "Infernal",
-                "prefix": true,
-                "tags": [
-                    "map_key_low",
-                    "map_key_medium",
-                    "map_key_high",
-                    "map_key_highest"
                 ]
             }
         },
@@ -75,6 +75,22 @@
             }
         },
         {
+            "id": -1591080103,
+            "regex": "a fire$",
+            "rawText": "Monsters deal (5-20)% of Damage as Extra Fire",
+            "generalizedText": "^monsters deal #% of damage as extra fire$",
+            "options": {
+                "name": "Infernal",
+                "prefix": true,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
             "id": -1486983403,
             "regex": "trates",
             "rawText": "Monster Damage Penetrates (6-14)% Elemental Resistances",
@@ -82,6 +98,22 @@
             "options": {
                 "name": "Penetrating",
                 "prefix": true,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": -1323891900,
+            "regex": "ed ai",
+            "rawText": "Monsters have (30-70)% increased Stun Threshold|Monsters have (39-79)% increased Ailment Threshold",
+            "generalizedText": "^monsters have #% increased stun threshold$|^monsters have #% increased ailment threshold$",
+            "options": {
+                "name": "of the Unwavering",
+                "prefix": false,
                 "tags": [
                     "map_key_low",
                     "map_key_medium",
@@ -166,10 +198,10 @@
             }
         },
         {
-            "id": -890906710,
+            "id": 258500777,
             "regex": "ict b",
-            "rawText": "Monsters have (5-20)% chance to inflict Bleeding on Hit|Monsters have (10-25)% more Effectiveness",
-            "generalizedText": "^monsters have #% chance to inflict bleeding on hit$|^monsters have #% more effectiveness$",
+            "rawText": "Monsters have (5-20)% chance to inflict Bleeding on Hit",
+            "generalizedText": "^monsters have #% chance to inflict bleeding on hit$",
             "options": {
                 "name": "Puncturing",
                 "prefix": true,
@@ -291,6 +323,35 @@
             }
         },
         {
+            "id": 803825999,
+            "regex": "dup$",
+            "rawText": "Monsters have (50-100)% increased Stun Buildup",
+            "generalizedText": "^monsters have #% increased stun buildup$",
+            "options": {
+                "name": "Impacting",
+                "prefix": true,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": 888732093,
+            "regex": "ble$",
+            "rawText": "Players are periodically Cursed with Enfeeble",
+            "generalizedText": "^players are periodically cursed with enfeeble$",
+            "options": {
+                "name": "of Enfeebling",
+                "prefix": false,
+                "tags": [
+                    "default"
+                ]
+            }
+        },
+        {
             "id": 897836482,
             "regex": "sive$",
             "rawText": "Monsters are Evasive",
@@ -368,19 +429,6 @@
             }
         },
         {
-            "id": 1497600323,
-            "regex": "ble$",
-            "rawText": "Players are periodically Cursed with Enfeeble|Monsters have 16% more Effectiveness",
-            "generalizedText": "^players are periodically cursed with enfeeble$|^monsters have #% more effectiveness$",
-            "options": {
-                "name": "of Enfeebling",
-                "prefix": false,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
             "id": 1498656041,
             "regex": "ed el",
             "rawText": "Monster have (60-120)% increased Elemental Ailment Application",
@@ -413,38 +461,6 @@
             }
         },
         {
-            "id": 1556748428,
-            "regex": "s of ig",
-            "rawText": "Area has patches of Ignited Ground|Monsters have 15% more Effectiveness",
-            "generalizedText": "^area has patches of ignited ground$|^monsters have #% more effectiveness$",
-            "options": {
-                "name": "of Flames",
-                "prefix": false,
-                "tags": [
-                    "map_key_low",
-                    "map_key_medium",
-                    "map_key_high",
-                    "map_key_highest"
-                ]
-            }
-        },
-        {
-            "id": 1582516464,
-            "regex": "dup$",
-            "rawText": "Monsters have (50-100)% increased Stun Buildup|Monsters have (60-110)% more Effectiveness",
-            "generalizedText": "^monsters have #% increased stun buildup$|^monsters have #% more effectiveness$",
-            "options": {
-                "name": "Impacting",
-                "prefix": true,
-                "tags": [
-                    "map_key_low",
-                    "map_key_medium",
-                    "map_key_high",
-                    "map_key_highest"
-                ]
-            }
-        },
-        {
             "id": 1778319603,
             "regex": "ore mo",
             "rawText": "(10-26)% more Monster Life",
@@ -452,22 +468,6 @@
             "options": {
                 "name": "Tough",
                 "prefix": true,
-                "tags": [
-                    "map_key_low",
-                    "map_key_medium",
-                    "map_key_high",
-                    "map_key_highest"
-                ]
-            }
-        },
-        {
-            "id": 1952448493,
-            "regex": "ed ai",
-            "rawText": "Monsters have (30-70)% increased Stun Threshold|Monsters have (39-79)% increased Ailment Threshold|Monsters have (30-70)% more Effectiveness",
-            "generalizedText": "^monsters have #% increased stun threshold$|^monsters have #% increased ailment threshold$|^monsters have #% more effectiveness$",
-            "options": {
-                "name": "of the Unwavering",
-                "prefix": false,
                 "tags": [
                     "map_key_low",
                     "map_key_medium",
@@ -494,21 +494,21 @@
         }
     ],
     "optimizationTable": {
-        "-2138218511:-1922408793:1497600323": {
+        "-2138218511:-1922408793:888732093": {
             "ids": [
                 -2138218511,
                 -1922408793,
-                1497600323
+                888732093
             ],
             "regex": "ly cu",
             "weight": 7,
             "count": 3
         },
-        "-2081659203:-1857408762:-1591163897:632224647": {
+        "-2081659203:-1591163897:-1591080103:632224647": {
             "ids": [
                 -2081659203,
-                -1857408762,
                 -1591163897,
+                -1591080103,
                 632224647
             ],
             "regex": "rs de",
@@ -523,6 +523,16 @@
             "regex": "s extra c",
             "weight": 11,
             "count": 2
+        },
+        "-2044821837:525934570:990634028": {
+            "ids": [
+                -2044821837,
+                525934570,
+                990634028
+            ],
+            "regex": "patc",
+            "weight": 4,
+            "count": 3
         },
         "-1486983403:457744569": {
             "ids": [
@@ -541,28 +551,6 @@
             "regex": "yers h",
             "weight": 8,
             "count": 2
-        },
-        "-890906710:1497600323:1556748428:1582516464:1952448493": {
-            "ids": [
-                -890906710,
-                1497600323,
-                1556748428,
-                1582516464,
-                1952448493
-            ],
-            "regex": "% more ef",
-            "weight": 11,
-            "count": 5
-        },
-        "525934570:990634028:1556748428": {
-            "ids": [
-                525934570,
-                990634028,
-                1556748428
-            ],
-            "regex": "patc",
-            "weight": 4,
-            "count": 3
         }
     }
 }
