@@ -5,7 +5,7 @@ const TRADE_URL_BASE = "https://www.pathofexile.com/trade2/search";
 
 // PoE2 doesn't expose CORS-friendly endpoints for fetching the current league,
 // so we default to Standard and let the user switch leagues on the trade page.
-const DEFAULT_LEAGUE = "Standard";
+const DEFAULT_LEAGUE = "Runes of Aldur";
 
 interface StatFilter {
   id: string;

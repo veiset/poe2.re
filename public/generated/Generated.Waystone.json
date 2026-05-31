@@ -1,285 +1,215 @@
 {
     "tokens": [
         {
-            "id": -2139256324,
-            "regex": "rs ta",
-            "rawText": "Monsters take (15-26)% reduced Extra Damage from Critical Hits|(19-30)% increased number of Rare Monsters",
-            "generalizedText": "^monsters take #% reduced extra damage from critical hits$|^#% increased number of rare monsters$",
+            "id": -2138218511,
+            "regex": "hains$",
+            "rawText": "Players are periodically Cursed with Temporal Chains",
+            "generalizedText": "^players are periodically cursed with temporal chains$",
             "options": {
-                "name": "of Obstruction",
+                "name": "of Slowing",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "default"
                 ]
             }
         },
         {
-            "id": -2044821837,
-            "regex": "s of ig",
-            "rawText": "Area has patches of Ignited Ground",
-            "generalizedText": "^area has patches of ignited ground$",
+            "id": -2081659203,
+            "regex": "a chaos$",
+            "rawText": "Monsters deal (5-20)% of Damage as Extra Chaos",
+            "generalizedText": "^monsters deal #% of damage as extra chaos$",
             "options": {
-                "name": "Flaming",
+                "name": "Profane",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1758889850,
-            "regex": "s extra l",
-            "rawText": "Monsters deal (15-26)% of Damage as Extra Lightning",
-            "generalizedText": "^monsters deal #% of damage as extra lightning$",
+            "id": -1922408793,
+            "regex": "h el",
+            "rawText": "Players are periodically Cursed with Elemental Weakness",
+            "generalizedText": "^players are periodically cursed with elemental weakness$",
             "options": {
-                "name": "Thunderous",
+                "name": "of Erosion",
+                "prefix": false,
+                "tags": [
+                    "default"
+                ]
+            }
+        },
+        {
+            "id": -1857408762,
+            "regex": "a fire$",
+            "rawText": "Monsters deal (5-20)% of Damage as Extra Fire|Monsters have (9-24)% increased Effectiveness",
+            "generalizedText": "^monsters deal #% of damage as extra fire$|^monsters have #% increased effectiveness$",
+            "options": {
+                "name": "Infernal",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1593657389,
-            "regex": "cended",
-            "rawText": "Area contains (6-12) additional packs of Transcended Monsters|(8-13)% increased number of Rare Monsters",
-            "generalizedText": "^area contains # additional packs of transcended monsters$|^#% increased number of rare monsters$",
-            "options": {
-                "name": "Doryani's",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": -1564089432,
+            "id": -1591163897,
             "regex": "a cold$",
-            "rawText": "Monsters deal (15-26)% of Damage as Extra Cold",
+            "rawText": "Monsters deal (5-20)% of Damage as Extra Cold",
             "generalizedText": "^monsters deal #% of damage as extra cold$",
             "options": {
                 "name": "Frostbitten",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1564005638,
-            "regex": "a fire$",
-            "rawText": "Monsters deal (15-26)% of Damage as Extra Fire",
-            "generalizedText": "^monsters deal #% of damage as extra fire$",
+            "id": -1495812000,
+            "regex": "ealt$",
+            "rawText": "Monsters Break Armour equal to (15-30)% of Physical Damage dealt|(20-45)% more Magic and Rare Monsters|Rare Monsters have 19% more chance of Monster Modifiers",
+            "generalizedText": "^monsters break armour equal to #% of physical damage dealt$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
             "options": {
-                "name": "Infernal",
+                "name": "Shattering",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1556881571,
-            "regex": "% to m",
-            "rawText": "Monsters have (140-260)% increased Critical Hit Chance|+(180-300)% to Monster Critical Damage Bonus",
-            "generalizedText": "^monsters have #% increased critical hit chance$|^#% to monster critical damage bonus$",
+            "id": -1486983403,
+            "regex": "trates",
+            "rawText": "Monster Damage Penetrates (6-14)% Elemental Resistances",
+            "generalizedText": "^monster damage penetrates #% elemental resistances$",
             "options": {
-                "name": "of Destruction",
-                "prefix": false,
+                "name": "Penetrating",
+                "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1323891900,
-            "regex": "d ai",
-            "rawText": "Monsters have (30-70)% increased Stun Threshold|Monsters have (39-79)% increased Ailment Threshold",
-            "generalizedText": "^monsters have #% increased stun threshold$|^monsters have #% increased ailment threshold$",
+            "id": -1326165847,
+            "regex": "ore mo",
+            "rawText": "(10-26)% more Monster Life|(14-30)% more Magic and Rare Monsters|Rare Monsters have 23% more chance of Monster Modifiers",
+            "generalizedText": "^#% more monster life$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
             "options": {
-                "name": "of the Unwavering",
-                "prefix": false,
+                "name": "Tough",
+                "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
             "id": -1315426303,
-            "regex": "ss r",
+            "regex": "less r",
             "rawText": "Players have (29-40)% less Recovery Rate of Life and Energy Shield",
             "generalizedText": "^players have #% less recovery rate of life and energy shield$",
             "options": {
                 "name": "of Smothering",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1242350788,
-            "regex": "a chaos$",
-            "rawText": "Monsters deal (15-26)% of Damage as Extra Chaos",
-            "generalizedText": "^monsters deal #% of damage as extra chaos$",
+            "id": -1132306178,
+            "regex": "rs ta",
+            "rawText": "Monsters take (15-26)% reduced Extra Damage from Critical Hits|(19-30)% more Magic and Rare Monsters|Rare Monsters have 18% more chance of Monster Modifiers",
+            "generalizedText": "^monsters take #% reduced extra damage from critical hits$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
             "options": {
-                "name": "Profane",
-                "prefix": true,
+                "name": "of Obstruction",
+                "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -1232070079,
-            "regex": "al po",
-            "rawText": "Monsters have (10-20)% chance to steal Power, Frenzy and Endurance charges on Hit",
-            "generalizedText": "^monsters have #% chance to steal power, frenzy and endurance charges on hit$",
+            "id": -1024503212,
+            "regex": "ra ma",
+            "rawText": "Monsters gain 12% of maximum Life as Extra maximum Energy Shield",
+            "generalizedText": "^monsters gain #% of maximum life as extra maximum energy shield$",
             "options": {
-                "name": "Enervating",
-                "prefix": true,
+                "name": "of Buffering",
+                "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "default"
                 ]
             }
         },
         {
-            "id": -1093249962,
-            "regex": "rating$",
-            "rawText": "Monsters have (15-35)% increased Accuracy Rating",
-            "generalizedText": "^monsters have #% increased accuracy rating$",
-            "options": {
-                "name": "Precise",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": -941627043,
+            "id": -935484485,
             "regex": "k, c",
-            "rawText": "Monsters have (10-15)% increased Attack, Cast and Movement Speed",
+            "rawText": "Monsters have 10% increased Attack, Cast and Movement Speed",
             "generalizedText": "^monsters have #% increased attack, cast and movement speed$",
             "options": {
-                "name": "of Fleeting",
-                "prefix": false,
-                "tags": [
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": -784142282,
-            "regex": "r life$",
-            "rawText": "(20-40)% more Monster Life|(29-49)% increased number of Rare Monsters",
-            "generalizedText": "^#% more monster life$|^#% increased number of rare monsters$",
-            "options": {
-                "name": "Tough",
+                "name": "Fleeting",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": -654633719,
-            "regex": "d stun b",
-            "rawText": "Monsters have (75-125)% increased Stun Buildup",
-            "generalizedText": "^monsters have #% increased stun buildup$",
-            "options": {
-                "name": "of Impact",
-                "prefix": false,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": -438750559,
-            "regex": "un m",
-            "rawText": "Area contains (6-12) additional packs of Faridun Monsters",
-            "generalizedText": "^area contains # additional packs of faridun monsters$",
-            "options": {
-                "name": "Faridun's",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 150027952,
-            "regex": "aal m",
-            "rawText": "Area contains (6-12) additional packs of Vaal Monsters",
-            "generalizedText": "^area contains # additional packs of vaal monsters$",
-            "options": {
-                "name": "Sacrificial",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 274525583,
+            "id": -890906710,
             "regex": "ict b",
-            "rawText": "Monsters have (5-15)% chance to inflict Bleeding on Hit",
-            "generalizedText": "^monsters have #% chance to inflict bleeding on hit$",
+            "rawText": "Monsters have (5-20)% chance to inflict Bleeding on Hit|Monsters have (10-25)% more Effectiveness",
+            "generalizedText": "^monsters have #% chance to inflict bleeding on hit$|^monsters have #% more effectiveness$",
             "options": {
-                "name": "of Puncturing",
-                "prefix": false,
+                "name": "Puncturing",
+                "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 335489395,
-            "regex": "trates",
-            "rawText": "Monster Damage Penetrates (7-13)% Elemental Resistances",
-            "generalizedText": "^monster damage penetrates #% elemental resistances$",
+            "id": 355009668,
+            "regex": "ance$",
+            "rawText": "Monsters have (80-260)% increased Critical Hit Chance|Monsters have +(120-300)% Critical Damage Bonus",
+            "generalizedText": "^monsters have #% increased critical hit chance$|^monsters have #% critical damage bonus$",
             "options": {
-                "name": "of Penetration",
-                "prefix": false,
+                "name": "Destructive",
+                "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
@@ -292,9 +222,10 @@
                 "name": "of the Prism",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
@@ -304,12 +235,13 @@
             "rawText": "Area has patches of Chilled Ground",
             "generalizedText": "^area has patches of chilled ground$",
             "options": {
-                "name": "Sleet",
-                "prefix": true,
+                "name": "of Sleet",
+                "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
@@ -322,39 +254,39 @@
                 "name": "of Fatigue",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 796062285,
-            "regex": "f bra",
-            "rawText": "Area contains (6-12) additional packs of Bramble Monsters",
-            "generalizedText": "^area contains # additional packs of bramble monsters$",
+            "id": 632224647,
+            "regex": "s extra l",
+            "rawText": "Monsters deal (5-20)% of Damage as Extra Lightning",
+            "generalizedText": "^monsters deal #% of damage as extra lightning$",
             "options": {
-                "name": "Brambled",
+                "name": "Thunderous",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 947708593,
-            "regex": "ased mon",
-            "rawText": "(15-26)% increased Monster Damage|(20-30)% increased number of Rare Monsters",
-            "generalizedText": "^#% increased monster damage$|^#% increased number of rare monsters$",
+            "id": 897836482,
+            "regex": "sive$",
+            "rawText": "Monsters are Evasive",
+            "generalizedText": "^monsters are evasive$",
             "options": {
-                "name": "Painful",
-                "prefix": true,
+                "name": "of Evasion",
+                "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "default"
                 ]
             }
         },
@@ -367,159 +299,180 @@
                 "name": "of Drought",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
             "id": 990634028,
-            "regex": "f sho",
+            "regex": "s of sh",
             "rawText": "Area has patches of Shocked Ground",
             "generalizedText": "^area has patches of shocked ground$",
             "options": {
-                "name": "Shocking",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 1137840921,
-            "regex": "ds$",
-            "rawText": "Area contains (6-12) additional packs of Iron Guards|(8-13)% increased number of Rare Monsters",
-            "generalizedText": "^area contains # additional packs of iron guards$|^#% increased number of rare monsters$",
-            "options": {
-                "name": "Baron's",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 1180467079,
-            "regex": "sts$",
-            "rawText": "Area contains (6-12) additional packs of Beasts",
-            "generalizedText": "^area contains # additional packs of beasts$",
-            "options": {
-                "name": "Beastly",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 1424932226,
-            "regex": "les$",
-            "rawText": "Monsters fire 2 additional Projectiles",
-            "generalizedText": "^monsters fire # additional projectiles$",
-            "options": {
-                "name": "of Splitting",
+                "name": "of Shocking",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 1430279733,
-            "regex": "ezo",
-            "rawText": "Area contains (6-12) additional packs of Ezomyte Monsters",
-            "generalizedText": "^area contains # additional packs of ezomyte monsters$",
+            "id": 1208109589,
+            "regex": "d accu",
+            "rawText": "Monsters have (10-40)% increased Accuracy Rating",
+            "generalizedText": "^monsters have #% increased accuracy rating$",
             "options": {
-                "name": "Rusted",
+                "name": "Precise",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 1472664012,
+            "id": 1449881570,
+            "regex": "son o",
+            "rawText": "Monsters have (13-34)% chance to Poison on Hit",
+            "generalizedText": "^monsters have #% chance to poison on hit$",
+            "options": {
+                "name": "Venomous",
+                "prefix": true,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": 1497600323,
+            "regex": "ble$",
+            "rawText": "Players are periodically Cursed with Enfeeble|Monsters have 16% more Effectiveness",
+            "generalizedText": "^players are periodically cursed with enfeeble$|^monsters have #% more effectiveness$",
+            "options": {
+                "name": "of Enfeebling",
+                "prefix": false,
+                "tags": [
+                    "default"
+                ]
+            }
+        },
+        {
+            "id": 1498656041,
+            "regex": "ed el",
+            "rawText": "Monster have (60-120)% increased Elemental Ailment Application",
+            "generalizedText": "^monster have #% increased elemental ailment application$",
+            "options": {
+                "name": "of Overpowering",
+                "prefix": false,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": 1522418316,
             "regex": "% ma",
-            "rawText": "-(6-12)% maximum Player Resistances",
+            "rawText": "-(4-10)% maximum Player Resistances",
             "generalizedText": "^-#% maximum player resistances$",
             "options": {
                 "name": "of Exposure",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 1591435674,
-            "regex": "agu",
-            "rawText": "Area contains (6-12) additional packs of Plagued Monsters",
-            "generalizedText": "^area contains # additional packs of plagued monsters$",
+            "id": 1556748428,
+            "regex": "s of ig",
+            "rawText": "Area has patches of Ignited Ground|Monsters have 15% more Effectiveness",
+            "generalizedText": "^area has patches of ignited ground$|^monsters have #% more effectiveness$",
             "options": {
-                "name": "Perennial's",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 1700305598,
-            "regex": "ty m",
-            "rawText": "Monsters inflict (75-125)% increased Flammability Magnitude|Monsters have (75-125)% increased Freeze Buildup|Monsters have (75-125)% increased Shock Chance",
-            "generalizedText": "^monsters inflict #% increased flammability magnitude$|^monsters have #% increased freeze buildup$|^monsters have #% increased shock chance$",
-            "options": {
-                "name": "of Overpowering",
+                "name": "of Flames",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 1732807952,
-            "regex": "f u",
-            "rawText": "Area contains (6-12) additional packs of Undead",
-            "generalizedText": "^area contains # additional packs of undead$",
+            "id": 1582516464,
+            "regex": "dup$",
+            "rawText": "Monsters have (50-100)% increased Stun Buildup|Monsters have (60-110)% more Effectiveness",
+            "generalizedText": "^monsters have #% increased stun buildup$|^monsters have #% more effectiveness$",
             "options": {
-                "name": "Hallowed",
+                "name": "Impacting",
                 "prefix": true,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
         {
-            "id": 1864444417,
-            "regex": "son o",
-            "rawText": "Monsters have (10-30)% chance to Poison on Hit",
-            "generalizedText": "^monsters have #% chance to poison on hit$",
+            "id": 1728129871,
+            "regex": "ured$",
+            "rawText": "Monsters are Armoured|18% more Magic and Rare Monsters|Rare Monsters have 18% more chance of Monster Modifiers",
+            "generalizedText": "^monsters are armoured$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
             "options": {
-                "name": "of Venom",
+                "name": "of Enduring",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "default"
+                ]
+            }
+        },
+        {
+            "id": 1746407832,
+            "regex": "ased mon",
+            "rawText": "(5-20)% increased Monster Damage|(9-24)% more Magic and Rare Monsters|Rare Monsters have 25% more chance of Monster Modifiers",
+            "generalizedText": "^#% increased monster damage$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
+            "options": {
+                "name": "Painful",
+                "prefix": true,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": 1952448493,
+            "regex": "ed ai",
+            "rawText": "Monsters have (30-70)% increased Stun Threshold|Monsters have (39-79)% increased Ailment Threshold|Monsters have (30-70)% more Effectiveness",
+            "generalizedText": "^monsters have #% increased stun threshold$|^monsters have #% increased ailment threshold$|^monsters have #% more effectiveness$",
+            "options": {
+                "name": "of the Unwavering",
+                "prefix": false,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         },
@@ -529,73 +482,67 @@
             "rawText": "(30-50)% less effect of Curses on Monsters",
             "generalizedText": "^#% less effect of curses on monsters$",
             "options": {
-                "name": "Hexwarded",
-                "prefix": true,
-                "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
-                ]
-            }
-        },
-        {
-            "id": 2099812732,
-            "regex": "alt$",
-            "rawText": "Monsters Break Armour equal to (20-30)% of Physical Damage dealt|(25-45)% increased number of Rare Monsters",
-            "generalizedText": "^monsters break armour equal to #% of physical damage dealt$|^#% increased number of rare monsters$",
-            "options": {
-                "name": "of Shattering",
+                "name": "of Hexwarding",
                 "prefix": false,
                 "tags": [
-                    "low_tier_map",
-                    "mid_tier_map",
-                    "top_tier_map"
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
                 ]
             }
         }
     ],
     "optimizationTable": {
-        "-2139256324:-1593657389:-784142282:947708593:1137840921:2099812732": {
+        "-2138218511:-1922408793:1497600323": {
             "ids": [
-                -2139256324,
-                -1593657389,
-                -784142282,
-                947708593,
-                1137840921,
-                2099812732
+                -2138218511,
+                -1922408793,
+                1497600323
             ],
-            "regex": "ased n",
-            "weight": 8,
-            "count": 6
-        },
-        "-2044821837:525934570:990634028": {
-            "ids": [
-                -2044821837,
-                525934570,
-                990634028
-            ],
-            "regex": "patc",
-            "weight": 4,
+            "regex": "ly cu",
+            "weight": 7,
             "count": 3
         },
-        "-1758889850:-1564089432:-1564005638:-1242350788": {
+        "-2081659203:-1857408762:-1591163897:632224647": {
             "ids": [
-                -1758889850,
-                -1564089432,
-                -1564005638,
-                -1242350788
+                -2081659203,
+                -1857408762,
+                -1591163897,
+                632224647
             ],
             "regex": "rs de",
             "weight": 7,
             "count": 4
         },
-        "-1564089432:-1242350788": {
+        "-2081659203:-1591163897": {
             "ids": [
-                -1564089432,
-                -1242350788
+                -2081659203,
+                -1591163897
             ],
             "regex": "s extra c",
             "weight": 11,
+            "count": 2
+        },
+        "-1495812000:-1326165847:-1132306178:1728129871:1746407832": {
+            "ids": [
+                -1495812000,
+                -1326165847,
+                -1132306178,
+                1728129871,
+                1746407832
+            ],
+            "regex": "re mag",
+            "weight": 8,
+            "count": 5
+        },
+        "-1486983403:1746407832": {
+            "ids": [
+                -1486983403,
+                1746407832
+            ],
+            "regex": "ter da",
+            "weight": 8,
             "count": 2
         },
         "-1315426303:595280103": {
@@ -607,32 +554,27 @@
             "weight": 8,
             "count": 2
         },
-        "-1315426303:-1232070079": {
+        "-890906710:1497600323:1556748428:1582516464:1952448493": {
             "ids": [
-                -1315426303,
-                -1232070079
+                -890906710,
+                1497600323,
+                1556748428,
+                1582516464,
+                1952448493
             ],
-            "regex": "and en",
-            "weight": 8,
-            "count": 2
+            "regex": "% more ef",
+            "weight": 11,
+            "count": 5
         },
-        "335489395:947708593": {
+        "525934570:990634028:1556748428": {
             "ids": [
-                335489395,
-                947708593
+                525934570,
+                990634028,
+                1556748428
             ],
-            "regex": "ter da",
-            "weight": 8,
-            "count": 2
-        },
-        "796062285:1180467079": {
-            "ids": [
-                796062285,
-                1180467079
-            ],
-            "regex": "s of b",
-            "weight": 8,
-            "count": 2
+            "regex": "patc",
+            "weight": 4,
+            "count": 3
         }
     }
 }
