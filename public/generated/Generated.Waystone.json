@@ -75,44 +75,12 @@
             }
         },
         {
-            "id": -1495812000,
-            "regex": "ealt$",
-            "rawText": "Monsters Break Armour equal to (15-30)% of Physical Damage dealt|(20-45)% more Magic and Rare Monsters|Rare Monsters have 19% more chance of Monster Modifiers",
-            "generalizedText": "^monsters break armour equal to #% of physical damage dealt$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
-            "options": {
-                "name": "Shattering",
-                "prefix": true,
-                "tags": [
-                    "map_key_low",
-                    "map_key_medium",
-                    "map_key_high",
-                    "map_key_highest"
-                ]
-            }
-        },
-        {
             "id": -1486983403,
             "regex": "trates",
             "rawText": "Monster Damage Penetrates (6-14)% Elemental Resistances",
             "generalizedText": "^monster damage penetrates #% elemental resistances$",
             "options": {
                 "name": "Penetrating",
-                "prefix": true,
-                "tags": [
-                    "map_key_low",
-                    "map_key_medium",
-                    "map_key_high",
-                    "map_key_highest"
-                ]
-            }
-        },
-        {
-            "id": -1326165847,
-            "regex": "ore mo",
-            "rawText": "(10-26)% more Monster Life|(14-30)% more Magic and Rare Monsters|Rare Monsters have 23% more chance of Monster Modifiers",
-            "generalizedText": "^#% more monster life$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
-            "options": {
-                "name": "Tough",
                 "prefix": true,
                 "tags": [
                     "map_key_low",
@@ -139,13 +107,29 @@
             }
         },
         {
-            "id": -1132306178,
+            "id": -1124567907,
             "regex": "rs ta",
-            "rawText": "Monsters take (15-26)% reduced Extra Damage from Critical Hits|(19-30)% more Magic and Rare Monsters|Rare Monsters have 18% more chance of Monster Modifiers",
-            "generalizedText": "^monsters take #% reduced extra damage from critical hits$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
+            "rawText": "Monsters take (15-26)% reduced Extra Damage from Critical Hits",
+            "generalizedText": "^monsters take #% reduced extra damage from critical hits$",
             "options": {
                 "name": "of Obstruction",
                 "prefix": false,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": -1041278836,
+            "regex": "ealt$",
+            "rawText": "Monsters Break Armour equal to (15-30)% of Physical Damage dealt",
+            "generalizedText": "^monsters break armour equal to #% of physical damage dealt$",
+            "options": {
+                "name": "Shattering",
+                "prefix": true,
                 "tags": [
                     "map_key_low",
                     "map_key_medium",
@@ -226,6 +210,35 @@
                     "map_key_medium",
                     "map_key_high",
                     "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": 457744569,
+            "regex": "ased mon",
+            "rawText": "(5-20)% increased Monster Damage",
+            "generalizedText": "^#% increased monster damage$",
+            "options": {
+                "name": "Painful",
+                "prefix": true,
+                "tags": [
+                    "map_key_low",
+                    "map_key_medium",
+                    "map_key_high",
+                    "map_key_highest"
+                ]
+            }
+        },
+        {
+            "id": 472015170,
+            "regex": "ured$",
+            "rawText": "Monsters are Armoured",
+            "generalizedText": "^monsters are armoured$",
+            "options": {
+                "name": "of Enduring",
+                "prefix": false,
+                "tags": [
+                    "default"
                 ]
             }
         },
@@ -432,25 +445,12 @@
             }
         },
         {
-            "id": 1728129871,
-            "regex": "ured$",
-            "rawText": "Monsters are Armoured|18% more Magic and Rare Monsters|Rare Monsters have 18% more chance of Monster Modifiers",
-            "generalizedText": "^monsters are armoured$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
+            "id": 1778319603,
+            "regex": "ore mo",
+            "rawText": "(10-26)% more Monster Life",
+            "generalizedText": "^#% more monster life$",
             "options": {
-                "name": "of Enduring",
-                "prefix": false,
-                "tags": [
-                    "default"
-                ]
-            }
-        },
-        {
-            "id": 1746407832,
-            "regex": "ased mon",
-            "rawText": "(5-20)% increased Monster Damage|(9-24)% more Magic and Rare Monsters|Rare Monsters have 25% more chance of Monster Modifiers",
-            "generalizedText": "^#% increased monster damage$|^#% more magic and rare monsters$|^rare monsters have #% more chance of monster modifiers$",
-            "options": {
-                "name": "Painful",
+                "name": "Tough",
                 "prefix": true,
                 "tags": [
                     "map_key_low",
@@ -524,22 +524,10 @@
             "weight": 11,
             "count": 2
         },
-        "-1495812000:-1326165847:-1132306178:1728129871:1746407832": {
-            "ids": [
-                -1495812000,
-                -1326165847,
-                -1132306178,
-                1728129871,
-                1746407832
-            ],
-            "regex": "re mag",
-            "weight": 8,
-            "count": 5
-        },
-        "-1486983403:1746407832": {
+        "-1486983403:457744569": {
             "ids": [
                 -1486983403,
-                1746407832
+                457744569
             ],
             "regex": "ter da",
             "weight": 8,
