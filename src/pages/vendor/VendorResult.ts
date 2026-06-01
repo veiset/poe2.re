@@ -100,7 +100,7 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
     settings.skillLevel ? "^\\+.*ills$" : null,
     settings.skillLevelMinion ? "^\\+.*ion skills$" : null,
     settings.skillLevelMelee ? "^\\+.*ee skills$" : null,
-    settings.skillLevelSpell ? "^\\+.*l sp.*ls$" : null,
+    settings.skillLevelSpell ? "^\\+.*all sp.*ls$" : null,
     settings.skillLevelFire ? "^\\+.*re sp.*ls$" : null,
     settings.skillLevelCold ? "^\\+.*ld sp.*ls$" : null,
     settings.skillLevelLightning ? "^\\+.*ng sp.*ls$" : null,

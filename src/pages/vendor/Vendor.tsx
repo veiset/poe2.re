@@ -190,7 +190,7 @@ export function Vendor() {
                      })}
             />
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Item modifiers (skill)</p>
-            <Checked id="mod-skill" text="+# to level of skills" checked={settings.itemMods.skillLevel}
+            <Checked id="mod-skill" text="+# to level of skills (any)" checked={settings.itemMods.skillLevel}
                      onChange={(b) => setSettings({
                        ...settings, itemMods: {...settings.itemMods, skillLevel: b}
                      })}
