@@ -130,7 +130,7 @@ export function Vendor() {
               <>
                 {i > 0 && <span className="font-bold mx-1">AND</span>}
                 <span
-                  className={cx("or-group", {
+                  className={cx("or-group inline-block whitespace-nowrap", {
                     selected: i == settings.selectedGroupId,
                     empty: settings.vendorGroups.length === 0
                   })}

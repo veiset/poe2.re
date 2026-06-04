@@ -89,8 +89,7 @@
 
 .match-text {
     padding-left: 10px;
-    line-height: 1.8em;
-    padding-bottom: 5px;
+    line-height: 2.0em;
 }
 
 .match-text-buttons {
@@ -99,8 +98,9 @@
 }
 
 .or-group {
-    padding: 0.4em 0.4em;
-    border-radius: 0.2em;
+    padding: 0.15em 0.4em;
+    margin-bottom: 10px;
+    border-radius: var(--radius);
     cursor: pointer;
     color: black;
     background: #9fb2d5;
@@ -108,7 +108,7 @@
 }
 
 .or-group:hover {
-    border-color: #000;
+    border-color: #ebffe5;
 }
 
 .or-group.selected {
@@ -129,7 +129,7 @@ label {
     color: black;
     margin-left: 10px;
     padding: 6px;
-    border-radius: 3px;
+    border-radius: var(--radius);
     background-color: #4ade80; /* bg-green-400 */
     transition: background-color 0.15s ease-in-out;
     font-weight: 500;
@@ -145,7 +145,7 @@ label {
     color: black;
     margin-left: 10px;
     padding: 6px;
-    border-radius: 3px;
+    border-radius: var(--radius);
     background-color: #fca5a5; /* bg-red-300 */
     transition: background-color 0.15s ease-in-out;
     font-weight: 500;
