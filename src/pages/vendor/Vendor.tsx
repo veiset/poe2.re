@@ -9,6 +9,7 @@ import {generateVendorGroupRegex} from "@/pages/vendor/VendorResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {getSelectedPropertiesFromObject} from "@/lib/utils.ts";
 import {cx} from "class-variance-authority";
+import {Plus, Delete, CircleX, CirclePlus} from "lucide-react";
 
 export function Vendor() {
 
@@ -85,6 +86,8 @@ export function Vendor() {
     setSelectedProfile(currentProfile);
   }, [currentProfile]);
 
+  const isEmpty = settings.vendorGroups.length === 1 && getSelectedPropertiesFromObject(settings.vendorGroups[0]).length === 0;
+
   return (
     <>
       <div className="flex items-center justify-between">
@@ -142,12 +145,14 @@ export function Vendor() {
           })}
         </p>
         <p className="match-text-buttons">
-          <a className="addGroup" href="#" onClick={addGroup}>
-            ➕ Add grouping
-          </a>
-          <a className="removeGroup" href="#" onClick={removeGroup}>
-            ❌ Remove current grouping
-          </a>
+          {!isEmpty && (<>
+            <a className="addGroup inline-flex gap-1.5" href="#" onClick={addGroup}>
+              <CirclePlus strokeWidth={1.75} className="w-5 h-5" /> Add grouping
+            </a>
+            <a className="removeGroup inline-flex gap-1.5" href="#" onClick={removeGroup}>
+              <CircleX strokeWidth={1.75} className="w-5 h-5" /> Remove current grouping
+            </a>
+          </>)}
         </p>
       </div>
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
