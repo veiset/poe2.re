@@ -89,7 +89,7 @@
 
 .match-text {
     padding-left: 10px;
-    line-height: 2.0em;
+    line-height: 2.6em;
 }
 
 .match-text-buttons {
@@ -98,7 +98,8 @@
 }
 
 .or-group {
-    padding: 0.15em 0.4em;
+    box-decoration-break: clone;
+    padding: 0.4em 0.4em;
     margin-bottom: 10px;
     border-radius: var(--radius);
     cursor: pointer;
