@@ -109,6 +109,7 @@
 
 .or-group:hover {
     border-color: #ebffe5;
+    background: #bdcdea;
 }
 
 .or-group.selected {
