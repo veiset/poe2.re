@@ -1,30 +1,41 @@
-import {Settings} from "@/app/settings.ts";
+import {Settings, VendorGroup} from "@/app/settings.ts";
 
-export function generateVendorRegex(settings: Settings): string {
+export function generateVendorGroupRegex(settings: Settings["vendor"]): string {
+  const groups = settings.vendorGroups
+    .map((group) => generateVendorRegex(group))
+    .join(" ");
+
+  return [
+    groups,
+    settings.resultSettings.customText || null,
+  ].filter((e) => e !== null && e !== "")
+    .join(" ");
+}
+
+export function generateVendorRegex(settings: VendorGroup): string {
   const terms = [
-    ...itemProperty(settings.vendor.itemProperty),
-    itemType(settings.vendor.itemType),
-    itemLevel(settings.vendor.itemLevel),
-    characterLevel(settings.vendor.characterLevel),
-    resistances(settings.vendor.resistances),
-    movement(settings.vendor.movementSpeed),
-    ...itemMods(settings.vendor.itemMods),
-    settings.vendor.resultSettings.customText || null,
-    itemClass(settings.vendor.itemClass),
+    ...itemProperty(settings.itemProperty),
+    itemType(settings.itemType),
+    itemLevel(settings.itemLevel),
+    characterLevel(settings.characterLevel),
+    resistances(settings.resistances),
+    movement(settings.movementSpeed),
+    ...itemMods(settings.itemMods),
+    itemClass(settings.itemClass),
   ].filter((e) => e !== null && e !== "")
 
   return terms.length > 0 ? `"${terms.join("|")}"` : "";
 }
 
 
-function itemProperty(settings: Settings["vendor"]["itemProperty"]): (string | null)[] {
+function itemProperty(settings: VendorGroup["itemProperty"]): (string | null)[] {
   return [
     settings.quality ? "y: \\+" : null,
     settings.sockets ? "ts: S" : null,
   ].filter((e) => e !== null)
 }
 
-function itemType(settings: Settings["vendor"]["itemType"]): string | null {
+function itemType(settings: VendorGroup["itemType"]): string | null {
   const types = [
     settings.rare ? "r" : null,
     settings.magic ? "m" : null,
@@ -36,7 +47,7 @@ function itemType(settings: Settings["vendor"]["itemType"]): string | null {
   return `y: ${types.join("|")}`;
 }
 
-function resistances(settings: Settings["vendor"]["resistances"]): string | null {
+function resistances(settings: VendorGroup["resistances"]): string | null {
   const res = [
     settings.fire ? "fi" : null,
     settings.cold ? "co" : null,
@@ -52,7 +63,7 @@ function resistances(settings: Settings["vendor"]["resistances"]): string | null
 
 }
 
-function movement(settings: Settings["vendor"]["movementSpeed"]): string | null {
+function movement(settings: VendorGroup["movementSpeed"]): string | null {
   const move0 = [
     settings.move30 ? "30" : null,
     settings.move20 ? "20" : null,
@@ -77,12 +88,12 @@ function movement(settings: Settings["vendor"]["movementSpeed"]): string | null 
   return `(${[zeros, fives].filter((e) => e !== null && e !== "").join("|")})% i.+mov`;
 }
 
-function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
+function itemMods(settings: VendorGroup["itemMods"]): (string | null)[] {
   const eleDamage = settings.elemental ? "cfl" : [
     settings.coldDamage ? "co" : null,
     settings.chaosDamage ? "ch" : null,
     settings.fireDamage ? "f" : null,
-    settings.lightningDamage? "l" : null,
+    settings.lightningDamage ? "l" : null,
   ].filter((e) => e !== null).join("|");
 
   const eleString = eleDamage.includes("|") ? `(${eleDamage})` : `${eleDamage}`;
@@ -116,7 +127,7 @@ function itemMods(settings: Settings["vendor"]["itemMods"]): (string | null)[] {
   ].filter((e) => e !== null)
 }
 
-function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
+function itemClass(settings: VendorGroup["itemClass"]): string | null {
   const itemClasses = [
     settings.amulets ? "am" : null,
     settings.rings ? "ri" : null,
@@ -146,11 +157,11 @@ function itemClass(settings: Settings["vendor"]["itemClass"]): string | null {
   return `s: (${itemClasses.join("|")})`;
 }
 
-function itemLevel(settings: Settings["vendor"]["itemLevel"]): string | null {
+function itemLevel(settings: VendorGroup["itemLevel"]): string | null {
   return createLevelRangeRegex(settings.min, settings.max, "m level: ");
 }
 
-function characterLevel(settings: Settings["vendor"]["characterLevel"]): string | null {
+function characterLevel(settings: VendorGroup["characterLevel"]): string | null {
   return createLevelRangeRegex(settings.min, settings.max, "s: level ");
 }
 
@@ -172,7 +183,7 @@ function createLevelRangeRegex(min: number, max: number, prefix: string): string
   if (min === 0 && effectiveMax === 99) {
     return `${prefix}(\\d{1,2})\\b`;
   }
-  
+
   if (min > 0 && min === effectiveMax) {
     // Exact match
     return `${prefix}(${min})\\b`;
@@ -181,14 +192,14 @@ function createLevelRangeRegex(min: number, max: number, prefix: string): string
   const singleDigits = min <= 9 ? rangePattern(min, Math.min(9, effectiveMax)) : "";
   const tens = Math.floor(Math.min(Math.max(min, 10), effectiveMax) / 10);
   const maxTens = Math.floor(effectiveMax / 10);
-  
+
   const patterns = [];
-  
+
   // Add single digit pattern if applicable
   if (singleDigits) {
     patterns.push(singleDigits);
   }
-  
+
   // Handle ranges spanning tens more efficiently
   if (tens <= maxTens) {
     // Different tens groups
@@ -205,12 +216,12 @@ function createLevelRangeRegex(min: number, max: number, prefix: string): string
       } else if (min <= tens * 10) {
         patterns.push(`${tens}\\d`);
       }
-      
+
       // Full tens groups in the middle
       if (maxTens > tens + 1) {
         patterns.push(`[${tens + 1}-${maxTens - 1}]\\d`);
       }
-      
+
       // Final tens group
       if (effectiveMax % 10 > 0) {
         patterns.push(`${maxTens}[0-${effectiveMax % 10}]`);
