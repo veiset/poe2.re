@@ -9,7 +9,7 @@ import {generateVendorGroupRegex} from "@/pages/vendor/VendorResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {getSelectedPropertiesFromObject} from "@/lib/utils.ts";
 import {cx} from "class-variance-authority";
-import {Plus, Delete, CircleX, CirclePlus} from "lucide-react";
+import {CircleX, CirclePlus} from "lucide-react";
 
 export function Vendor() {
 
