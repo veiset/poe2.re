@@ -40,12 +40,11 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
 }
 
 function generateReviveRegex(settings: Settings["waystone"]["revives"]): string | null {
-  if (settings.max === 0 && settings.min === 0) return null;
-  if (settings.max !== 0 && settings.min > settings.max) return null;
-  if (settings.min < 1 || settings.max < 1) return null;
-  if (settings.min <= 1 && settings.max === 6) return null;
+  if (settings.min > settings.max) return null;
+  if (settings.min < 0 || settings.max < 0) return null;
+  if (settings.min <= 0 && settings.max === 6) return null;
 
-  const max = settings.max === 0 ? 6 : settings.max;
+  const max = settings.max;
   const min = settings.min;
 
   const numbers = range(min, max + 1);

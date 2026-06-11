@@ -272,7 +272,7 @@ export const defaultSettings: Settings = {
       max: 16,
     },
     revives: {
-      min: 1,
+      min: 0,
       max: 6,
     },
     state: {

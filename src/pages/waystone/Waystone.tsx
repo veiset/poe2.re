@@ -204,7 +204,7 @@ export function Waystone() {
                 <Input className="w-20 h-8"
                        id="waystone-min-revives"
                        type="number"
-                       min="1"
+                       min="0"
                        max="6"
                        placeholder="Min revives"
                        value={settings.revives.min}
@@ -222,7 +222,7 @@ export function Waystone() {
                 <Input className="w-20 h-8"
                        id="waystone-max-revives"
                        type="number"
-                       min="1"
+                       min="0"
                        max="6"
                        placeholder="Max revives"
                        value={settings.revives.max}
