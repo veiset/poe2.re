@@ -198,6 +198,43 @@ export function Waystone() {
                        }}
                 />
               </div>
+              <br />
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-min-revives">Minimum revives:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-min-revives"
+                       type="number"
+                       min="1"
+                       max="6"
+                       placeholder="Min revives"
+                       value={settings.revives.min}
+                       onChange={(b) => {
+                         if (Number(b.target.value) <= settings.revives.max) {
+                           setSettings({
+                             ...settings, revives: {...settings.revives, min: Math.min(Number(b.target.value), 6) || 0}
+                           })
+                         }
+                       }}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-max-revives">Maximum revives:</Label>
+                <Input className="w-20 h-8"
+                       id="waystone-max-revives"
+                       type="number"
+                       min="1"
+                       max="6"
+                       placeholder="Max revives"
+                       value={settings.revives.max}
+                       onChange={(b) => {
+                         if (Number(b.target.value) >= settings.revives.min) {
+                           setSettings({
+                             ...settings, revives: {...settings.revives, max: Math.min(Number(b.target.value), 6) || 0}
+                           })
+                         }
+                       }}
+                />
+              </div>
             </div>
 
             <div>

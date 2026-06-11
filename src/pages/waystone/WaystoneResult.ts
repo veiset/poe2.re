@@ -5,6 +5,7 @@ import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 export function generateWaystoneRegex(settings: Settings): string {
   const result = [
     generateTierRegex(settings.waystone.tier),
+    generateReviveRegex(settings.waystone.revives),
     generateModifiers(settings.waystone.modifier),
     generateState(settings.waystone.state),
     ...generateQuantifiers(settings.waystone),
@@ -36,6 +37,23 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
   const over10 = regexOver10 === "" ? "" : `${regexOver10}\\)`
   const result = [under10, over10].filter((e) => e !== "").join("|");
   return result === "" ? "" : `"${result}"`
+}
+
+function generateReviveRegex(settings: Settings["waystone"]["revives"]): string | null {
+  if (settings.max === 0 && settings.min === 0) return null;
+  if (settings.max !== 0 && settings.min > settings.max) return null;
+  if (settings.min < 1 || settings.max < 1) return null;
+  if (settings.min <= 1 && settings.max === 6) return null;
+
+  const max = settings.max === 0 ? 6 : settings.max;
+  const min = settings.min;
+
+  const numbers = range(min, max + 1);
+
+  const regex = numbers.length <= 1 ? `${numbers.join("")}` :
+    numbers.length > 2 ? `[${numbers[0]}-${numbers[numbers.length - 1]}]` : `[${numbers.join("")}]`;
+
+  return regex === "" ? "" : `"le: ${regex}"`;
 }
 
 function generateModifiers(settings: Settings["waystone"]["modifier"]): string | null {
