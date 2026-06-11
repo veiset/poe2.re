@@ -208,10 +208,11 @@ export function Waystone() {
                        min="0"
                        max="6"
                        placeholder="Min revives"
-                       value={settings.revives.min === 0 ? "" : settings.revives.min}
+                       value={settings.revives.min}
                        onChange={(b) => {
+                         const val = b.target.value;
                          setSettings({
-                           ...settings, revives: {...settings.revives, min: Math.min(Number(b.target.value), 6)}
+                           ...settings, revives: {...settings.revives, min: val === "" ? 0 : Math.min(Number(val), 6)}
                          })
                        }}
                 />
@@ -224,10 +225,11 @@ export function Waystone() {
                        min="0"
                        max="6"
                        placeholder="Max revives"
-                       value={settings.revives.max === 0 ? "" : settings.revives.max}
+                       value={settings.revives.max}
                        onChange={(b) => {
+                         const val = b.target.value;
                          setSettings({
-                           ...settings, revives: {...settings.revives, max: Math.min(Number(b.target.value), 6)}
+                           ...settings, revives: {...settings.revives, max: val === "" ? 0 : Math.min(Number(val), 6)}
                          })
                        }}
                 />
