@@ -89,7 +89,7 @@ function movement(settings: VendorGroup["movementSpeed"]): string | null {
 }
 
 function itemMods(settings: VendorGroup["itemMods"]): (string | null)[] {
-  const eleDamage = settings.elemental ? "cfl" : [
+  const eleDamage = settings.elemental ? "[cfl]" : [
     settings.coldDamage ? "co" : null,
     settings.chaosDamage ? "ch" : null,
     settings.fireDamage ? "f" : null,
