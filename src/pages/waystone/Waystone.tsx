@@ -111,51 +111,56 @@ export function Waystone() {
             <div className="space-y-1">
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-iiq">Waystone IIQ:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-iiq"
+                       type="number"
                        value={settings.itemQuantity}
                        onChange={(e) => setSettings({
-                         ...settings, itemQuantity: e.target.value
+                         ...settings, itemQuantity: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-iir">Waystone IIR:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-iir"
+                       type="number"
                        value={settings.itemRarity}
                        onChange={(e) => setSettings({
-                         ...settings, itemRarity: e.target.value
+                         ...settings, itemRarity: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-drop-chance">Waystone Drop Chance:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-drop-chance"
+                       type="number"
                        value={settings.waystoneDropChance}
                        onChange={(e) => setSettings({
-                        ...settings, waystoneDropChance: e.target.value
+                        ...settings, waystoneDropChance: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-magic-monsters">Waystone Magic Monsters:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-magic-monsters"
+                       type="number"
                        value={settings.magicMonsters}
                        onChange={(e) => setSettings({
-                        ...settings, magicMonsters: e.target.value
+                        ...settings, magicMonsters: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-rare-monsters">Waystone Rare Monsters:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-rare-monsters"
+                       type="number"
                        value={settings.rareMonsters}
                        onChange={(e) => setSettings({
-                        ...settings, rareMonsters: e.target.value
+                        ...settings, rareMonsters: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>
@@ -164,40 +169,74 @@ export function Waystone() {
             <div className="space-y-1">
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-min-tier">Minimum tier:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-min-tier"
                        type="number"
                        min="1"
                        max="16"
                        placeholder="Min tier"
-                       value={settings.tier.min}
+                       value={settings.tier.min === 0 ? "" : settings.tier.min}
                        onChange={(b) => {
-                         if (Number(b.target.value) <= settings.tier.max) {
-                           setSettings({
-                             ...settings, tier: {...settings.tier, min: Math.min(Number(b.target.value), 16) || 0}
-                           })
-                         }
+                         setSettings({
+                           ...settings, tier: {...settings.tier, min: Math.min(Number(b.target.value), 16)}
+                         })
                        }}
                 />
               </div>
               <div className="flex justify-between items-center space-x-1">
                 <Label htmlFor="waystone-max-tier">Maximum tier:</Label>
-                <Input className="w-20 h-8"
+                <Input className="w-28 h-8"
                        id="waystone-max-tier"
                        type="number"
                        min="1"
                        max="16"
                        placeholder="Min tier"
-                       value={settings.tier.max}
+                       value={settings.tier.max === 0 ? "" : settings.tier.max}
                        onChange={(b) => {
-                         if (Number(b.target.value) >= settings.tier.min) {
-                           setSettings({
-                             ...settings, tier: {...settings.tier, max: Math.min(Number(b.target.value), 16) || 0}
-                           })
-                         }
+                         setSettings({
+                           ...settings, tier: {...settings.tier, max: Math.min(Number(b.target.value), 16)}
+                         })
                        }}
                 />
               </div>
+              <br />
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-min-revives">Minimum revives:</Label>
+                <Input className="w-28 h-8"
+                       id="waystone-min-revives"
+                       type="number"
+                       min="0"
+                       max="6"
+                       placeholder="Min revives"
+                       value={settings.revives.min}
+                       onChange={(b) => {
+                         const val = b.target.value;
+                         setSettings({
+                           ...settings, revives: {...settings.revives, min: val === "" ? 0 : Math.min(Number(val), 6)}
+                         })
+                       }}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-max-revives">Maximum revives:</Label>
+                <Input className="w-28 h-8"
+                       id="waystone-max-revives"
+                       type="number"
+                       min="0"
+                       max="6"
+                       placeholder="Max revives"
+                       value={settings.revives.max}
+                       onChange={(b) => {
+                         const val = b.target.value;
+                         setSettings({
+                           ...settings, revives: {...settings.revives, max: val === "" ? 0 : Math.min(Number(val), 6)}
+                         })
+                       }}
+                />
+              </div>
+              <p className="text-[10px] text-sidebar-foreground/50 pt-1">
+                Setting min and max revivies to 0 will find 6+ modifier waystones
+              </p>
             </div>
 
             <div>

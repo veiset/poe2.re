@@ -114,6 +114,10 @@ export interface Settings {
       min: number,
       max: number,
     },
+    revives: {
+      min: number,
+      max: number,
+    },
     state: {
       corrupted: boolean,
       uncorrupted: boolean,
@@ -266,6 +270,10 @@ export const defaultSettings: Settings = {
     tier: {
       min: 1,
       max: 16,
+    },
+    revives: {
+      min: 0,
+      max: 6,
     },
     state: {
       corrupted: false,
