@@ -1,5 +1,6 @@
 import { Settings } from "@/app/settings.ts";
 import { selectedOptionRegex } from "@/lib/SelectedOptionRegex.ts";
+import { generateRarityRegex } from "@/lib/GenerateRarityRegex.ts";
 
 /**
  * Generates tablet regex toi be pasted in PoE2
@@ -50,40 +51,6 @@ function generateModifierRegex(
   return [`"${affixes.join("|")}"`];
 }
 
-/**
- * Generates a regex that matches tablet rarity.
- * The supported types are:
- *  Normal, Magic
- *
- * Example regex:
- *  Normal              ->  "y: n"
- *  Magic               ->  "y: m"
- *  Normal, Magic       ->  null
- *
- * @param settings - Settings instance that contains input values
- * @returns Regex as string, null on failure
- *
- */
-function generateRarityRegex(
-  settings: Settings["tablet"]["rarity"],
-): string | null {
-  if (
-    (settings.normal && settings.magic) ||
-    (!settings.normal && !settings.magic)
-  ) {
-    return null;
-  }
-  const normalRegex = settings.normal ? "n" : "";
-  const magicRegex = settings.magic ? "m" : "";
-  const result = [normalRegex, magicRegex]
-    .filter((e) => e.length > 0)
-    .join("|");
-
-  if (result.length === 0) return null;
-  if (result.length === 1) return `"y: ${result}"`;
-  if (result.length > 1) return `"y: (${result})"`;
-  return null;
-}
 
 /**
  * Generates a regex that matches all tablet types.

@@ -1,9 +1,11 @@
 import {Settings} from "@/app/settings.ts";
 import { generateNumberRegex } from "@/lib/GenerateNumberRegex";
 import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
+import {generateRarityRegex} from "@/lib/GenerateRarityRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
   const result = [
+    generateRarityRegex(settings.waystone.rarity),
     generateTierRegex(settings.waystone.tier),
     generateReviveRegex(settings.waystone.revives),
     generateModifiers(settings.waystone.modifier),
@@ -15,6 +17,7 @@ export function generateWaystoneRegex(settings: Settings): string {
   if (result.length === 0) return "";
   return result.join(" ").trim();
 }
+
 
 function generateTierRegex(settings: Settings["waystone"]["tier"]): string | null {
   if (settings.max === 0 && settings.min === 0) return null

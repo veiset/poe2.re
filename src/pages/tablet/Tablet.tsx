@@ -88,6 +88,11 @@ export function Tablet(){
         <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Tablet rarity</p>
+            <Checked id="tabletrarity-rare" text="Rare" checked={settings.rarity.rare}
+                     onChange={(b) => setSettings({
+                       ...settings, rarity: {...settings.rarity, rare: b}
+                     })}
+            />
             <Checked id="tabletrarity-magic" text="Magic" checked={settings.rarity.magic}
                      onChange={(b) => setSettings({
                        ...settings, rarity: {...settings.rarity, magic: b}

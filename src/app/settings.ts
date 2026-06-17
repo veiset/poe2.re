@@ -134,12 +134,18 @@ export interface Settings {
     waystoneDropChance: string,
     magicMonsters: string,
     rareMonsters: string,
+    rarity: {
+      normal: boolean,
+      magic: boolean,
+      rare: boolean,
+    },
   },
   tablet: {
     resultSettings: ResultSettings,
     rarity: {
       normal: boolean,
       magic: boolean,
+      rare: boolean,
     },
     type: {
       breach: boolean,
@@ -281,7 +287,7 @@ export const defaultSettings: Settings = {
       delirious: false,
     },
     modifier: {
-      round10: true,
+      round10: false,
       wantedModsSelectType: "any",
       wantedMods: [],
       unwantedMods: [],
@@ -290,13 +296,19 @@ export const defaultSettings: Settings = {
     itemRarity: "",
     magicMonsters: "",
     rareMonsters: "",
-    waystoneDropChance: ""
+    waystoneDropChance: "",
+    rarity: {
+      normal: false,
+      magic: false,
+      rare: false,
+    },
   },
   tablet: {
     resultSettings: defaultResultSettings,
     rarity: {
       normal: false,
       magic: false,
+      rare: false,
     },
     type: {
       breach: false,
@@ -309,7 +321,7 @@ export const defaultSettings: Settings = {
     modifier: {
       usesRemaining: false,
       numUsesRemaining: 10,
-      round10: true,
+      round10: false,
       affixSelectType: "any",
       affixes: [],
     }
