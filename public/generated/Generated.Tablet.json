@@ -110,7 +110,7 @@
         },
         {
             "id": -1860827957,
-            "regex": "mes",
+            "regex": "allo",
             "rawText": "Ritual Altars in Map allow rerolling Favours (1-3) additional times",
             "generalizedText": "^ritual altars in map allow rerolling favours # additional times$",
             "options": {
