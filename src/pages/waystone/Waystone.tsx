@@ -240,6 +240,23 @@ export function Waystone() {
             </div>
 
             <div>
+              <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Waystone rarity</p>
+              <Checked id="waystonerarity-rare" text="Rare" checked={settings.rarity.rare}
+                       onChange={(b) => setSettings({
+                         ...settings, rarity: {...settings.rarity, rare: b}
+                       })}
+              />
+              <Checked id="waystonerarity-magic" text="Magic" checked={settings.rarity.magic}
+                       onChange={(b) => setSettings({
+                         ...settings, rarity: {...settings.rarity, magic: b}
+                       })}
+              />
+              <Checked id="waystonerarity-normal" text="Normal" checked={settings.rarity.normal}
+                       onChange={(b) => setSettings({
+                         ...settings, rarity: {...settings.rarity, normal: b}
+                       })}
+              />
+              <br/>
               <Checked id="state-corrupted" text="Corrupted Waystones"
                        checked={settings.state.corrupted}
                        onChange={(b) => setSettings({

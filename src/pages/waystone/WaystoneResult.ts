@@ -4,6 +4,7 @@ import {selectedOptionRegex} from "@/lib/SelectedOptionRegex.ts";
 
 export function generateWaystoneRegex(settings: Settings): string {
   const result = [
+    generateRarityRegex(settings.waystone.rarity),
     generateTierRegex(settings.waystone.tier),
     generateReviveRegex(settings.waystone.revives),
     generateModifiers(settings.waystone.modifier),
@@ -14,6 +15,43 @@ export function generateWaystoneRegex(settings: Settings): string {
 
   if (result.length === 0) return "";
   return result.join(" ").trim();
+}
+
+/**
+ * Generates a regex that matches waystone rarity.
+ * The supported types are:
+ *  Normal, Magic, Rare
+ *
+ * Example regex:
+ *  Normal              ->  "y: n"
+ *  Magic               ->  "y: m"
+ *  Rare                ->  "y: r"
+ *  Normal, Magic, Rare ->  null
+ *
+ * @param settings - Settings instance that contains input values
+ * @returns Regex as string, null on failure
+ *
+ */
+function generateRarityRegex(
+  settings: Settings["waystone"]["rarity"],
+): string | null {
+  if (
+    (settings.normal && settings.magic && settings.rare) ||
+    (!settings.normal && !settings.magic && !settings.rare)
+  ) {
+    return null;
+  }
+  const normalRegex = settings.normal ? "n" : "";
+  const magicRegex = settings.magic ? "m" : "";
+  const rareRegex = settings.rare ? "r" : "";
+  const result = [normalRegex, magicRegex, rareRegex]
+    .filter((e) => e.length > 0)
+    .join("|");
+
+  if (result.length === 0) return null;
+  if (result.length === 1) return `"y: ${result}"`;
+  if (result.length > 1) return `"y: (${result})"`;
+  return null;
 }
 
 function generateTierRegex(settings: Settings["waystone"]["tier"]): string | null {

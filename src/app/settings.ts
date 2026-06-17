@@ -134,6 +134,11 @@ export interface Settings {
     waystoneDropChance: string,
     magicMonsters: string,
     rareMonsters: string,
+    rarity: {
+      normal: boolean,
+      magic: boolean,
+      rare: boolean,
+    },
   },
   tablet: {
     resultSettings: ResultSettings,
@@ -291,7 +296,12 @@ export const defaultSettings: Settings = {
     itemRarity: "",
     magicMonsters: "",
     rareMonsters: "",
-    waystoneDropChance: ""
+    waystoneDropChance: "",
+    rarity: {
+      normal: false,
+      magic: false,
+      rare: false,
+    },
   },
   tablet: {
     resultSettings: defaultResultSettings,
