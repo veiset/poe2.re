@@ -53,12 +53,13 @@ function generateModifierRegex(
 /**
  * Generates a regex that matches tablet rarity.
  * The supported types are:
- *  Normal, Magic
+ *  Normal, Magic, Rare
  *
  * Example regex:
  *  Normal              ->  "y: n"
  *  Magic               ->  "y: m"
- *  Normal, Magic       ->  null
+ *  Rare                ->  "y: r"
+ *  Normal, Magic, Rare ->  null
  *
  * @param settings - Settings instance that contains input values
  * @returns Regex as string, null on failure
@@ -68,14 +69,15 @@ function generateRarityRegex(
   settings: Settings["tablet"]["rarity"],
 ): string | null {
   if (
-    (settings.normal && settings.magic) ||
-    (!settings.normal && !settings.magic)
+    (settings.normal && settings.magic && settings.rare) ||
+    (!settings.normal && !settings.magic && !settings.rare)
   ) {
     return null;
   }
   const normalRegex = settings.normal ? "n" : "";
   const magicRegex = settings.magic ? "m" : "";
-  const result = [normalRegex, magicRegex]
+  const rareRegex = settings.rare ? "r" : "";
+  const result = [normalRegex, magicRegex, rareRegex]
     .filter((e) => e.length > 0)
     .join("|");
 
