@@ -80,7 +80,7 @@ export function Item() {
     saveSettings(settingsResult);
 
     if (settings.itemBase && settings.itemBase.rarity === "Rare") {
-      setResult(generateRareItemRegex(affixMap, settings));
+      setResult(generateRareItemRegex(settings));
     } else if (settings.itemBase && settings.itemBase.rarity === "Magic") {
       setResult(generateMagicItemRegex(settings));
     } else {
@@ -344,7 +344,10 @@ interface RareItemSelectProps {
 }
 
 function RareItemSelect({itemRegex, itemBase, selected, setSelected}: RareItemSelectProps) {
-  const grouped = groupCategories(itemRegex.itemRegexForCategory);
+  const filteredCategories = itemRegex.itemRegexForCategory.filter(
+    (cat) => cat.modCategory !== "corrupted" && cat.modCategory !== "unique"
+  );
+  const grouped = groupCategories(filteredCategories);
 
   return (
     <div className="pt-4">
@@ -504,7 +507,10 @@ interface MagicItemSelectProps {
 }
 
 function MagicItemSelect({itemRegex, itemBase, selected, setSelected}: MagicItemSelectProps) {
-  const grouped = groupCategories(itemRegex.itemRegexForCategory);
+  const filteredCategories = itemRegex.itemRegexForCategory.filter(
+    (cat) => cat.modCategory !== "corrupted" && cat.modCategory !== "unique"
+  );
+  const grouped = groupCategories(filteredCategories);
 
   return (
     <div className="pt-4">

@@ -1,15 +1,9 @@
-import {ItemModifier} from "@/types/generated/ItemTypedef.ts";
 import {generateNumberRegex} from "@/lib/GenerateNumberRegex.ts";
-import {ItemSettings, SelectedItemMod} from "@/app/settings.ts";
+import {ItemSettings} from "@/app/settings.ts";
 
 const openPrefix = (item: string) => `^${item}`;
 const openSuffix = (item: string) => `${item}$`;
 
-type RareModSelectionEntry = {
-  key: string;
-  value: SelectedItemMod;
-  regex: ItemModifier
-};
 
 export function generateMagicItemRegex(
   settings: ItemSettings
@@ -47,40 +41,39 @@ export function generateMagicItemRegex(
 }
 
 export function generateRareItemRegex(
-  affixMap: Record<string, ItemModifier>,
   settings: ItemSettings,
 ): string {
   const itemBase = settings.itemBase;
   const selectedMods = settings.selectedMods;
 
+  console.log(`yo ${itemBase?.baseType}`)
   if (!itemBase) return "";
 
-  const mods: RareModSelectionEntry[] = Object.entries(selectedMods)
-    .map(([key, value]) => ({key, value, regex: affixMap[key]}));
 
+  console.log({selectedMods})
 
-  const result = mods
-    .filter((e) => e.value.selected)
-    .filter((e) => e.key.startsWith(itemBase.baseType))
+  const result = selectedMods
+    .filter((e) => e.selected)
+    .filter((e) => e.basetype.startsWith(itemBase.baseType))
     .map((e) => {
-      const rangeInRegex = e.regex.regexPosition.on[0];
+      const rangeInRegex = e.itemModifier.regexPosition.on[0];
       const hasRangeInsideRegex = rangeInRegex !== undefined
-        && e.value.values[rangeInRegex] !== ""
-        && e.value.values[rangeInRegex] !== undefined;
+        && e.values[rangeInRegex] !== ""
+        && e.values[rangeInRegex] !== undefined;
       const regex = hasRangeInsideRegex
-        ? e.regex.regex
+        ? e.itemModifier.regex
           .replace(
             "\\d+",
-            generateNumberRegex(e.value.values[rangeInRegex], false).replace(".", "\\d")
+            generateNumberRegex(e.values[rangeInRegex], false).replace(".", "\\d")
           )
-        : e.regex.regex;
-      const numbersBefore = e.regex.regexPosition.before
-        .map((number) => e.value.values[number])
+        : e.itemModifier.regex;
+      const numbersBefore = e.itemModifier.regexPosition.before
+        .map((number) => e.values[number])
         .filter((e) => e !== undefined && e !== "")
         .map((f) => generateNumberRegex(f, false).replace(".", "\\d"))
         .join(".*");
-      const numbersAfter = e.regex.regexPosition.after
-        .map((number) => e.value.values[number])
+      const numbersAfter = e.itemModifier.regexPosition.after
+        .map((number) => e.values[number])
         .filter((e) => e !== undefined && e !== "")
         .map((f) => generateNumberRegex(f, false).replace(".", "\\d"))
         .join(".*");
@@ -91,7 +84,7 @@ export function generateRareItemRegex(
 
       return {
         str: regexStr,
-        affixtype: e.regex.affixType
+        affixtype: e.itemModifier.affixType
       };
     });
 
