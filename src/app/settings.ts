@@ -105,10 +105,6 @@ export interface VendorGroup {
 export interface ItemSettings {
   itemBase: Itembase | undefined,
   selectedMods: SelectedItemMod[],
-  magicSettings: {
-    matchOpenAffix: boolean
-    onlyIfBothPrefixAndSuffix: boolean
-  }
   rareSettings: {
     matchAnyMod: boolean
   }
@@ -375,10 +371,6 @@ export const defaultSettings: Settings = {
   item: {
     itemBase: undefined,
     selectedMods: [],
-    magicSettings: {
-      matchOpenAffix: false,
-      onlyIfBothPrefixAndSuffix: false
-    },
     rareSettings: {
       matchAnyMod: true
     }
