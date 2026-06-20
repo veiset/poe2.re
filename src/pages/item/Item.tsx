@@ -1,22 +1,19 @@
 import {Header} from "@/components/header/Header.tsx";
 import {Result} from "@/components/result/Result.tsx";
-import {defaultSettings, ItemSettings, SelectedItemMod} from "@/app/settings.ts";
+import {defaultSettings, ItemSettings} from "@/app/settings.ts";
 import {useEffect, useMemo, useState} from "react";
 import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
 import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
-import {Input} from "@/components/ui/input.tsx";
 import {loadItemBasetypes, loadItemRegex} from "@/lib/loadItemData.ts";
 import {WarningBox} from "@/components/warning/WarningBox.tsx";
 import {ItemBaseSelector} from "@/pages/item/ItemBaseSelector.tsx";
-import {RareItemSelect} from "@/pages/item/RareItemSelect.tsx";
+import {RareModifierSelect} from "@/pages/item/RareModifierSelect.tsx";
 import {
   Itembase,
   ItemRegex,
-  ItemRegexCategory,
 } from "@/types/generated/ItemTypedef.ts";
 import {ItemBasetype} from "@/types/generated/ItemBasetypesTypedef.ts";
 import {generateRareItemRegex} from "@/pages/item/ItemResult.ts";
-import {cn} from "@/lib/utils.ts";
 
 export function Item() {
   const initialProfile = selectedProfile();
@@ -114,7 +111,7 @@ export function Item() {
         />
 
         {settings.itemBase && currentItemRegex && (
-          <RareItemSelect
+          <RareModifierSelect
             itemRegex={currentItemRegex}
             itemBase={settings.itemBase}
             selected={settings.selectedMods}

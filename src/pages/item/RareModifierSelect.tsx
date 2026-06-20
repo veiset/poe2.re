@@ -143,22 +143,41 @@ const ModifierItem = React.memo(({mod, cat, itemBase, selected, setSelected}: Mo
   );
 });
 
-export function RareItemSelect({itemRegex, itemBase, selected, setSelected}: {
+export function RareModifierSelect({itemRegex, itemBase, selected, setSelected}: {
   itemRegex: ItemRegex;
   itemBase: Itembase;
   selected: SelectedItemMod[];
   setSelected: (mods: SelectedItemMod[]) => void;
 }) {
-  const grouped = useMemo(() => {
-    const filteredCategories = itemRegex.itemRegexForCategory.filter(
-      (cat) => cat.modCategory !== "corrupted" && cat.modCategory !== "unique"
-    );
+  const [searchTerm, setSearchTerm] = React.useState("");
+
+  const filteredGrouped = useMemo(() => {
+    const q = searchTerm.toLowerCase().trim();
+    const filteredCategories = itemRegex.itemRegexForCategory
+      .filter((cat) => cat.modCategory !== "corrupted" && cat.modCategory !== "unique")
+      .map((cat) => ({
+        ...cat,
+        modifiers: cat.modifiers.filter((mod) =>
+          mod.description.toLowerCase().includes(q) ||
+          mod.affixes.some(a => a.name.toLowerCase().includes(q))
+        ),
+      }))
+      .filter((cat) => cat.modifiers.length > 0);
+
     return groupCategories(filteredCategories);
-  }, [itemRegex.itemRegexForCategory]);
+  }, [itemRegex.itemRegexForCategory, searchTerm]);
 
   return (
     <div className="pt-4">
-      {Object.entries(grouped).map(([groupKey, cats]) => (
+      <div className="pb-4">
+        <Input
+          placeholder="Search modifiers..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="max-w-md"
+        />
+      </div>
+      {Object.entries(filteredGrouped).map(([groupKey, cats]) => (
         <div key={groupKey} className="grid lg:grid-cols-2 md:grid-cols-2 gap-4 pb-4">
           {cats.map((cat) => (
             <div key={cat.modCategory}>
