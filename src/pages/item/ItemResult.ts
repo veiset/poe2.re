@@ -6,12 +6,7 @@ export function generateRareItemRegex(
 ): string {
   const itemBase = settings.itemBase;
   const selectedMods = settings.selectedMods;
-
-  console.log(`yo ${itemBase?.baseType}`)
   if (!itemBase) return "";
-
-
-  console.log({selectedMods})
 
   const result = selectedMods
     .filter((e) => e.selected)
