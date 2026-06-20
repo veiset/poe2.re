@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button.tsx";
 import { defaultSettings } from "@/app/settings.ts";
 import { saveSettings, selectedProfile } from "@/lib/localStorage.ts";
 import { Bug } from "lucide-react";
+import { BUG_REPORT_URL } from "@/lib/urls.ts";
 
 interface Props {
   children: ReactNode;
@@ -36,7 +37,6 @@ export class GlobalErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      const bugUrl = "https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=bug&projects=&template=bug_report.md&title=Bug%3A+%3CTitle%3E";
       return (
         <div className="p-8 flex flex-col items-center justify-center min-h-screen bg-background text-foreground">
           <div className="max-w-2xl w-full">
@@ -72,7 +72,7 @@ export class GlobalErrorBoundary extends Component<Props, State> {
                       asChild
                       className="hover:bg-primary/80 hover:brightness-125 transition-all duration-200"
                     >
-                      <a href={bugUrl} target="_blank" rel="noopener noreferrer">
+                      <a href={BUG_REPORT_URL} target="_blank" rel="noopener noreferrer">
                         <Bug className="mr-2 h-4 w-4" />
                         Report Bug
                       </a>
