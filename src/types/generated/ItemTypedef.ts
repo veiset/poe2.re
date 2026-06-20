@@ -1,4 +1,3 @@
-export type Rarity = "Magic" | "Rare";
 export type AffixType = "PREFIX" | "SUFFIX";
 
 export interface ItemStat {
@@ -47,6 +46,5 @@ export interface ItemRegex {
 export interface Itembase {
   baseType: string,
   item: string,
-  rarity: Rarity,
 }
 

@@ -13,10 +13,9 @@ import {
   ItemModifier,
   ItemRegex,
   ItemRegexCategory,
-  Rarity,
 } from "@/types/generated/ItemTypedef.ts";
 import {ItemBasetype} from "@/types/generated/ItemBasetypesTypedef.ts";
-import {generateMagicItemRegex, generateRareItemRegex} from "@/pages/item/ItemResult.ts";
+import {generateRareItemRegex} from "@/pages/item/ItemResult.ts";
 import {cn} from "@/lib/utils.ts";
 
 export function Item() {
@@ -78,14 +77,7 @@ export function Item() {
     const base = loadSettings(currentProfile);
     const settingsResult = {...base, item: {...settings}, name: currentProfile};
     saveSettings(settingsResult);
-
-    if (settings.itemBase && settings.itemBase.rarity === "Rare") {
-      setResult(generateRareItemRegex(settings));
-    } else if (settings.itemBase && settings.itemBase.rarity === "Magic") {
-      setResult(generateMagicItemRegex(settings));
-    } else {
-      setResult("");
-    }
+    setResult(generateRareItemRegex(settings));
   }, [settings, affixMap]);
 
   useEffect(() => {
@@ -113,14 +105,29 @@ export function Item() {
           reset={() => setSettings(defaultSettings.item)}
           customText={""}
           autoCopy={false}
-          setCustomText={() => {}}
-          setAutoCopy={() => {}}
+          setCustomText={() => {
+          }}
+          setAutoCopy={() => {
+          }}
         />
       </div>
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
+        {/* Beta Warning */}
+        <div className="bg-orange-900 border border-yellow-700/50 rounded-lg p-4 shadow-sm">
+          <p className="text-sm text-yellow-100/80">
+            <span className="font-bold text-yellow-200 mr-1">Beta feature!</span>
+            <p>
+              Regex might incorrectly match modifiers. <br/>
+              Please report bugs for incorrect matches and I'll try to fix it. Keep in mind that generating unique regex
+              for generic item modifiers is really hard!
+            </p>
+          </p>
+        </div>
+
         {/* Item base selector */}
         <div className="bg-gray-700 border border-gray-500 rounded-sm p-4 shadow-sm">
-          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 uppercase tracking-wider">Select item base</p>
+          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 uppercase tracking-wider">Select item
+            base</p>
           <div className="relative">
             <Input
               type="text"
@@ -130,7 +137,8 @@ export function Item() {
               onChange={(e) => setSearchText(e.target.value)}
             />
             {filteredItems.length > 0 && (
-              <div className="absolute z-10 w-full max-w-sm bg-background border rounded-md shadow-lg max-h-60 overflow-y-auto">
+              <div
+                className="absolute z-10 w-full max-w-sm bg-background border rounded-md shadow-lg max-h-60 overflow-y-auto">
                 {filteredItems.map((item, i) => (
                   <div
                     key={`${item.baseType}-${item.item}-${i}`}
@@ -139,7 +147,6 @@ export function Item() {
                       setItemBase({
                         baseType: item.baseType,
                         item: item.item,
-                        rarity: "Rare",
                       })
                     }
                   >
@@ -157,16 +164,16 @@ export function Item() {
           )}
 
           {/* Warnings */}
-          {currentItemRegex && settings.itemBase?.rarity === "Rare" && (
+          {currentItemRegex && settings.itemBase && (
             <div className="mt-4">
               <ModWarnings itemRegex={currentItemRegex}/>
             </div>
           )}
 
-          {/* Rare item settings */}
-          {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Rare" && (
+          {settings.itemBase && currentItemRegex && (
             <div className="pt-2 mt-4">
-              <p className="text-xs font-medium text-sidebar-foreground/70 pb-4 uppercase tracking-wider">Rare mod matching</p>
+              <p className="text-xs font-medium text-sidebar-foreground/70 pb-4 uppercase tracking-wider">Rare mod
+                matching</p>
               <RadioGroup
                 value={
                   settings.rareSettings.matchAnyMod
@@ -199,63 +206,8 @@ export function Item() {
           )}
         </div>
 
-        {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Rare" && (
+        {settings.itemBase && currentItemRegex && (
           <RareItemSelect
-            itemRegex={currentItemRegex}
-            itemBase={settings.itemBase}
-            selected={settings.selectedMods}
-            setSelected={(mods) => setSettings({...settings, selectedMods: mods})}
-          />
-        )}
-
-        {/* Rarity selector hidden as per request */}
-
-        {/* Magic item settings */}
-        {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Magic" && (
-          <div className="bg-muted/30 border rounded-lg p-4 shadow-sm">
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-4 uppercase tracking-wider">Magic mod matching</p>
-            <RadioGroup
-              value={
-                settings.magicSettings.matchOpenAffix
-                  ? "open"
-                  : settings.magicSettings.onlyIfBothPrefixAndSuffix
-                    ? "both"
-                    : "any"
-              }
-              onValueChange={(v) => {
-                setSettings({
-                  ...settings,
-                  magicSettings: {
-                    matchOpenAffix: v === "open",
-                    onlyIfBothPrefixAndSuffix: v === "both",
-                  },
-                });
-              }}
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="any" id="magic-mods-any"/>
-                <Label htmlFor="magic-mods-any">
-                  <span className="text-lg cursor-pointer">Match if <span className="font-semibold">ANY</span> mod is found</span>
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="both" id="magic-mods-both"/>
-                <Label htmlFor="magic-mods-both">
-                  <span className="text-lg cursor-pointer">Match at least 1 <span className="font-semibold">Prefix AND 1 Suffix</span></span>
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="open" id="magic-mods-open"/>
-                <Label htmlFor="magic-mods-open">
-                  <span className="text-lg cursor-pointer">Match an <span className="font-semibold">open prefix or suffix</span></span>
-                </Label>
-              </div>
-            </RadioGroup>
-          </div>
-        )}
-
-        {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Magic" && (
-          <MagicItemSelect
             itemRegex={currentItemRegex}
             itemBase={settings.itemBase}
             selected={settings.selectedMods}
@@ -267,7 +219,6 @@ export function Item() {
   );
 }
 
-// --- Sub-components ---
 
 function cleanCategoryName(category: string): string {
   return category
@@ -293,7 +244,8 @@ function ModWarnings({itemRegex}: { itemRegex: ItemRegex }) {
   return (
     <details className="pt-2">
       <summary className="text-sm text-muted-foreground cursor-pointer">
-        Show warnings / mod conflicts for {itemRegex.basetype} <span className="text-yellow-300">({warnings.length})</span>
+        Show warnings / mod conflicts for {itemRegex.basetype} <span
+        className="text-yellow-300">({warnings.length})</span>
       </summary>
       <div className="pl-4 pt-1">
         {warnings.map((w, i) => (
@@ -459,84 +411,6 @@ function RareItemSelect({itemRegex, itemBase, selected, setSelected}: RareItemSe
                   </div>
                 );
               })}
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-interface MagicItemSelectProps {
-  itemRegex: ItemRegex;
-  itemBase: Itembase;
-  selected: SelectedItemMod[];
-  setSelected: (mods: SelectedItemMod[]) => void;
-}
-
-function MagicItemSelect({itemRegex, itemBase, selected, setSelected}: MagicItemSelectProps) {
-  const filteredCategories = itemRegex.itemRegexForCategory.filter(
-    (cat) => cat.modCategory !== "corrupted" && cat.modCategory !== "unique"
-  );
-  const grouped = groupCategories(filteredCategories);
-
-  return (
-    <div className="pt-4">
-      {Object.entries(grouped).map(([groupKey, cats]) => (
-        <div key={groupKey} className="grid lg:grid-cols-2 md:grid-cols-2 gap-4 pb-4">
-          {cats.map((cat) => (
-            <div key={cat.modCategory}>
-              <p className="text-sm font-semibold pb-2">{cleanCategoryName(cat.modCategory)}</p>
-              {cat.modifiers.flatMap((mod) =>
-                mod.affixes.map((affix) => {
-                  const isSelected = selected.some(
-                    (s) =>
-                      s.basetype === itemBase.baseType &&
-                      s.itemModifier.description === affix.description
-                  );
-
-                  const toggle = () => {
-                    if (isSelected) {
-                      setSelected(
-                        selected.filter(
-                          (s) =>
-                            !(
-                              s.basetype === itemBase.baseType &&
-                              s.itemModifier.description === affix.description
-                            )
-                        )
-                      );
-                    } else {
-                      setSelected([
-                        ...selected,
-                        {
-                          basetype: itemBase.baseType,
-                          category: cat.modCategory,
-                          itemModifier: {
-                            ...mod,
-                            description: affix.description,
-                          },
-                          values: {},
-                          selected: true,
-                        },
-                      ]);
-                    }
-                  };
-
-                  return (
-                    <div
-                      key={`${cat.modCategory}-${affix.description}-${affix.name}`}
-                      className={cn(
-                        "p-2 rounded cursor-pointer text-sm border border-transparent hover:border-muted-foreground/30",
-                        {"bg-green-900/40": isSelected}
-                      )}
-                      onClick={toggle}
-                    >
-                      {affix.name}
-                    </div>
-                  );
-                })
-              )}
             </div>
           ))}
         </div>
