@@ -128,7 +128,7 @@ const ModifierItem = React.memo(({mod, cat, itemBase, selected, setSelected}: Mo
       {renderDescription()}
       {isSelected && (
         <div className="pl-2 pt-1">
-          {[...mod.affixes].map((a, i) => (
+          {[...mod.affixes].reverse().map((a, i) => (
             <div
               key={i}
               className="text-xs text-muted-foreground/95 p-1 mr-2 bg-gray-800"
