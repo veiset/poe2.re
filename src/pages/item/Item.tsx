@@ -99,12 +99,6 @@ export function Item() {
     setSearchText("");
   };
 
-  const setRarity = (rarity: Rarity) => {
-    if (settings.itemBase) {
-      setSettings({...settings, itemBase: {...settings.itemBase, rarity}});
-    }
-  };
-
   return (
     <>
       <div className="flex items-center justify-between">
@@ -125,8 +119,8 @@ export function Item() {
       </div>
       <div className="flex grow bg-muted/30 flex-1 flex-col gap-2 p-4">
         {/* Item base selector */}
-        <div>
-          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Select item base</p>
+        <div className="bg-gray-700 border border-gray-500 rounded-sm p-4 shadow-sm">
+          <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 uppercase tracking-wider">Select item base</p>
           <div className="relative">
             <Input
               type="text"
@@ -145,7 +139,7 @@ export function Item() {
                       setItemBase({
                         baseType: item.baseType,
                         item: item.item,
-                        rarity: settings.itemBase?.rarity ?? "Rare",
+                        rarity: "Rare",
                       })
                     }
                   >
@@ -155,100 +149,71 @@ export function Item() {
               </div>
             )}
           </div>
+          {settings.itemBase && (
+            <p className="text-md pt-4">
+              Selected: <span className="font-semibold text-yellow-500">{settings.itemBase.item}</span>
+              <span className="text-muted-foreground"> ({settings.itemBase.baseType})</span>
+            </p>
+          )}
+
+          {/* Warnings */}
+          {currentItemRegex && settings.itemBase?.rarity === "Rare" && (
+            <div className="mt-4">
+              <ModWarnings itemRegex={currentItemRegex}/>
+            </div>
+          )}
+
+          {/* Rare item settings */}
+          {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Rare" && (
+            <div className="pt-6 border-t mt-4">
+              <p className="text-xs font-medium text-sidebar-foreground/70 pb-4 uppercase tracking-wider">Rare mod matching</p>
+              <RadioGroup
+                value={
+                  settings.rareSettings.matchAnyMod
+                    ? "any"
+                    : "all"
+                }
+                onValueChange={(v) => {
+                  setSettings({
+                    ...settings,
+                    rareSettings: {
+                      matchAnyMod: v === "any",
+                    },
+                  });
+                }}
+              >
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="all" id="rare-mods-all"/>
+                  <Label htmlFor="rare-mods-all">
+                    <span className="text-lg cursor-pointer">Match if only <span className="font-semibold">ALL</span> mods are found</span>
+                  </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="any" id="rare-mods-any"/>
+                  <Label htmlFor="rare-mods-any">
+                    <span className="text-lg cursor-pointer">Match if <span className="font-semibold">ANY</span> mod is found</span>
+                  </Label>
+                </div>
+              </RadioGroup>
+            </div>
+          )}
         </div>
 
-        {settings.itemBase && (
-          <p className="text-md pt-2">
-            Selected: <span className="font-semibold">{settings.itemBase.item}</span>
-            <span className="text-muted-foreground"> ({settings.itemBase.baseType})</span>
-          </p>
-        )}
-
-
-        {/* Rarity selector */}
-        {settings.itemBase && (
-          <div className="pt-2">
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Item rarity</p>
-            <RadioGroup
-              value={settings.itemBase.rarity}
-              onValueChange={(v) => setRarity(v as Rarity)}
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Magic" id="item-rarity-magic"/>
-                <Label htmlFor="item-rarity-magic">
-                  <span className="text-lg cursor-pointer">Magic</span>
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="Rare" id="item-rarity-rare"/>
-                <Label htmlFor="item-rarity-rare">
-                  <span className="text-lg cursor-pointer">Rare</span>
-                </Label>
-              </div>
-            </RadioGroup>
-          </div>
-        )}
-
-        {/* Warnings */}
-        {currentItemRegex && settings.itemBase?.rarity === "Rare" && (
-          <ModWarnings itemRegex={currentItemRegex}/>
-        )}
-
-        {/* Rare item settings */}
         {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Rare" && (
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Rare mod matching</p>
-            <RadioGroup
-              value={
-                settings.rareSettings.matchAnyMod
-                  ? "any"
-                  : settings.rareSettings.matchPrefixAndSuffix
-                    ? "prefixSuffix"
-                    : "all"
-              }
-              onValueChange={(v) => {
-                setSettings({
-                  ...settings,
-                  rareSettings: {
-                    matchAnyMod: v === "any",
-                    matchPrefixAndSuffix: v === "prefixSuffix",
-                  },
-                });
-              }}
-            >
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="all" id="rare-mods-all"/>
-                <Label htmlFor="rare-mods-all">
-                  <span className="text-lg cursor-pointer">Match if only <span className="font-semibold">ALL</span> mods are found</span>
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="any" id="rare-mods-any"/>
-                <Label htmlFor="rare-mods-any">
-                  <span className="text-lg cursor-pointer">Match if <span className="font-semibold">ANY</span> mod is found</span>
-                </Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="prefixSuffix" id="rare-mods-prefix-suffix"/>
-                <Label htmlFor="rare-mods-prefix-suffix">
-                  <span className="text-lg cursor-pointer">Match at least 1 <span className="font-semibold">Prefix AND 1 Suffix</span></span>
-                </Label>
-              </div>
-            </RadioGroup>
-
-            <RareItemSelect
-              itemRegex={currentItemRegex}
-              itemBase={settings.itemBase}
-              selected={settings.selectedMods}
-              setSelected={(mods) => setSettings({...settings, selectedMods: mods})}
-            />
-          </div>
+          <RareItemSelect
+            itemRegex={currentItemRegex}
+            itemBase={settings.itemBase}
+            selected={settings.selectedMods}
+            setSelected={(mods) => setSettings({...settings, selectedMods: mods})}
+          />
         )}
+
+        {/* Rarity selector hidden as per request */}
 
         {/* Magic item settings */}
         {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Magic" && (
-          <div>
-            <p className="text-xs font-medium text-sidebar-foreground/70 pb-2 pt-4">Magic mod matching</p>
+          <div className="bg-muted/30 border rounded-lg p-4 shadow-sm">
+            <p className="text-xs font-medium text-sidebar-foreground/70 pb-4 uppercase tracking-wider">Magic mod matching</p>
             <RadioGroup
               value={
                 settings.magicSettings.matchOpenAffix
@@ -286,14 +251,16 @@ export function Item() {
                 </Label>
               </div>
             </RadioGroup>
-
-            <MagicItemSelect
-              itemRegex={currentItemRegex}
-              itemBase={settings.itemBase}
-              selected={settings.selectedMods}
-              setSelected={(mods) => setSettings({...settings, selectedMods: mods})}
-            />
           </div>
+        )}
+
+        {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Magic" && (
+          <MagicItemSelect
+            itemRegex={currentItemRegex}
+            itemBase={settings.itemBase}
+            selected={settings.selectedMods}
+            setSelected={(mods) => setSettings({...settings, selectedMods: mods})}
+          />
         )}
       </div>
     </>
@@ -326,11 +293,11 @@ function ModWarnings({itemRegex}: { itemRegex: ItemRegex }) {
   return (
     <details className="pt-2">
       <summary className="text-sm text-muted-foreground cursor-pointer">
-        Show warnings / mod conflicts for {itemRegex.basetype} ({warnings.length})
+        Show warnings / mod conflicts for {itemRegex.basetype} <span className="text-yellow-300">({warnings.length})</span>
       </summary>
       <div className="pl-4 pt-1">
         {warnings.map((w, i) => (
-          <div key={i} className="text-sm text-yellow-500">duplicate: {w}</div>
+          <div key={i} className="text-sm text-yellow-300">duplicate: {w}</div>
         ))}
       </div>
     </details>

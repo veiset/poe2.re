@@ -88,16 +88,7 @@ export function generateRareItemRegex(
       };
     });
 
-  if (settings.rareSettings.matchPrefixAndSuffix) {
-    const prefixes = result.filter(e => e.affixtype === "PREFIX").map(e => e.str).join("|");
-    const suffixes = result.filter(e => e.affixtype === "SUFFIX").map(e => e.str).join("|");
-
-    if (prefixes && suffixes) {
-      return `"${prefixes}" "${suffixes}"`;
-    }
-    // Fallback to default behavior if one of the categories is empty
-    return result.map((e) => `"${e.str}"`).join(" ");
-  } else if (settings.rareSettings.matchAnyMod) {
+  if (settings.rareSettings.matchAnyMod) {
     const regex = result.map(e => e.str).join("|");
     return regex.length > 0 ? `"${regex}"` : "";
   } else {

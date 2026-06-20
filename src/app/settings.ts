@@ -110,7 +110,6 @@ export interface ItemSettings {
     onlyIfBothPrefixAndSuffix: boolean
   }
   rareSettings: {
-    matchPrefixAndSuffix: boolean
     matchAnyMod: boolean
   }
 }
@@ -381,7 +380,6 @@ export const defaultSettings: Settings = {
       onlyIfBothPrefixAndSuffix: false
     },
     rareSettings: {
-      matchPrefixAndSuffix: false,
       matchAnyMod: false
     }
   }
