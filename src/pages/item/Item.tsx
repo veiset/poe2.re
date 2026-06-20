@@ -165,7 +165,7 @@ export function Item() {
 
           {/* Rare item settings */}
           {settings.itemBase && currentItemRegex && settings.itemBase.rarity === "Rare" && (
-            <div className="pt-6 border-t mt-4">
+            <div className="pt-2 mt-4">
               <p className="text-xs font-medium text-sidebar-foreground/70 pb-4 uppercase tracking-wider">Rare mod matching</p>
               <RadioGroup
                 value={
@@ -448,7 +448,7 @@ function RareItemSelect({itemRegex, itemBase, selected, setSelected}: RareItemSe
                         {[...mod.affixes].reverse().map((a, i) => (
                           <div
                             key={i}
-                            className="text-xs text-muted-foreground"
+                            className="text-xs text-muted-foreground/95 p-1 mr-2 bg-gray-800"
                             onClick={(e) => e.stopPropagation()}
                           >
                             <span className="font-semibold">T{i + 1}</span> {a.name}
@@ -528,7 +528,7 @@ function MagicItemSelect({itemRegex, itemBase, selected, setSelected}: MagicItem
                       key={`${cat.modCategory}-${affix.description}-${affix.name}`}
                       className={cn(
                         "p-2 rounded cursor-pointer text-sm border border-transparent hover:border-muted-foreground/30",
-                        {"bg-slate-700": isSelected}
+                        {"bg-green-900/40": isSelected}
                       )}
                       onClick={toggle}
                     >

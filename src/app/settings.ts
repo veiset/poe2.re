@@ -380,7 +380,7 @@ export const defaultSettings: Settings = {
       onlyIfBothPrefixAndSuffix: false
     },
     rareSettings: {
-      matchAnyMod: false
+      matchAnyMod: true
     }
   }
 }
