@@ -149,7 +149,7 @@ export function Waystone() {
                        type="number"
                        value={settings.magicMonsters}
                        onChange={(e) => setSettings({
-                        ...settings, magicMonsters: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
+                         ...settings, magicMonsters: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>
@@ -160,7 +160,40 @@ export function Waystone() {
                        type="number"
                        value={settings.rareMonsters}
                        onChange={(e) => setSettings({
-                        ...settings, rareMonsters: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
+                         ...settings, rareMonsters: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-monster-effectiveness">Monster Effectiveness:</Label>
+                <Input className="w-28 h-8"
+                       id="waystone-monster-effectiveness"
+                       type="number"
+                       value={settings.monsterEffectiveness}
+                       onChange={(e) => setSettings({
+                        ...settings, monsterEffectiveness: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-monster-rarity">Monster Rarity:</Label>
+                <Input className="w-28 h-8"
+                       id="waystone-monster-rarity"
+                       type="number"
+                       value={settings.monsterRarity}
+                       onChange={(e) => setSettings({
+                        ...settings, monsterRarity: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
+                       })}
+                />
+              </div>
+              <div className="flex justify-between items-center space-x-1">
+                <Label htmlFor="waystone-pack-size">Pack Size:</Label>
+                <Input className="w-28 h-8"
+                       id="waystone-pack-size"
+                       type="number"
+                       value={settings.packSize}
+                       onChange={(e) => setSettings({
+                        ...settings, packSize: e.target.value === "" ? "" : String(Math.max(0, Number(e.target.value)))
                        })}
                 />
               </div>

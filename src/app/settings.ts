@@ -132,6 +132,9 @@ export interface Settings {
     itemRarity: string,
     itemQuantity: string,
     waystoneDropChance: string,
+    monsterEffectiveness: string,
+    monsterRarity: string,
+    packSize: string,
     magicMonsters: string,
     rareMonsters: string,
     rarity: {
@@ -297,6 +300,9 @@ export const defaultSettings: Settings = {
     magicMonsters: "",
     rareMonsters: "",
     waystoneDropChance: "",
+    monsterEffectiveness: "",
+    monsterRarity: "",
+    packSize: "",
     rarity: {
       normal: false,
       magic: false,
