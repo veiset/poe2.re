@@ -157,6 +157,14 @@ export function Item() {
           </div>
         </div>
 
+        {settings.itemBase && (
+          <p className="text-md pt-2">
+            Selected: <span className="font-semibold">{settings.itemBase.item}</span>
+            <span className="text-muted-foreground"> ({settings.itemBase.baseType})</span>
+          </p>
+        )}
+
+
         {/* Rarity selector */}
         {settings.itemBase && (
           <div className="pt-2">
@@ -179,13 +187,6 @@ export function Item() {
               </div>
             </RadioGroup>
           </div>
-        )}
-
-        {settings.itemBase && (
-          <p className="text-md pt-2">
-            Selected: <span className="font-semibold">{settings.itemBase.item}</span>
-            <span className="text-muted-foreground"> ({settings.itemBase.baseType})</span>
-          </p>
         )}
 
         {/* Warnings */}
@@ -449,7 +450,7 @@ function RareItemSelect({itemRegex, itemBase, selected, setSelected}: RareItemSe
                           return (
                             <span key={index}>
                               <span>{part}</span>
-                              <input
+                              <Input
                                 placeholder={`${stat.min}-${stat.max}`}
                                 type="number"
                                 className="w-20 h-6 px-1 mx-1 text-sm bg-background border rounded inline-block"
