@@ -1,4 +1,5 @@
 import {SelectOption} from "@/components/selectList/SelectList.tsx";
+import {Itembase, ItemModifier} from "@/types/generated/ItemTypedef.ts";
 
 export interface WebSettings {
   sidebarOpen: boolean
@@ -90,6 +91,7 @@ export interface VendorGroup {
     quivers: boolean,
     foci: boolean,
     shields: boolean,
+    bucklers: boolean,
   },
   itemLevel: {
     min: number,
@@ -101,79 +103,106 @@ export interface VendorGroup {
   }
 }
 
+export interface ItemSettings {
+  itemBase: Itembase | undefined,
+  selectedMods: SelectedItemMod[],
+  rareSettings: {
+    matchAnyMod: boolean
+  }
+}
+
+export interface SelectedItemMod {
+  basetype: string
+  category: string
+  itemModifier: ItemModifier
+  values: {
+    [key: number]: string;
+  };
+  selected: boolean
+}
+
+type RelicSettings = {
+  resultSettings: ResultSettings,
+  matchType: string,
+  modifier: {
+    prefixes: SelectOption[],
+    suffixes: SelectOption[],
+  }
+};
+
+type TabletSettings = {
+  resultSettings: ResultSettings,
+  rarity: {
+    normal: boolean,
+    magic: boolean,
+    rare: boolean,
+  },
+  type: {
+    breach: boolean,
+    delirium: boolean,
+    irradiated: boolean,
+    expedition: boolean,
+    ritual: boolean,
+    overseer: boolean,
+  },
+  modifier: {
+    usesRemaining: boolean,
+    numUsesRemaining: number,
+    round10: boolean,
+    affixSelectType: string,
+    affixes: SelectOption[],
+  }
+};
+
+type WaystoneSettings = {
+  resultSettings: ResultSettings,
+  tier: {
+    min: number,
+    max: number,
+  },
+  revives: {
+    min: number,
+    max: number,
+  },
+  state: {
+    corrupted: boolean,
+    uncorrupted: boolean,
+    delirious: boolean,
+  },
+  modifier: {
+    round10: boolean,
+    wantedModsSelectType: string,
+    wantedMods: SelectOption[],
+    unwantedMods: SelectOption[],
+  },
+  itemRarity: string,
+  itemQuantity: string,
+  waystoneDropChance: string,
+  monsterEffectiveness: string,
+  monsterRarity: string,
+  packSize: string,
+  magicMonsters: string,
+  rareMonsters: string,
+  rarity: {
+    normal: boolean,
+    magic: boolean,
+    rare: boolean,
+  },
+};
+
+type VendorSettings = {
+  selectedGroupId: number
+  resultSettings: ResultSettings,
+  vendorGroups: VendorGroup[],
+};
+
 export interface Settings {
   name: string
-  vendor: {
-    selectedGroupId: number
-    resultSettings: ResultSettings,
-    vendorGroups: VendorGroup[],
-  }
-  waystone: {
-    resultSettings: ResultSettings,
-    tier: {
-      min: number,
-      max: number,
-    },
-    revives: {
-      min: number,
-      max: number,
-    },
-    state: {
-      corrupted: boolean,
-      uncorrupted: boolean,
-      delirious: boolean,
-    },
-    modifier: {
-      round10: boolean,
-      wantedModsSelectType: string,
-      wantedMods: SelectOption[],
-      unwantedMods: SelectOption[],
-    },
-    itemRarity: string,
-    itemQuantity: string,
-    waystoneDropChance: string,
-    monsterEffectiveness: string,
-    monsterRarity: string,
-    packSize: string,
-    magicMonsters: string,
-    rareMonsters: string,
-    rarity: {
-      normal: boolean,
-      magic: boolean,
-      rare: boolean,
-    },
-  },
-  tablet: {
-    resultSettings: ResultSettings,
-    rarity: {
-      normal: boolean,
-      magic: boolean,
-      rare: boolean,
-    },
-    type: {
-      breach: boolean,
-      delirium: boolean,
-      irradiated: boolean,
-      expedition: boolean,
-      ritual: boolean,
-      overseer: boolean,
-    },
-    modifier: {
-      usesRemaining: boolean,
-      numUsesRemaining: number,
-      round10: boolean,
-      affixSelectType: string,
-      affixes: SelectOption[],
-    }
-  },
-  relic: {
-    resultSettings: ResultSettings,
-    matchType: string,
-    modifier: {
-      prefixes: SelectOption[],
-      suffixes: SelectOption[],
-    }
-  }
+  vendor: VendorSettings
+  waystone: WaystoneSettings,
+  tablet: TabletSettings,
+  relic: RelicSettings,
+  item: ItemSettings,
 }
 
 const defaultResultSettings: ResultSettings = ({
@@ -257,6 +286,7 @@ export const defaultEmptyVendor = {
     quivers: false,
     foci: false,
     shields: false,
+    bucklers: false,
   },
   itemLevel: {
     min: 0,
@@ -338,6 +368,13 @@ export const defaultSettings: Settings = {
     modifier: {
       prefixes: [],
       suffixes: [],
+    }
+  },
+  item: {
+    itemBase: undefined,
+    selectedMods: [],
+    rareSettings: {
+      matchAnyMod: true
     }
   }
 }

@@ -2,6 +2,7 @@ import vendorIcon from "@/img/whetstone_inventory_icon.png";
 import waystoneIcon from "@/img/waystone_inventory_icon.png";
 import tabletIcon from "@/img/precursortablet_inventory_icon.png";
 import relicIcon from "@/img/relic_inventory_icon.png";
+import itemIcon from "@/img/item_perfect_aug.png";
 
 import {
   Code,
@@ -20,12 +21,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { BUG_REPORT_URL, FEATURE_REQUEST_URL, SOURCE_CODE_URL } from "@/lib/urls.ts";
 
 const items = [
   {
     title: "Vendor",
     url: "/vendor",
     icon: vendorIcon,
+  },
+  {
+    title: "Items",
+    url: "/item",
+    icon: itemIcon,
   },
   {
     title: "Waystones",
@@ -75,7 +82,7 @@ export function Menu() {
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=enhancement&projects=&template=feature_request.md&title=Feature%3A+%3CTitle%3E" target="_blank">
+                <a href={FEATURE_REQUEST_URL} target="_blank">
                   <Github/>
                   <span>Feature request</span>
                 </a>
@@ -83,7 +90,7 @@ export function Menu() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re/issues/new?assignees=veiset&labels=bug&projects=&template=bug_report.md&title=Bug%3A+%3CTitle%3E" target="_blank">
+                <a href={BUG_REPORT_URL} target="_blank">
                   <Bug/>
                   <span>Bug report</span>
                 </a>
@@ -91,7 +98,7 @@ export function Menu() {
             </SidebarMenuItem>
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                <a href="https://github.com/veiset/poe2.re" target="_blank">
+                <a href={SOURCE_CODE_URL} target="_blank">
                   <Code/>
                   <span>Source code</span>
                 </a>
