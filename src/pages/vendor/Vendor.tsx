@@ -608,6 +608,12 @@ export function Vendor() {
                        ...selectedGroup, itemClass: {...selectedGroup.itemClass, shields: b}
                      })}
             />
+            <Checked id="type-bucklers" text="Bucklers"
+                     checked={selectedGroup.itemClass.bucklers}
+                     onChange={(b) => setSelectedGroup({
+                       ...selectedGroup, itemClass: {...selectedGroup.itemClass, bucklers: b}
+                     })}
+            />
           </div>
         </div>
       </div>
