@@ -91,6 +91,7 @@ export interface VendorGroup {
     quivers: boolean,
     foci: boolean,
     shields: boolean,
+    bucklers: boolean,
   },
   itemLevel: {
     min: number,
@@ -285,6 +286,7 @@ export const defaultEmptyVendor = {
     quivers: false,
     foci: false,
     shields: false,
+    bucklers: false,
   },
   itemLevel: {
     min: 0,

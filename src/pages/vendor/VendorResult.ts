@@ -150,6 +150,7 @@ function itemClass(settings: VendorGroup["itemClass"]): string | null {
     settings.quivers ? "qui" : null,
     settings.foci ? "fo" : null,
     settings.shields ? "sh" : null,
+    settings.bucklers ? "bu" : null,
   ].filter((e) => e !== null);
 
   if (itemClasses.length === 0) return null;
