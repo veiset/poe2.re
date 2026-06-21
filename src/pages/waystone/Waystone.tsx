@@ -74,7 +74,7 @@ export function Waystone() {
           <ProfileSelector currentProfile={currentProfile} setCurrentProfile={setCurrentProfile} />
         </div>
       </div>
-      <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 ">
+      <div className="flex bg-muted grow-0 flex-1 flex-col gap-2 sticky top-0 z-10 shadow-md">
         <Result
           result={result}
           reset={() => setSettings(defaultSettings.waystone)}

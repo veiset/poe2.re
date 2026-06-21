@@ -158,3 +158,14 @@ label {
 .removeGroup:hover {
     background-color: #f87171; /* hover:bg-red-400 */
 }
+
+/* Hide number input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

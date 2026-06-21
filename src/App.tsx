@@ -9,14 +9,17 @@ import {Vendor} from "@/pages/vendor/Vendor.tsx";
 import {Waystone} from "@/pages/waystone/Waystone.tsx";
 import {Tablet} from "@/pages/tablet/Tablet.tsx";
 import {Relic} from "@/pages/relic/Relic.tsx";
+import {Item} from "@/pages/item/Item.tsx";
+import {GlobalErrorBoundary} from "@/components/error/GlobalErrorBoundary.tsx";
 
 export default function App() {
   const webSettings = loadWebSettings();
   const [sidebarOpen, setSidebarOpen] = useState(webSettings.sidebarOpen);
 
   return (
-    <BrowserRouter>
-      <SidebarProvider
+    <GlobalErrorBoundary>
+      <BrowserRouter>
+        <SidebarProvider
         style={{
           // @ts-ignore
           "--sidebar-width": "14rem",
@@ -40,9 +43,11 @@ export default function App() {
             <Route path="/waystone" element={<Waystone/>}/>
             <Route path="/tablet" element={<Tablet/>}/>
             <Route path="/relic" element={<Relic/>}/>
+            <Route path="/item" element={<Item/>}/>
           </Routes>
         </SidebarInset>
       </SidebarProvider>
     </BrowserRouter>
+    </GlobalErrorBoundary>
   )
 }
