@@ -1,4 +1,4 @@
-import {Settings, VendorGroup} from "@/app/settings.ts";
+import {GroupCondition, Settings,  VendorGroup} from "@/app/settings.ts";
 
 export function generateVendorGroupRegex(settings: Settings["vendor"]): string {
   const groups = settings.vendorGroups
@@ -24,7 +24,11 @@ export function generateVendorRegex(settings: VendorGroup): string {
     itemClass(settings.itemClass),
   ].filter((e) => e !== null && e !== "")
 
-  return terms.length > 0 ? `"${terms.join("|")}"` : "";
+  if (terms.length === 0) return "";
+
+  return settings.condition === GroupCondition.OR
+    ? `"${terms.join("|")}"`
+    : terms.map((term) => `"${term}"`).join(" ");
 }
 
 
