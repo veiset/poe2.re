@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test": "vitest run",
     "fetch-trade-stats": "node scripts/fetch-trade-stats.mjs"
   },
   "dependencies": {
