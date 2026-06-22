@@ -93,6 +93,8 @@
 }
 
 .match-text-buttons {
+    display: flex;
+    align-items: center;
     padding-bottom: 10px;
     height: 38px;
 }
@@ -157,6 +159,59 @@ label {
 
 .removeGroup:hover {
     background-color: #f87171; /* hover:bg-red-400 */
+}
+
+.condition-toggle {
+    display: inline-flex;
+    align-items: stretch;
+    height: 34px;
+    margin-left: 10px;
+    border: 1px solid #0b0b0b;
+    border-radius: var(--radius);
+    overflow: hidden;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.condition-toggle-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    color: #475569;
+    background: #9fb2d5; 
+    font-size: .75rem;
+    font-weight: 500;
+    border-right: 1px solid #0b0b0b;
+}
+
+.condition-toggle-option {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 14px;
+    color: #64748b;
+    background: #9fb2d5; 
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.condition-toggle-option:hover {
+    background: #e2e8f0;
+}
+
+.condition-toggle-option + .condition-toggle-option {
+    border-left: 1px solid #0b0b0b;
+}
+
+.condition-toggle-option.active {
+    color: #ffffff;
+    background: #3f5777;
+    font-weight: 700;
+    border: 1px solid #ffffff;
+
+    &:last-child{
+        border-radius: 0 var(--radius) var(--radius) 0;
+    }
 }
 
 /* Hide number input arrows */

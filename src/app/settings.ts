@@ -16,7 +16,13 @@ export interface ResultSettings {
   autoCopy: boolean,
 }
 
+export enum GroupCondition {
+  AND = "AND",
+  OR = "OR",
+} 
+
 export interface VendorGroup {
+  condition: GroupCondition,
   itemType: {
     rare: boolean,
     magic: boolean,
@@ -212,6 +218,7 @@ const defaultResultSettings: ResultSettings = ({
 
 export const defaultEmptyVendor = {
   resultSettings: defaultResultSettings,
+  condition: GroupCondition.AND,
   itemType: {
     rare: false,
     magic: false,

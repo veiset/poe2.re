@@ -4,7 +4,7 @@ import {Checked} from "@/components/checked/Checked.tsx";
 import {loadSettings, saveSettings, selectedProfile, setSelectedProfile} from "@/lib/localStorage.ts";
 import ProfileSelector from "@/components/profile/ProfileSelector.tsx";
 import {useEffect, useState} from "react";
-import {defaultEmptyVendor, defaultSettings, Settings, VendorGroup} from "@/app/settings.ts";
+import {defaultEmptyVendor, defaultSettings, GroupCondition, Settings, VendorGroup} from "@/app/settings.ts";
 import {generateVendorGroupRegex} from "@/pages/vendor/VendorResult.ts";
 import {Input} from "@/components/ui/input.tsx";
 import {getSelectedPropertiesFromObject} from "@/lib/utils.ts";
@@ -123,7 +123,7 @@ export function Vendor() {
             const groupText = selectedProperties.map((prop, index) => (
               <span key={index}> {prop}
                 {index < selectedProperties.length - 1 && (
-                  <span className="font-bold mx-1"> OR </span>
+                  <span className="font-bold mx-1"> {group.condition} </span>
                 )} </span>
             ));
             return (
@@ -146,6 +146,19 @@ export function Vendor() {
         </p>
         <p className="match-text-buttons">
           {!isEmpty && (<>
+            <span className="condition-toggle">
+              <span className="condition-toggle-label">Within group</span>
+              <button
+                type="button"
+                className={cx("condition-toggle-option", {active: selectedGroup.condition === GroupCondition.AND})}
+                onClick={() => setSelectedGroup({...selectedGroup, condition: GroupCondition.AND})}
+              >AND</button>
+              <button
+                type="button"
+                className={cx("condition-toggle-option", {active: selectedGroup.condition === GroupCondition.OR})}
+                onClick={() => setSelectedGroup({...selectedGroup, condition: GroupCondition.OR})}
+              >OR</button>
+            </span>
             <a className="addGroup inline-flex gap-1.5" href="#" onClick={addGroup}>
               <CirclePlus strokeWidth={1.75} className="w-5 h-5" /> Add grouping
             </a>
