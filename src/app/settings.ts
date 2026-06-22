@@ -218,7 +218,7 @@ const defaultResultSettings: ResultSettings = ({
 
 export const defaultEmptyVendor = {
   resultSettings: defaultResultSettings,
-  condition: GroupCondition.AND,
+  condition: GroupCondition.OR,
   itemType: {
     rare: false,
     magic: false,

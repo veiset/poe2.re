@@ -150,14 +150,14 @@ export function Vendor() {
               <span className="condition-toggle-label">Within group</span>
               <button
                 type="button"
-                className={cx("condition-toggle-option", {active: selectedGroup.condition === GroupCondition.AND})}
-                onClick={() => setSelectedGroup({...selectedGroup, condition: GroupCondition.AND})}
-              >AND</button>
-              <button
-                type="button"
                 className={cx("condition-toggle-option", {active: selectedGroup.condition === GroupCondition.OR})}
                 onClick={() => setSelectedGroup({...selectedGroup, condition: GroupCondition.OR})}
               >OR</button>
+              <button
+                type="button"
+                className={cx("condition-toggle-option", {active: selectedGroup.condition === GroupCondition.AND})}
+                onClick={() => setSelectedGroup({...selectedGroup, condition: GroupCondition.AND})}
+              >AND</button>
             </span>
             <a className="addGroup inline-flex gap-1.5" href="#" onClick={addGroup}>
               <CirclePlus strokeWidth={1.75} className="w-5 h-5" /> Add grouping
