@@ -8,7 +8,7 @@ export function generateNumberRegex(number: string, round10: boolean): string {
     : Number(numbers.join(""));
   if (isNaN(quant) || quant === 0) {
     if (round10 && numbers.length === 1) {
-      return ".";
+      return "\\d";
     }
     return "";
   }
@@ -20,15 +20,15 @@ export function generateNumberRegex(number: string, round10: boolean): string {
     const d0 = str[0];
     const d1 = str[1];
     if (str[1] === "0") {
-      return `([${d0}-9].|\\d..)`;
+      return `([${d0}-9]\\d|\\d\\d\\d)`;
     } else if (str[0] === "9") {
-      return `(${d0}[${d1}-9]|\\d..)`;
+      return `(${d0}[${d1}-9]|\\d\\d\\d)`;
     } else {
-      return `(${d0}[${d1}-9]|[${Number(d0) + 1}-9].|\\d..)`;
+      return `(${d0}[${d1}-9]|[${Number(d0) + 1}-9]\\d|\\d\\d\\d)`;
     }
   }
   if (quant <= 9) {
-    return `([${quant}-9]|\\d..?)`;
+    return `([${quant}-9]|\\d\\d\\d?)`;
   }
   return number;
 }
@@ -71,7 +71,7 @@ export function generateNumberRangeRegex(
 
 function singleDigitPart(lo: number, hi: number): string {
   if (lo === hi) return `${lo}`;
-  return lo === 0 && hi === 9 ? "." : `[${lo}-${hi}]`;
+  return lo === 0 && hi === 9 ? "\\d" : `[${lo}-${hi}]`;
 }
 
 function twoDigitParts(lo: number, hi: number): string[] {
@@ -82,7 +82,7 @@ function twoDigitParts(lo: number, hi: number): string[] {
 
   if (a === c) {
     if (b === d) return [`${a}${b}`];
-    return [b === 0 && d === 9 ? `${a}.` : `${a}[${b}-${d}]`];
+    return [b === 0 && d === 9 ? `${a}\\d` : `${a}[${b}-${d}]`];
   }
 
   const parts: string[] = [];
@@ -92,7 +92,7 @@ function twoDigitParts(lo: number, hi: number): string[] {
   const fullLo = b === 0 ? a : a + 1;
   const fullHi = d === 9 ? c : c - 1;
   if (fullLo <= fullHi) {
-    parts.push(fullLo === fullHi ? `${fullLo}.` : `[${fullLo}-${fullHi}].`);
+    parts.push(fullLo === fullHi ? `${fullLo}\\d` : `[${fullLo}-${fullHi}]\\d`);
   }
   if (d !== 9) {
     parts.push(d === 0 ? `${c}0` : `${c}[0-${d}]`);
@@ -108,19 +108,19 @@ function threeDigitMin(n: number): string {
   const D0 = Number(d0);
   const D1 = Number(d1);
   if (d1 === "0" && d2 === "0") {
-    return D0 === 9 ? `${d0}..` : `[${d0}-9]..`;
+    return D0 === 9 ? `${d0}\\d\\d` : `[${d0}-9]\\d\\d`;
   }
   let head: string;
   if (d2 === "0") {
-    head = d1 === "9" ? `${d0}9.` : `${d0}[${d1}-9].`;
+    head = d1 === "9" ? `${d0}9\\d` : `${d0}[${d1}-9]\\d`;
   } else if (d1 === "0") {
-    head = `${d0}(0[${d2}-9]|[1-9].)`;
+    head = `${d0}(0[${d2}-9]|[1-9]\\d)`;
   } else if (d1 === "9" && d2 === "9") {
     head = `${d0}99`;
   } else if (d1 === "9") {
     head = `${d0}9[${d2}-9]`;
   } else {
-    head = `${d0}(${d1}[${d2}-9]|[${D1 + 1}-9].)`;
+    head = `${d0}(${d1}[${d2}-9]|[${D1 + 1}-9]\\d)`;
   }
-  return D0 === 9 ? head : `(${head}|[${D0 + 1}-9]..)`;
+  return D0 === 9 ? head : `(${head}|[${D0 + 1}-9]\\d\\d)`;
 }

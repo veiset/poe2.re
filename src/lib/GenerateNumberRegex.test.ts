@@ -10,22 +10,22 @@ describe("generateNumberRangeRegex", () => {
   describe("produces compact output", () => {
     const cases: [string, string, string][] = [
       ["23", "27", "2[3-7]"],
-      ["20", "29", "2."],
-      ["10", "99", "[1-9]."],
-      ["15", "42", "(1[5-9]|[2-3].|4[0-2])"],
-      ["15", "40", "(1[5-9]|[2-3].|40)"],
-      ["19", "30", "(19|2.|30)"],
-      ["30", "50", "([3-4].|50)"],
-      ["30", "59", "[3-5]."],
+      ["20", "29", "2\\d"],
+      ["10", "99", "[1-9]\\d"],
+      ["15", "42", "(1[5-9]|[2-3]\\d|4[0-2])"],
+      ["15", "40", "(1[5-9]|[2-3]\\d|40)"],
+      ["19", "30", "(19|2\\d|30)"],
+      ["30", "50", "([3-4]\\d|50)"],
+      ["30", "59", "[3-5]\\d"],
       ["23", "23", "23"],
       // single-digit ranges
       ["3", "7", "[3-7]"],
       ["5", "5", "5"],
-      ["0", "9", "."],
+      ["0", "9", "\\d"],
       // ranges spanning single and double digits
-      ["5", "20", "([5-9]|1.|20)"],
+      ["5", "20", "([5-9]|1\\d|20)"],
       ["8", "12", "([8-9]|1[0-2])"],
-      ["1", "99", "([1-9]|[1-9].)"],
+      ["1", "99", "([1-9]|[1-9]\\d)"],
     ];
     it.each(cases)("%s-%s -> %s", (min, max, expected) => {
       expect(generateNumberRangeRegex(min, max, false)).toBe(expected);
@@ -47,7 +47,7 @@ describe("generateNumberRangeRegex", () => {
 
   describe("round10 floors both bounds to the nearest ten", () => {
     it("floors min and max before building the range", () => {
-      expect(generateNumberRangeRegex("25", "48", true)).toBe("([2-3].|40)");
+      expect(generateNumberRangeRegex("25", "48", true)).toBe("([2-3]\\d|40)");
     });
     it("collapses to a single value when both round to the same ten", () => {
       expect(generateNumberRangeRegex("25", "29", true)).toBe("20");
