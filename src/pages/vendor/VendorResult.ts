@@ -163,11 +163,11 @@ function itemClass(settings: VendorGroup["itemClass"]): string | null {
 }
 
 function itemLevel(settings: VendorGroup["itemLevel"]): string | null {
-  return createLevelRangeRegex(settings.min, settings.max, "m level: ");
+  return createLevelRangeRegex(Number(settings.min) || 0, Number(settings.max) || 0, "m level: ");
 }
 
 function characterLevel(settings: VendorGroup["characterLevel"]): string | null {
-  return createLevelRangeRegex(settings.min, settings.max, "s: level ");
+  return createLevelRangeRegex(Number(settings.min) || 0, Number(settings.max) || 0, "s: level ");
 }
 
 function createLevelRangeRegex(min: number, max: number, prefix: string): string | null {

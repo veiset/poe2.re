@@ -160,10 +160,10 @@ export function Vendor() {
               >AND</button>
             </span>
             <a className="addGroup inline-flex gap-1.5" href="#" onClick={addGroup}>
-              <CirclePlus strokeWidth={1.75} className="w-5 h-5" /> Add grouping
+              <CirclePlus strokeWidth={1.75} className="w-5 h-5"/> Add grouping
             </a>
             <a className="removeGroup inline-flex gap-1.5" href="#" onClick={removeGroup}>
-              <CircleX strokeWidth={1.75} className="w-5 h-5" /> Remove current grouping
+              <CircleX strokeWidth={1.75} className="w-5 h-5"/> Remove current grouping
             </a>
           </>)}
         </p>
@@ -378,32 +378,24 @@ export function Vendor() {
               <div>
                 <p className="text-xs pb-1">Min level:</p>
                 <Input type="number" min="0" max="100" placeholder="Min level" className="pb-1 mb-2 w-full"
-                       value={selectedGroup.itemLevel?.min ?? 0}
+                       value={selectedGroup.itemLevel.min}
                        onChange={(b) => {
-                         const value = Number(b.target.value);
-                         const max = selectedGroup.itemLevel?.max || 100;
-                         if (value <= max) {
-                           setSelectedGroup({
-                             ...selectedGroup,
-                             itemLevel: {...(selectedGroup.itemLevel || {min: 0, max: 100}), min: Math.max(0, value)}
-                           })
-                         }
+                         setSelectedGroup({
+                           ...selectedGroup,
+                           itemLevel: {...selectedGroup.itemLevel, min: b.target.value}
+                         })
                        }}
                 />
               </div>
               <div>
                 <p className="text-xs pb-1">Max level:</p>
-                <Input type="number" min="0" max="100" placeholder="Max level" className="pb-1 mb-2 w-full"
-                       value={selectedGroup.itemLevel?.max ?? 0}
+                <Input placeholder="Max level" className="pb-1 mb-2 w-full"
+                       value={selectedGroup.itemLevel.max}
                        onChange={(b) => {
-                         const value = Number(b.target.value);
-                         const min = selectedGroup.itemLevel?.min ?? 0;
-                         if (value >= min) {
-                           setSelectedGroup({
-                             ...selectedGroup,
-                             itemLevel: {...(selectedGroup.itemLevel || {min: 0, max: 100}), max: Math.min(100, value)}
-                           })
-                         }
+                         setSelectedGroup({
+                           ...selectedGroup,
+                           itemLevel: {...selectedGroup.itemLevel, max: b.target.value}
+                         })
                        }}
                 />
               </div>
@@ -413,39 +405,25 @@ export function Vendor() {
             <div className="grid grid-cols-2 gap-2">
               <div>
                 <p className="text-xs pb-1">Min level:</p>
-                <Input type="number" min="0" max="100" placeholder="Min level" className="pb-1 mb-2 w-full"
-                       value={selectedGroup.characterLevel?.min ?? 0}
+                <Input placeholder="Min level" className="pb-1 mb-2 w-full"
+                       value={selectedGroup.characterLevel.min}
                        onChange={(b) => {
-                         const value = Number(b.target.value);
-                         const max = selectedGroup.characterLevel?.max || 100;
-                         if (value <= max) {
-                           setSelectedGroup({
-                             ...selectedGroup,
-                             characterLevel: {
-                               ...(selectedGroup.characterLevel || {min: 0, max: 100}),
-                               min: Math.max(0, value)
-                             }
-                           })
-                         }
+                         setSelectedGroup({
+                           ...selectedGroup,
+                           characterLevel: {...selectedGroup.characterLevel, min: b.target.value}
+                         })
                        }}
                 />
               </div>
               <div>
                 <p className="text-xs pb-1">Max level:</p>
-                <Input type="number" min="0" max="100" placeholder="Max level" className="pb-1 mb-2 w-full"
-                       value={selectedGroup.characterLevel?.max ?? 0}
+                <Input placeholder="Max level" className="pb-1 mb-2 w-full"
+                       value={selectedGroup.characterLevel.max}
                        onChange={(b) => {
-                         const value = Number(b.target.value);
-                         const min = selectedGroup.characterLevel?.min ?? 0;
-                         if (value >= min) {
-                           setSelectedGroup({
-                             ...selectedGroup,
-                             characterLevel: {
-                               ...(selectedGroup.characterLevel || {min: 0, max: 100}),
-                               max: Math.min(100, value)
-                             }
-                           })
-                         }
+                         setSelectedGroup({
+                           ...selectedGroup,
+                           characterLevel: {...selectedGroup.characterLevel, max: b.target.value}
+                         })
                        }}
                 />
               </div>
