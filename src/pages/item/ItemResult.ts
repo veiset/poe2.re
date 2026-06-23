@@ -13,7 +13,7 @@ export function generateRareItemRegex(
     .filter((e) => e.basetype.startsWith(itemBase.baseType))
     .map((e) => {
       const boundedRegex = (index: number): string => {
-        const max = 999;
+        const max = e.itemModifier.stats[index]?.max;
         return generateBoundedValueRegex(
           e.values[index],
           max !== undefined ? max.toString() : "",
