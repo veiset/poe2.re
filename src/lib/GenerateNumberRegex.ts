@@ -33,6 +33,14 @@ export function generateNumberRegex(number: string, round10: boolean): string {
   return number;
 }
 
+// Matches an affix's actual rolled value bounded to "(min-max)", anchored on "("
+// Falls back to an open-ended ">= min" match when the bounds don't fit a 2-digit range
+export function generateBoundedValueRegex(min: string, max: string, round10: boolean): string {
+  const ranged = generateNumberRangeRegex(min, max, round10);
+  const number = ranged !== "" ? ranged : generateNumberRegex(min, round10);
+  return `${number.replace(/\./g, "\\d")}\\(`;
+}
+
 // Generates the shortest regex matching an inclusive [min, max] integer range.
 // NOTE: only handles 1- and 2-digit numbers (0-99); 3-digit input is not supported.
 export function generateNumberRangeRegex(
