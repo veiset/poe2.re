@@ -1,4 +1,4 @@
-import {generateBoundedValueRegex} from "@/lib/GenerateNumberRegex.ts";
+import {generateBoundedValueRegex, generateNumberRegex} from "@/lib/GenerateNumberRegex.ts";
 import {ItemSettings} from "@/app/settings.ts";
 
 export function generateRareItemRegex(
@@ -13,7 +13,7 @@ export function generateRareItemRegex(
     .filter((e) => e.basetype.startsWith(itemBase.baseType))
     .map((e) => {
       const boundedRegex = (index: number): string => {
-        const max = e.itemModifier.stats[index]?.max;
+        const max = 999;
         return generateBoundedValueRegex(
           e.values[index],
           max !== undefined ? max.toString() : "",
@@ -34,7 +34,7 @@ export function generateRareItemRegex(
         .join(".*");
       const numbersAfter = e.itemModifier.regexPosition.after
         .filter((index) => e.values[index] !== undefined && e.values[index] !== "")
-        .map((index) => boundedRegex(index))
+        .map(toRegexNumber)
         .join(".*");
 
       const regexStr = [numbersBefore, regex, numbersAfter]
