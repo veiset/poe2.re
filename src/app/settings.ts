@@ -100,12 +100,12 @@ export interface VendorGroup {
     bucklers: boolean,
   },
   itemLevel: {
-    min: number,
-    max: number,
+    min: string,
+    max: string,
   },
   characterLevel: {
-    min: number,
-    max: number,
+    min: string,
+    max: string,
   }
 }
 
@@ -296,12 +296,12 @@ export const defaultEmptyVendor = {
     bucklers: false,
   },
   itemLevel: {
-    min: 0,
-    max: 0,
+    min: "",
+    max: "",
   },
   characterLevel: {
-    min: 0,
-    max: 0,
+    min: "",
+    max: "",
   }
 };
 export const defaultSettings: Settings = {
