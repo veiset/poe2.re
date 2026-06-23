@@ -144,11 +144,12 @@ type TabletSettings = {
     rare: boolean,
   },
   type: {
-    breach: boolean,
-    delirium: boolean,
     irradiated: boolean,
-    expedition: boolean,
     ritual: boolean,
+    delirium: boolean,
+    breach: boolean,
+    abyss: boolean,
+    temple: boolean,
     overseer: boolean,
   },
   modifier: {
@@ -354,11 +355,12 @@ export const defaultSettings: Settings = {
       rare: false,
     },
     type: {
-      breach: false,
-      delirium: false,
       irradiated: false,
-      expedition: false,
       ritual: false,
+      delirium: false,
+      breach: false,
+      abyss: false,
+      temple: false,
       overseer: false,
     },
     modifier: {
