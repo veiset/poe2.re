@@ -69,34 +69,39 @@ function generateTypeRegex(
   settings: Settings["tablet"]["type"],
 ): string | null {
   if (
-    (settings.breach &&
-      settings.delirium &&
-      settings.irradiated &&
-      settings.expedition &&
+    (settings.irradiated &&
       settings.ritual &&
+      settings.delirium &&
+      settings.breach &&
+      settings.abyss &&
+      settings.temple &&
       settings.overseer) ||
-    (!settings.breach &&
-      !settings.delirium &&
-      !settings.irradiated &&
-      !settings.expedition &&
+    (!settings.irradiated &&
       !settings.ritual &&
+      !settings.delirium &&
+      !settings.breach &&
+      !settings.abyss &&
+      !settings.temple &&
       !settings.overseer)
   ) {
     return null;
   }
 
-  const breachRegex = settings.breach ? "eac" : "";
-  const deliriumRegex = settings.delirium ? "liri" : "";
   const irradiatedRegex = settings.irradiated ? "rra" : "";
-  const expeditionRegex = settings.expedition ? "xped" : "";
   const ritualRegex = settings.ritual ? "tual" : "";
+  const deliriumRegex = settings.delirium ? "liri" : "";
+  const breachRegex = settings.breach ? "eac" : "";
+  const abyssRegex = settings.abyss ? "byss" : "";
+  const templeRegex = settings.temple ? "empl" : "";
   const overseerRegex = settings.overseer ? "eer" : "";
+
   const result = [
-    breachRegex,
-    deliriumRegex,
     irradiatedRegex,
-    expeditionRegex,
     ritualRegex,
+    deliriumRegex,
+    breachRegex,
+    abyssRegex,
+    templeRegex,
     overseerRegex,
   ]
     .filter((e) => e.length > 0)

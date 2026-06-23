@@ -106,9 +106,14 @@ export function Tablet(){
           </div>
           <div>
             <p className="text-xs font-medium text-sidebar-foreground/70 pb-2">Tablet type</p>
-            <Checked id="tablettype-breach" text="Breach" checked={settings.type.breach}
+            <Checked id="tablettype-irradiated" text="Irradiated" checked={settings.type.irradiated}
                      onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, breach: b}
+                       ...settings, type: {...settings.type, irradiated: b}
+                     })}
+            />
+            <Checked id="tablettype-ritual" text="Ritual" checked={settings.type.ritual}
+                     onChange={(b) => setSettings({
+                       ...settings, type: {...settings.type, ritual: b}
                      })}
             />
             <Checked id="tablettype-delirium" text="Delirium" checked={settings.type.delirium}
@@ -116,20 +121,19 @@ export function Tablet(){
                        ...settings, type: {...settings.type, delirium: b}
                      })}
             />
-            {/* Not sure about this one, so i didn't changed tablettype from precursor to irradiated ~ MaxxxxiorS */}
-            <Checked id="tablettype-precursor" text="Irradiated" checked={settings.type.irradiated}
+            <Checked id="tablettype-breach" text="Breach" checked={settings.type.breach}
                      onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, irradiated: b}
+                       ...settings, type: {...settings.type, breach: b}
                      })}
             />
-            <Checked id="tablettype-expedition" text="Expedition" checked={settings.type.expedition}
+            <Checked id="tablettype-abyss" text="Abyss" checked={settings.type.abyss}
                      onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, expedition: b}
+                       ...settings, type: {...settings.type, abyss: b}
                      })}
             />
-            <Checked id="tablettype-ritual" text="Ritual" checked={settings.type.ritual}
+            <Checked id="tablettype-temple" text="Temple" checked={settings.type.temple}
                      onChange={(b) => setSettings({
-                       ...settings, type: {...settings.type, ritual: b}
+                       ...settings, type: {...settings.type, temple: b}
                      })}
             />
             <Checked id="tablettype-overseer" text="Overseer" checked={settings.type.overseer}
