@@ -1,4 +1,4 @@
-import {generateNumberRegex} from "@/lib/GenerateNumberRegex.ts";
+import {generateBoundedValueRegex} from "@/lib/GenerateNumberRegex.ts";
 import {ItemSettings} from "@/app/settings.ts";
 
 export function generateRareItemRegex(
@@ -12,26 +12,29 @@ export function generateRareItemRegex(
     .filter((e) => e.selected)
     .filter((e) => e.basetype.startsWith(itemBase.baseType))
     .map((e) => {
+      const boundedRegex = (index: number): string => {
+        const max = e.itemModifier.stats[index]?.max;
+        return generateBoundedValueRegex(
+          e.values[index],
+          max !== undefined ? max.toString() : "",
+          false,
+        );
+      };
+
       const rangeInRegex = e.itemModifier.regexPosition.on[0];
       const hasRangeInsideRegex = rangeInRegex !== undefined
         && e.values[rangeInRegex] !== ""
         && e.values[rangeInRegex] !== undefined;
       const regex = hasRangeInsideRegex
-        ? e.itemModifier.regex
-          .replace(
-            "\\d+",
-            generateNumberRegex(e.values[rangeInRegex], false).replace(".", "\\d")
-          )
+        ? e.itemModifier.regex.replace("\\d+", `${boundedRegex(rangeInRegex)}.*`)
         : e.itemModifier.regex;
       const numbersBefore = e.itemModifier.regexPosition.before
-        .map((number) => e.values[number])
-        .filter((e) => e !== undefined && e !== "")
-        .map((f) => generateNumberRegex(f, false).replace(".", "\\d"))
+        .filter((index) => e.values[index] !== undefined && e.values[index] !== "")
+        .map((index) => boundedRegex(index))
         .join(".*");
       const numbersAfter = e.itemModifier.regexPosition.after
-        .map((number) => e.values[number])
-        .filter((e) => e !== undefined && e !== "")
-        .map((f) => generateNumberRegex(f, false).replace(".", "\\d"))
+        .filter((index) => e.values[index] !== undefined && e.values[index] !== "")
+        .map((index) => boundedRegex(index))
         .join(".*");
 
       const regexStr = [numbersBefore, regex, numbersAfter]

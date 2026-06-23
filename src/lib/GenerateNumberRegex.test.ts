@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { generateNumberRangeRegex } from "@/lib/GenerateNumberRegex.ts";
+import {
+  generateBoundedValueRegex,
+  generateNumberRangeRegex,
+  generateNumberRegex,
+} from "@/lib/GenerateNumberRegex.ts";
 
 // In this codebase `.` in the generated regex stands for "any digit"
 // (it gets replaced with `\d` downstream), so mirror that when testing.
@@ -74,5 +78,27 @@ describe("generateNumberRangeRegex", () => {
     it("returns empty when max is below min", () => {
       expect(generateNumberRangeRegex("50", "30", false)).toBe("");
     });
+  });
+});
+
+describe("generateBoundedValueRegex", () => {
+  it("anchors the bounded range on the opening parenthesis", () => {
+    expect(generateBoundedValueRegex("45", "45", false)).toBe("45\\(");
+    expect(generateBoundedValueRegex("45", "50", false)).toBe("(4[5-9]|50)\\(");
+  });
+
+  it("turns digit-dots into \\d so it never matches the range itself", () => {
+    expect(generateBoundedValueRegex("10", "99", false)).toBe("[1-9]\\d\\(");
+  });
+
+  it("falls back to an open-ended >= match for 3-digit rolls", () => {
+    const fallback = generateNumberRegex("120", false).replace(/\./g, "\\d");
+    expect(generateBoundedValueRegex("120", "150", false)).toBe(`${fallback}\\(`);
+  });
+
+  it("matches the rolled value but not a number inside the range", () => {
+    const regex = `${generateBoundedValueRegex("45", "45", false)}.*spi`;
+    expect(new RegExp(regex, "i").test("+38(38-45) to Spirit")).toBe(false);
+    expect(new RegExp(regex, "i").test("+45(38-45) to Spirit")).toBe(true);
   });
 });
