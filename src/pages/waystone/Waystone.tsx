@@ -110,7 +110,7 @@ export function Waystone() {
           <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-4">
             <div className="space-y-1">
               <div className="flex justify-between items-center space-x-1">
-                <Label htmlFor="waystone-iiq">Waystone IIQ:</Label>
+                <Label htmlFor="waystone-iiq">Waystone item quantity:</Label>
                 <Input className="w-28 h-8"
                        id="waystone-iiq"
                        type="number"
@@ -121,7 +121,7 @@ export function Waystone() {
                 />
               </div>
               <div className="flex justify-between items-center space-x-1">
-                <Label htmlFor="waystone-iir">Waystone IIR:</Label>
+                <Label htmlFor="waystone-iir">Waystone item rarity:</Label>
                 <Input className="w-28 h-8"
                        id="waystone-iir"
                        type="number"
