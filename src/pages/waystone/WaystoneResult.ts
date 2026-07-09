@@ -39,7 +39,7 @@ function generateTierRegex(settings: Settings["waystone"]["tier"]): string | nul
   const under10 = regexUnder10 === "" ? "" : `r ${regexUnder10}\\)`
   const over10 = regexOver10 === "" ? "" : `${regexOver10}\\)`
   const result = [under10, over10].filter((e) => e !== "").join("|");
-  return result === "" ? "" : `"r ${result}$"`
+  return result === "" ? "" : `"er ${result}"`
 }
 
 function generateReviveRegex(settings: Settings["waystone"]["revives"]): string | null {
