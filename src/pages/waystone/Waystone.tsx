@@ -13,6 +13,7 @@ import {SelectList, SelectOption} from "@/components/selectList/SelectList.tsx";
 import {loadWaystoneAffixes, WaystoneAffix} from "@/lib/loadWaystoneAffixes.ts";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Label} from "@/components/ui/label";
+import {WarningBox} from "@/components/warning/WarningBox.tsx";
 
 export function Waystone() {
   const initialProfile = selectedProfile();
@@ -267,9 +268,13 @@ export function Waystone() {
                        }}
                 />
               </div>
-              <p className="text-[10px] text-sidebar-foreground/50 pt-1">
-                Setting min and max revivies to 0 will find 6+ modifier waystones
-              </p>
+                <WarningBox
+                  size="s"
+                  text={<>
+                    Setting min and max revivies to 0 will find 6+ modifier waystones. 
+                    There is currently <b>no</b> way to search for <b>8 mods</b>.
+                  </>}
+                />
             </div>
 
             <div>
