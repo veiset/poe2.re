@@ -566,7 +566,7 @@
         },
         {
             "id": -155578423,
-            "regex": "cy",
+            "regex": "ncy",
             "rawText": "(20-30)% increased chance for Desecrated Currency from Abysses in Map",
             "generalizedText": "^#% increased chance for desecrated currency from abysses in map$",
             "options": {
