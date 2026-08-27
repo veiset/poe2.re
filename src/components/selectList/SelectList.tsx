@@ -20,7 +20,7 @@ interface SelectElementProps {
 
 export function SelectElement(props: SelectElementProps) {
   const {name, ranges, current, selected, setSelected} = props;
-  const hasRange = name.startsWith("##%") && ranges.length > 0 && ranges[0][0] > 0;
+  const hasRange = ranges.length > 0 && ranges[0][0] > 0;
   const displayName = name
     .replace(/\|/g, " • ");
 
